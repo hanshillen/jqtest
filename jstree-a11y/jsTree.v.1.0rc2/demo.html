@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JsTree-A11y Demo</title>
+    <script type="text/javascript" src="lib/jquery.js"></script>
+    <script type="text/javascript" src="lib/jquery.cookie.js"></script>
+    <script type="text/javascript" src="lib/jquery.hotkeys.js"></script>
+    <script type="text/javascript" src="jquery.jstree.js"></script>
+    <style type="text/css"></style>
+    <script type="text/javascript">
+    $(function() {
+        $('#sampleTree1').jstree();
+        $('#sampleTree2').jstree({plugins : ["themes", "html_data", "ui", "hotkeys"]});
+        
+        $(".jstree-closed > a")
+            .attr("aria-expanded", "false");
+        $(".jstree-open > a")
+            .attr("aria-expanded", "true");
+    });
+    </script>
+    </head>
+    <body>
+        <h1>JsTree Demo with Acessibility Modifications</h1>
+        <a href="#">Placeholder Link 1</a>
+    <div id="sampleTree2">
+        <ul>
+            <li> <a href="#">Invoices</a>
+                <ul>
+                    <li> <a href="#">January</a>
+                            <ul>
+                            <li> <a href="#">Invoice A</a> </li>
+                            <li> <a href="#">Invoice B</a> </li>
+                            <li> <a href="#">Invoice C</a> </li>
+                        </ul>
+                        </li>
+                    <li> <a href="#">February</a>
+                            <ul>
+                            <li> <a href="#">Invoice D</a> </li>
+                            <li> <a href="#">Invoice E</a> </li>
+                            <li> <a href="#">Invoice F</a> </li>
+                        </ul>
+                        </li>
+                    <li> <a href="#">March</a>
+                            <ul>
+                            <li> <a href="#">Invoice G</a> </li>
+                            <li> <a href="#">Invoice H</a> </li>
+                            <li> <a href="#">Invoice I</a> </li>
+                        </ul>
+                        </li>
+                </ul>
+                </li>
+            <li> <a href="#">Job Applications</a>
+                <ul>
+                    <li> <a href="#">Unhandled</a>
+                            <ul>
+                            <li> <a href="#">Application A</a> </li>
+                            <li> <a href="#">Application B</a> </li>
+                            <li> <a href="#">Application C</a> </li>
+                            <li> <a href="#">Application D</a> </li>
+                            <li> <a href="#">Application E</a> </li>
+                            <li> <a href="#">Application F</a> </li>
+                            <li> <a href="#">Application G</a> </li>
+                            <li> <a href="#">Application H</a> </li>
+                        </ul>
+                        </li>
+                    <li> <a href="#">Accepted</a>
+                            <ul>
+                            <li> <a href="#">Peter Merchant</a> </li>
+                            <li> <a href="#">Susan Jennings</a> </li>
+                            <li> <a href="#">John Smith</a> </li>
+                        </ul>
+                        </li>
+                    <li> <a href="#">Declined</a>
+                            <ul>
+                            <li> <a href="#">John Doe</a> </li>
+                            <li> <a href="#">Jack Smith</a> </li>
+                            <li> <a href="#">Hannah Boyd</a> </li>
+                            <li> <a href="#">Reconsider?</a>
+                                    <ul>
+                                    <li> <a href="#">Sandra johnson</a> </li>
+                                    <li> <a href="#">Dan Smith</a> </li>
+                                    <li> <a href="#">Jason Bourne</a> </li>
+                                    <li> <a href="#">Jason Maple</a> </li>
+                                </ul>
+                                </li>
+                        </ul>
+                        </li>
+                </ul>
+                </li>
+            <li> <a href="#">Manuals</a>
+                    <ul>
+                    <li> <a href="#">Fax</a> </li>
+                    <li> <a href="#">Copier</a> </li>
+                    <li> <a href="#">Scanner</a> </li>
+                    <li> <a href="#">Laptop</a> </li>
+                </ul>
+                </li>
+            <li> <a href="#">Welcome Letter</a> </li>
+            <li> <a href="#">Getting Started</a> </li>
+            <li> <a href="#">Trouble Shooting</a> </li>
+        </ul>
+    </div>
+    </div>
+    <a href="#">Placeholder Link 2</a>
+<!-- End demo -->
+
+<div class="demo-description"> </div>
+<!-- End demo-description -->
+
+</body>
+</html>

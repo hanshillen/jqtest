@@ -1,0 +1,29 @@
+/* Progressbar
+----------------------------------*/
+.ui-progressbar { height:2em; text-align: left; }
+.ui-progressbar .ui-progressbar-value {margin: -1px; height:100%; }
+
+.high-contrast .ui-progressbar-value { /* Border is used to create fill in HC mode*/ 
+    border-color: black;
+    border-style: solid;
+    position: absolute;
+    width:0px;
+    border-right-width: 10000px;
+}
+
+ .high-contrast .ui-progressbar {
+    overflow : hidden;
+    position: relative;
+    text-align: center;
+ }
+ 
+
+.high-contrast .ui-progressbar-valuetext {
+    top: 0px;  
+}
+
+.high-contrast .ui-progressbar-valuetext { 
+    font-size: 1.9em;
+    position: relative;  
+    background-color: #FFF /* This can be any color, as HC mode will override it anyway */
+}

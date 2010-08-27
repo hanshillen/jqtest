@@ -1,0 +1,74 @@
+/* Menu
+----------------------------------*/
+.ui-menu {
+    list-style:none;
+    padding: 0px;
+    margin: 0;
+    position: absolute;
+    z-index: 99999;
+    /*display:block;*/
+}
+.ui-menu .ui-menu {
+    margin-top: -3px;
+}
+.ui-menu .ui-menu-item {
+    margin:0;
+    padding: 0;
+    zoom: 1;
+    width: 100%;
+}
+.ui-menu .ui-menu-item a {
+    text-decoration:none;
+    display:block;
+    padding:.2em .4em;
+    line-height:1.5;
+    zoom:1;
+}
+
+.ui-menu-bar .ui-menu-item{
+    text-decoration:none;
+    
+    padding:2em .4em;
+    line-height:1.5;
+    zoom:1; 
+ }
+
+.ui-menu .ui-menu-item a {
+    font-weight: normal;
+}
+.ui-menu .ui-menu-item a.ui-state-hover,
+.ui-menu .ui-menu-item a.ui-state-active {
+    font-weight: normal;
+    margin: -1px;
+}
+
+/* menubar
+----------------------------------*/
+.ui-menubar { position: relative; zoom: 1; } /* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
+.ui-menubar .ui-menubar-nav { margin: 0; padding: .1em .1em 0; }
+.ui-menubar .ui-menubar-nav li { list-style: none; float: left; position: relative; border-bottom: 0 !important; padding: 0; white-space: nowrap; }
+.ui-menubar .ui-menubar-nav li a { float: left; padding: .1em 1em; text-decoration: none; font-weight: normal}
+.ui-menubar .ui-menubar-nav li.ui-menubar-selected { margin-bottom: 0; padding-bottom: 1px; }
+.ui-menubar .ui-menubar-nav li.ui-menubar-selected a, .ui-menubar .ui-menubar-nav li.ui-state-disabled a, .ui-menubar .ui-menubar-nav li.ui-state-processing a { cursor: text; }
+.ui-menubar .ui-menubar-nav li a, .ui-menubar.ui-menubar-collapsible .ui-menubar-nav li.ui-menubar-selected a { cursor: pointer; } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
+.ui-menubar .ui-menubar-panel { display: block; border-width: 0; padding: 1em 1.4em; background: none; }
+.ui-menubar .ui-menubar-hide { display: none !important; }
+
+.ui-menubar .ui-menubar-nav li a span {float: left}
+.ui-menubar .ui-menubar-nav li a .ui-icon {float: right}
+.ui-menu {width: 11em;}
+.ui-menu a {width: 9em;}
+
+.high-contrast .ui-menu .ui-icon, .high-contrast .ui-menubar .ui-icon {
+    text-indent: 0px;
+ }
+ 
+ .ui-menubar-nav :focus {
+    outline: 2px solid #FF9933;
+    outline-offset: -2px;
+    -moz-outline-radius: 5px;
+ }
+
+
+
+

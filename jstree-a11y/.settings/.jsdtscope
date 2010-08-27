@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="_docs/syntax/|lib/" kind="src" path="jsTree.v.1.0rc2"/>
+	<classpathentry kind="src" path="jsTree.v.1.0rc2/_docs/syntax"/>
+	<classpathentry kind="src" path="jsTree.v.1.0rc2/lib"/>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
+</classpath>

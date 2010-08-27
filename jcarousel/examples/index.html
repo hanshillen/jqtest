@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
+<head>
+<title>jCarousel Examples</title>
+<link href="../style.css" rel="stylesheet" type="text/css" />
+<link href="../themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
+
+
+<!--
+  jQuery library
+-->
+<script type="text/javascript" src="../lib/jquery-1.4.2.min.js"></script>
+<!--
+  jCarousel library
+-->
+<script type="text/javascript" src="../lib/jquery.jcarousel.js"></script>
+
+<script type="text/javascript" src="../lib/jquery.ui.core.js"></script>
+<script type="text/javascript" src="../lib/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="../lib/jquery.ui.button.js"></script>
+
+
+<!--
+  jCarousel skin stylesheet
+-->
+<link rel="stylesheet" type="text/css" href="../skins/tango/skin.css" />
+
+<style type="text/css">    
+    .container {
+        padding: 20px;
+    }
+    
+    .viewer {
+        padding: 5px 35px;
+        width: 300px;
+        height: 270px; 
+    }
+    
+    .viewer img {
+        border: 1px solid #BBB;
+        padding: 1px;
+    }
+    
+</style>
+
+
+<script type="text/javascript">
+
+// Credits: Robert Penners easing equations (http://www.robertpenner.com/easing/).
+
+function itemSelectedCallback(carousel, item, index) {
+    item = $(item);
+    var src = item.find("img").attr("src");
+    var alt = item.find("img").attr("alt");
+    if (src) {
+        $("#viewerImg").attr("src", src);
+    }
+    if (alt) {
+        $("#viewerImg").attr("alt", alt);
+    }
+}
+
+jQuery(document).ready(function() {
+    jQuery('#mycarousel1').jcarousel({
+        animation: 500,
+        itemSelectedCallback : itemSelectedCallback
+    });
+});
+
+</script>
+
+</head>
+<body>
+<div id="wrap">
+  <h1>jCarousel with Accessibility Enhancements</h1>
+    <a href="#">Place Holder Link 1</a>
+    <div class="container">
+    <div class="viewer">
+        <img id="viewerImg" alt="" src="http://static.flickr.com/66/199481236_dc98b5abb3_s.jpg" width="250" height="250" />
+    </div>
+	  <ul id="mycarousel1" class="jcarousel-skin-tango">
+	    <li><img src="http://static.flickr.com/66/199481236_dc98b5abb3_s.jpg" width="75" height="75" alt="Sun Flower" /></li>
+	    <li><img src="http://static.flickr.com/75/199481072_b4a0d09597_s.jpg" width="75" height="75" alt="White Flower" /></li>
+	    <li><img src="http://static.flickr.com/57/199481087_33ae73a8de_s.jpg" width="75" height="75" alt="Lilly" /></li>
+	    <li><img src="http://static.flickr.com/77/199481108_4359e6b971_s.jpg" width="75" height="75" alt="Orange Flowers" /></li>
+	    <li><img src="http://static.flickr.com/58/199481143_3c148d9dd3_s.jpg" width="75" height="75" alt="Petals" /></li>
+	    <li><img src="http://static.flickr.com/72/199481203_ad4cdcf109_s.jpg" width="75" height="75" alt="More Petals" /></li>
+	    <li><img src="http://static.flickr.com/58/199481218_264ce20da0_s.jpg" width="75" height="75" alt="Rose" /></li>
+	    <li><img src="http://static.flickr.com/69/199481255_fdfe885f87_s.jpg" width="75" height="75" alt="Tulip" /></li>
+	    <li><img src="http://static.flickr.com/60/199480111_87d4cb3e38_s.jpg" width="75" height="75" alt="Unidentified Flower" /></li>
+	    <li><img src="http://static.flickr.com/70/229228324_08223b70fa_s.jpg" width="75" height="75" alt="Purple Flower" /></li>
+	  </ul>
+    </div>
+  
+    <a href="#">Place Holder Link 2</a>
+</div>
+</body>
+</html>
