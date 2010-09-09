@@ -1,5 +1,4 @@
 $(function() {
-    //tablist
     $("#tabs").tabs({labelledBy: "tabsLbl"});
 
 
@@ -218,7 +217,9 @@ $(function() {
         $(".jstree-open > a")
             .attr("aria-expanded", "true");
 
-	    
+	// tabs demo
+        
+        $("#tabs-demo").tabs({labelledBy: "tabsDemoLbl"});
 });
 
 
