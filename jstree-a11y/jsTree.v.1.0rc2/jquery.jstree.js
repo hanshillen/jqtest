@@ -15,7 +15,6 @@
 // Common functions not related to jsTree
 // decided to move them to a `vakata` "namespace"
 (function ($) {
-    $.support.highContrast = true;
 	$.vakata = {};
 	// CSS related functions
 	$.vakata.css = {
@@ -496,7 +495,8 @@
 				obj.children('a').eq(0)
                 .attr("aria-expanded", "true");
 				if ($.support.highContrast)
-				    obj.find("ins:eq(0)").html("\u25be");
+				    obj.find("ins:eq(0)").html("-");
+				    //obj.find("ins:eq(0)").html("\u25be");
 				if(!obj.hasClass("jstree-closed")) { if(callback) { callback.call(); } return false; }
 				var s = skip_animation || is_ie6 ? 0 : this._get_settings().core.animation,
 					t = this;
@@ -518,7 +518,8 @@
 				obj.children('a').eq(0)
                 .attr("aria-expanded", "false");
 				if ($.support.highContrast)
-				    obj.find("ins:eq(0)").html("\u25b8");
+				    obj.find("ins:eq(0)").html("+");
+				    //obj.find("ins:eq(0)").html("\u25b8");
 				var s = skip_animation || is_ie6 ? 0 : this._get_settings().core.animation;
 				if(!obj.length || !obj.hasClass("jstree-open")) { return false; }
 				if(s) { obj.children("ul").attr("style","display:block !important"); }
@@ -916,15 +917,15 @@
 				return this.__call_old();
 			},
 			hover_node : function (obj) {
-				obj = this._get_node(obj);
+			    obj = this._get_node(obj);
 				if(!obj.length) { return false; }
-				// if(this.data.ui.hovered && obj.get(0) === this.data.ui.hovered.get(0)) { return; }
+				if(this.data.ui.hovered && obj.get(0) === this.data.ui.hovered.get(0)) { return; }
 				if(!obj.hasClass("jstree-hovered")) { this.dehover_node(); }
 				this.data.ui.hovered = obj.children("a").addClass("jstree-hovered").parent();
 				this.__callback({ "obj" : obj });
 			},
 			dehover_node : function () {
-				var obj = this.data.ui.hovered, p;
+			    var obj = this.data.ui.hovered, p;
 				if(!obj || !obj.length) { return false; }
 				p = obj.children("a").removeClass("jstree-hovered").parent();
 				if(this.data.ui.hovered[0] === p[0]) { this.data.ui.hovered = null; }
@@ -3314,15 +3315,21 @@
                                     .attr("role", "presentation")
                                     .attr("aria-hidden", "true")
 							this.clean_node();
+						    
+						    this.get_container().find(".jstree-closed > a")
+	                            .attr("aria-expanded", "false");
+						    this.get_container().find(".jstree-open > a")
+    	                        .attr("aria-expanded", "true");
+						    
 						    if ($.support.highContrast) {
     							this.get_container()
                                     .find("ul:eq(0) li > ins")
                                     .html("\u251c")
         							.filter(".jstree-closed > ins")
-        							    .html("\u25b8")
+        							    .html("+")
         							    .end()
         							.filter(".jstree-open > ins")
-        							    .html("\u25be");
+        							    .html("-");
 						    }
 						}
 						if(s_call) { s_call.call(this); }
