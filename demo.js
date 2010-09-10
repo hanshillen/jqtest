@@ -1,4 +1,5 @@
 $(function() {
+    
     $("#tabs").tabs({labelledBy: "tabsLbl"});
 
 
@@ -192,31 +193,34 @@ $(function() {
 	    }
 	}
 
-	var carouselLoaded = false;
-	var accordionLoaded = false;
+	var carouselLoaded = accordionLoaded = treeLoaded = false;
+
 	$('#tabs').bind('tabsshow', function(event, ui) {
-	    if (ui.panel.id == "tabs-9" && !carouselLoaded ) {
-	    	$('#mycarousel1').jcarousel({
-	        	animation: 500,
-	        	itemSelectedCallback : itemSelectedCallback
-	    	});
-	    	carouselLoaded = true;
-	    }
-	    else if (ui.panel.id == "tabs-7" && !accordionLoaded ) {
-	    	$("#accordion").accordion();	
-	    	accordionLoaded = true;
+	    switch(ui.panel.id) {
+	        case "tabs-7":
+	            if (!accordionLoaded ) {
+	                $("#accordion").accordion();    
+	                accordionLoaded = true;
+	            }
+	        break;
+	        case "tabs-8":
+                if (!treeLoaded ) {
+                    $('#sampleTree').jstree({plugins : ["themes", "html_data", "ui", "hotkeys"]});                    
+                    treeLoaded = true;
+                }        
+            break;
+            case "tabs-9":
+                if (!carouselLoaded ) {
+                    $('#mycarousel1').jcarousel({
+                        animation: 500,
+                        itemSelectedCallback : itemSelectedCallback
+                    });
+                    carouselLoaded = true;
+                }        
+            break;
 	    }
 	});
 	
-	// Tree
-	
-	    $('#sampleTree').jstree({plugins : ["themes", "html_data", "ui", "hotkeys"]});
-        
-        $(".jstree-closed > a")
-            .attr("aria-expanded", "false");
-        $(".jstree-open > a")
-            .attr("aria-expanded", "true");
-
 	// tabs demo
         
         $("#tabs-demo").tabs({labelledBy: "tabsDemoLbl"});
