@@ -289,7 +289,9 @@
         if (this.options.initCallback != null)
             this.options.initCallback(this, 'init');
         
-        if ($.browser.safari) {
+        //TODO: Why is the safari check necessary? It was causing the prev / next buttons to break in Safari, so I disabled it for now.
+        //if ($.browser.safari) {
+        if (false) {
             this.buttons(false, false);
             $(window).bind('load.jcarousel', function() { self.setup(); });
         } else
@@ -851,9 +853,17 @@
             }
             var self = this;
             //moved buttonNext and buttonPrev click event handlers to widget setup code
-            this.buttonNext[n ? 'removeClass' : 'addClass'](this.className('jcarousel-next-disabled')).attr('disabled', n ? false : true);
-            this.buttonPrev[p ? 'removeClass' : 'addClass'](this.className('jcarousel-prev-disabled')).attr('disabled', p ? false : true);
- 
+            this.buttonNext[n ? 'removeClass' : 'addClass'](this.className('jcarousel-next-disabled'))
+            if (!n)
+                this.buttonNext.attr('disabled', "disabled");
+            else
+                this.buttonNext.removeAttr('disabled');
+                
+            this.buttonPrev[p ? 'removeClass' : 'addClass'](this.className('jcarousel-prev-disabled')).attr('disabled', p ? "false" : "true");
+            if (!p)
+                this.buttonPrev.attr('disabled', "disabled");
+            else
+                this.buttonPrev.removeAttr('disabled');
 
             if (this.buttonNext.length > 0 && (this.buttonNext[0].jcarouselstate == undefined || this.buttonNext[0].jcarouselstate != n) && this.options.buttonNextCallback != null) {
                 this.buttonNext.each(function() { self.options.buttonNextCallback(self, this, n); });
