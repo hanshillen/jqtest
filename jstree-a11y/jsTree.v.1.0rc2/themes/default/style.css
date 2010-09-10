@@ -77,3 +77,7 @@
 .jstree-default .jstree-checked a .jstree-checkbox { _background-position:-38px -19px; }
 .jstree-default .jstree-unchecked a .jstree-checkbox { _background-position:-2px -19px; }
 /* IE6 END */
+
+.high-contrast .jstree > ul {
+     border: 1px solid black;
+ }
