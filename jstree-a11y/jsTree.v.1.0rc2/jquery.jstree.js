@@ -983,8 +983,7 @@
 				if(this.is_selected(obj)) {
 				    $(obj).children('a').eq(0)
                         .attr("tabindex", "-1")
-                        .attr("aria-selected", "false")
-                        .focus();
+                        .attr("aria-selected", "false");
 					obj.children("a").removeClass("jstree-clicked");
 					this.data.ui.selected = this.data.ui.selected.not(obj);
 					if(this.data.ui.last_selected.get(0) === obj.get(0)) { this.data.ui.last_selected = this.data.ui.selected.eq(0); }
@@ -1271,13 +1270,14 @@
 	}
 	$.jstree.plugin("hotkeys", {
 		__init : function () {
+	        var self = this;
 			if(typeof $.hotkeys === "undefined") { throw "jsTree hotkeys: jQuery hotkeys plugin not included."; }
 			if(!this.data.ui) { throw "jsTree hotkeys: jsTree UI plugin not included."; }
 			
-			$(this.data.html_data.original_container_html).find("a").eq(0).attr("tabindex", "0");
+			$(this.data.html_data.original_container_html).find("a").attr("tabindex", "-1").eq(0).attr("tabindex", "0");
 			$.each(this._get_settings().hotkeys, function (i, val) {
 				if($.inArray(i, bound) == -1) {
-					$(document).bind("keydown", i, function (event) { return exec(i, event); });
+				    $(self.data.html_data.original_container_html).bind("keydown", i, function (event) { return exec(i, event); });
 					bound.push(i);
 				}
 			});
