@@ -39,3 +39,7 @@ a:focus {
 	
 }
 
+#tabs {
+    min-width: 910px; 
+ }
+
