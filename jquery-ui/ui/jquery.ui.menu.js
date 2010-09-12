@@ -200,9 +200,7 @@ $.widget("ui.menu", {
                     //all items with submenus
                     var isTopLevel = $(this).parent().parent().is(".ui-menubar-nav");
                     var isVertical = !isTopLevel; //TODO: add support for different orientations
-                    if (jQuery.ui.highContrastMode === undefined)
-                        jQuery.ui.highContrastMode = function() {return false}
-                    var subIndicator = jQuery.ui.highContrastMode() ? (isVertical ? "&nbsp;&#8594;" : "&nbsp;&#8595;") : "";  
+                    var subIndicator = jQuery.support.highContrast ? (isVertical ? "&nbsp;&#8594;" : "&nbsp;&#8595;") : "";  
                     $(this).append("<span class='ui-icon ui-icon-triangle-1-" + (isTopLevel ? "s" : "e") + "' >" + subIndicator + "</span>")
 
                         .attr('aria-haspopup', 'true');
