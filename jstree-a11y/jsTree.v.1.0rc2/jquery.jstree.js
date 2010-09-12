@@ -3327,9 +3327,11 @@
                                     .html("\u251c")
         							.filter(".jstree-closed > ins")
         							    .html("+")
+        							    .addClass("jstree-twisty")
         							    .end()
         							.filter(".jstree-open > ins")
-        							    .html("-");
+        							    .html("-")
+    							        .addClass("jstree-twisty");
 						    }
 						}
 						if(s_call) { s_call.call(this); }
