@@ -70,8 +70,8 @@
         itemVisibleInCallback: null,
         itemVisibleOutCallback: null,
         itemSelectedCallback: null,
-        buttonNextHTML: '<button title="Next Item"></button>',
-        buttonPrevHTML: '<button title="Previous Item"></button>',
+        buttonNextHTML: '<button class="ui-button ui-widget ui-state-default ui-button-icon-only"><span class="ui-helper-hidden-accessible ui-button-text">Next Item</span></button>',
+        buttonPrevHTML: '<button class="ui-button ui-widget ui-state-default ui-button-icon-only"><span class="ui-helper-hidden-accessible ui-button-text">Previous Item</span></button>',
         buttonNextEvent: 'click',
         buttonPrevEvent: 'click',
         buttonNextCallback: null,
@@ -226,7 +226,7 @@
         if (this.buttonNext.size() == 0 && this.options.buttonNextHTML != null) {
             this.buttonNext = this.clip.after(this.options.buttonNextHTML).next();
 			if ($.support.highContrast)
-				this.buttonNext.html("\u25b6");
+				this.buttonNext.append("<span>\u25b6</span>");
         }
         
 
@@ -237,7 +237,7 @@
         if (this.buttonPrev.size() == 0 && this.options.buttonPrevHTML != null) {
             this.buttonPrev = this.clip.before(this.options.buttonPrevHTML).prev();
            	if ($.support.highContrast)
-				this.buttonPrev.html("\u25C0");
+				this.buttonPrev.append("<span>\u25C0</span>");
         }
         
         this.buttonPrev.addClass(this.className('jcarousel-prev'));

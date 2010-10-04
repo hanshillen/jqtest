@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Jquery Components Sample</title>
+<link type="text/css" href="../../themes/base/jquery.ui.all.css" rel="stylesheet" />
+<script type="text/javascript" src="../../jquery-1.4.2.js"></script>
+<script type="text/javascript" src="../../ui/jquery.ui.core.js"></script>
+<script type="text/javascript" src="../../ui/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="../../ui/jquery.ui.tabs.js"></script>
+<link type="text/css" href="../../demos.css" rel="stylesheet" />
+<script type="text/javascript" src="../../ui/jquery.ui.tabs.js"></script>
+
+<script type="text/javascript" src="../../ui/jquery.ui.position.js"></script>
+<script type="text/javascript" src="../../ui/jquery.ui.button.js"></script>
+<script type="text/javascript" src="../../ui/jquery.ui.mouse.js"></script>
+<script type="text/javascript" src="../../ui/jquery.ui.slider.js"></script>
+<script type="text/javascript" src="../../ui/jquery.ui.progressbar.js"></script>
+<script type="text/javascript" src="../../ui/jquery.ui.draggable.js"></script>
+<script type="text/javascript" src="../../ui/jquery.ui.position.js"></script>
+<script type="text/javascript" src="../../ui/jquery.ui.resizable.js"></script>
+<script type="text/javascript" src="../../ui/jquery.ui.dialog.js"></script>
+
+<script type="text/javascript" src="demo.js"></script>
+<link rel="stylesheet" type="text/css" href="demo.css" />
+</head>
+<body role="application">
+
+<div class="demo" role="application">
+    <h1 id="tabsLbl">JQuery Widget Samples</h1>
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Slider</a></li>
+            <li><a href="#tabs-2">Progress bar</a></li>
+            <li><a href="#tabs-4">Buttons</a></li>
+            <li><a href="#tabs-5">Dialog</a></li>
+        </ul>
+        <div id="tabs-1">
+            <h2>Sliders</h2>
+            <p>Price: </p>
+            <br />
+            <span id="slider1Val" class="sliderValue"></span>
+            <div id="slider"></div>
+            <p for="amount">Price range:</p>
+            <br />
+            <div class="ui-helper-clearfix">
+                <span class="sliderValue" id="slider2ValMin"></span>
+                <span class="sliderValue" id="slider2ValMax"></span>                
+                <div id="slider-range"></div>
+                
+            </div>
+        </div>
+        <div id="tabs-2">
+           <h2>Progressbar</h2>
+           <a href="#" id="progressTrigger">Trigger Progressbar</a>
+           <br />
+           <br />
+           <div id="progressDialog">
+               <div id='progressbar'></div>
+           </div>
+        </div>
+        <div id="tabs-4">
+            <h2>Buttons</h2>
+            <span id="toolbar" class="ui-widget-header ui-corner-all" role="toolbar">
+                <button id="beginning">go to beginning</button>
+                <button id="rewind">rewind</button>
+                <button id="play">play</button>
+                <button id="stop">stop</button>
+                <button id="forward">fast forward</button>
+                <button id="end">go to end</button>
+                
+                <input type="checkbox" id="shuffle" /><label for="shuffle">Shuffle</label>
+                
+                <span id="repeat">
+                    <input type="radio" id="repeat0" name="repeat" checked="checked" /><label for="repeat0">No Repeat</label>
+                    <input type="radio" id="repeat1" name="repeat" /><label for="repeat1">Once</label>
+                    <input type="radio" id="repeatall" name="repeat" /><label for="repeatall">All</label>
+                </span>
+            </span>
+        </div>
+        <div id="tabs-5">
+            <h2>Dialog</h2>
+            <a href="#" id="dialogTrigger">Trigger Dialog</a>
+            <div id="sampleDialog" title="My Sample Form">
+                <p id="dialogDescription">
+                    Please enter your personal information
+                </p>
+                <p>
+	                <label for="sampleField1">First Name:</label>
+	                <input type="text" id="sampleField1" />
+                </p>
+                <p>
+                    <label for="sampleField2">Last Name:</label>
+                    <input type="text" id="sampleField2" />
+                </p>
+                <div class="dialogSubGroup" role="group" aria-labelledby="groupLbl1" aria-describedby="groupDesc1">
+                    <h3 id="groupLbl1">Additional Information</h3>
+                    <p id="groupDesc1">These fields are optional</p>
+                    <p>
+                        <label for="sampleField3">Favorite Food:</label>
+	                    <input type="text" id="sampleField3" />
+	                </p>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+ </div><!-- End demo -->
+</body>
+</html>

@@ -42,4 +42,8 @@ a:focus {
 #tabs {
     min-width: 910px; 
  }
+ 
+ .ui-widget-content h3 a {
+    color: navy;
+ }
 
