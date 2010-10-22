@@ -1,6 +1,6 @@
 /*
  * jQuery UI Menu @VERSION
- * 
+ *
  * Copyright (c) 2010 AUTHORS.txt (http://jqueryui.com/about)
  * Dual licensed under the MIT (MIT-LICENSE.txt)
  * and GPL (GPL-LICENSE.txt) licenses.
@@ -13,19 +13,19 @@
  */
 (function($) {
 
-$.widget("ui.menu", {    
-    
+$.widget("ui.menu", {
+
     _menuOpen : false,
     _menuExists : false,
-    
-    _create: function() {    
-    
+
+    _create: function() {
+
         var self = this;
-        
+
         if (self.options.isMenuBar) {
             this.element.wrap("<div class='ui-widget ui-menubar ui-widget-content ui-widget-header'></div>");
             this.element.find("ul").menu();
-            
+
         }
         this.element
             .addClass(self.options.isMenuBar ? "ui-menubar-nav ui-helper-reset ui-helper-clearfix": "ui-menu ui-widget ui-widget-content ui-helper-hidden")
@@ -33,13 +33,13 @@ $.widget("ui.menu", {
                 role: self.options.isMenuBar ? "menubar" :  "menu",
                 "aria-activedescendant": "ui-active-menuitem"
             })
-            
+
         this.refresh();
-        
+
         if (!this.options.input) {
             this.options.input = this.element;//.attr("tabindex", 0);
         }
-        
+
         this.options.input.bind("keydown.menu", function(event) {
             var subMenu, parentMenu, rootItem, newItem;
             switch (event.keyCode) {
@@ -61,7 +61,7 @@ $.widget("ui.menu", {
                 event.stopImmediatePropagation();
                 break;
             case $.ui.keyCode.RIGHT:
-                if (self.isMenuBarItem(event.target))  { 
+                if (self.isMenuBarItem(event.target))  {
                     self.next(event)
                 }
                 else {
@@ -70,14 +70,14 @@ $.widget("ui.menu", {
                         if (!subMenu.is(":visible"))
                             subMenu.menu().show()
                         self.openSubMenu($(event.target).parent());
-                        subMenu.menu("activate",  event, subMenu.children(":first"));  
+                        subMenu.menu("activate",  event, subMenu.children(":first"));
                     }
                     else {
                         rootItem = $(event.target).closest(".ui-menubar-item");
                         newItem = rootItem.next(".ui-menubar-item");
                         if (!newItem.length)
-                            newItem = rootItem.siblings('.ui-menubar-item:first'); 
-                        newItem.parent().menu("activate", event, newItem); 
+                            newItem = rootItem.siblings('.ui-menubar-item:first');
+                        newItem.parent().menu("activate", event, newItem);
                         newItem.children(".ui-menu").menu("show", newItem);
                         newItem.children(".ui-menu").menu("activate", event, newItem.children("ul").children(":first"));
                     }
@@ -85,7 +85,7 @@ $.widget("ui.menu", {
                 event.preventDefault();
                 event.stopImmediatePropagation();
                 break;
-                
+
             case $.ui.keyCode.LEFT:
                 if (self.isMenuBarItem(event.target)) {
                     self.previous(event)
@@ -100,8 +100,8 @@ $.widget("ui.menu", {
                         rootItem = $(event.target).closest(".ui-menubar-item");
                         newItem = rootItem.prev(".ui-menubar-item");
                         if (!newItem.length)
-                            newItem = rootItem.siblings('.ui-menubar-item:last'); 
-                        newItem.parent().menu("activate", event, newItem); 
+                            newItem = rootItem.siblings('.ui-menubar-item:last');
+                        newItem.parent().menu("activate", event, newItem);
                         newItem.children(".ui-menu").menu("show", newItem);
                         newItem.children(".ui-menu").menu("activate", event, newItem.children("ul").children(":first"));
                     }
@@ -114,6 +114,7 @@ $.widget("ui.menu", {
                     subMenu = $(event.target).next("ul");
                     self.openSubMenu($(event.target).parent());
                     subMenu.menu("activate",  event, subMenu.children(":first"));
+                    event.preventDefault();
                 }
                 else {
                     self.next();
@@ -126,7 +127,7 @@ $.widget("ui.menu", {
                 event.preventDefault();
                 event.stopImmediatePropagation();
                 break;
-                
+
             case $.ui.keyCode.ESCAPE:
                 parentMenu = $(event.target).closest(".ui-menu")
                 if (parentMenu.length) {
@@ -142,53 +143,53 @@ $.widget("ui.menu", {
             }
         });
     },
-    
+
     destroy: function() {
         // TODO implement destroy
         $.Widget.prototype.apply(this, arguments);
     },
-    
+
     refresh: function() {
         var self = this;
-        
+
         var items = this.element.children("li:not(.ui-menu-item):has(a)")
             .addClass(this.options.isMenuBar ? "ui-menubar-item" : "ui-menu-item")
             .attr("role", "presentation");
-        
+
         items.children("a")
             //.addClass("ui-corner-all")
             .attr("tabindex", -1)
             .attr("role", "menuitem")
             // mouseenter doesn't work with event delegation
-            
+
             .mouseenter(function( event ) {
                 self.openSubMenu($(this).parent());
                 self.activate( event, $(this).parent(), true );
             })
-            
+
             .mouseleave(function() {
                 //self.deactivate();
             });
-    
 
-        
+
+
         if (self.options.isMenuBar) {
-            this.active = self.element.children(":first").eq(0); 
+            this.active = self.element.children(":first").eq(0);
             self.element.find("ul").hide().attr('aria-hidden', 'true');
-            
+
             self.element.find("a").each(function(i) {
                 //All items found in structure
                 if (i == 0)
                     $(this).attr("tabindex", "0");
-                
+
                 $(this)
                 .wrapInner('<span>')
                 .click(function(event) {
                     event.preventDefault();
                     var item = $(this);
                     var menu = item.next("ul");
-                    
-                    if (menu.length == 0) { 
+
+                    if (menu.length == 0) {
                         self.select(event);
                         return;
                     }
@@ -200,43 +201,43 @@ $.widget("ui.menu", {
                     //all items with submenus
                     var isTopLevel = $(this).parent().parent().is(".ui-menubar-nav");
                     var isVertical = !isTopLevel; //TODO: add support for different orientations
-                    var subIndicator = jQuery.support.highContrast ? (isVertical ? "&nbsp;&#8594;" : "&nbsp;&#8595;") : "";  
+                    var subIndicator = jQuery.support.highContrast ? (isVertical ? "&nbsp;&#8594;" : "&nbsp;&#8595;") : "";
                     $(this).append("<span class='ui-icon ui-icon-triangle-1-" + (isTopLevel ? "s" : "e") + "' >" + subIndicator + "</span>")
 
                         .attr('aria-haspopup', 'true');
                     menu.attr('aria-expanded', 'false');
-                    
+
                     if (isTopLevel)
                         $(this).addClass("ui-state-default")
                 }
             });
         }
-        
-        
+
+
         // don't refresh list items that are already adapted
-        
+
         items.filter(":has(ul)").each(function(i) {
             var showTimer, hideTimer;
-            
+
             $(this).find("a:eq(0)").hover(
-                function() {    
+                function() {
                     clearTimeout(hideTimer);
                     var subList = $(this).next();
-                    
+
                     showTimer = setTimeout(function(){
-                        subList.show().attr('aria-expanded', 'true');    
+                        subList.show().attr('aria-expanded', 'true');
                     }, 50);
                 },
-                
+
                 function() {
                     clearTimeout(showTimer);
                     var subList = $(this).next();
-                    hideTimer = setTimeout(function(){ 
+                    hideTimer = setTimeout(function(){
                         subList.hide().attr('aria-expanded', 'false');
                     }, 100);
                 }
             );
-            
+
             $(this).find('ul a').hover(
             function(){
                 clearTimeout(hideTimer);
@@ -248,20 +249,20 @@ $.widget("ui.menu", {
                 hideTimer = setTimeout(function(){
                     //allSubLists.hide();
                     //container.find(options.flyOutOnState).removeClass(options.flyOutOnState);
-                }, 150);    
+                }, 150);
             }
         );
-        
+
         });
     },
 
     isMenuBarItem : function(item) {
         return $(item).parent().parent().is(".ui-menubar-nav");
     },
-    
+
     activate: function( event, item, noFocus ) {
         item.siblings().find("ul").hide().find(".ui-state-hover").removeClass("ui-state-hover");
-        
+
         this.deactivate();
         if (this.hasScroll()) {
             var offset = item.offset().top - this.element.offset().top,
@@ -287,17 +288,17 @@ $.widget("ui.menu", {
         var subMenu = item.children("ul").eq(0);
         if (item.has("ul").length > 0) {
             subMenu.menu("show", item.children("a").eq(0));
-            
+
         }
     },
-    
+
     deactivate: function(event) {
         if (!this.active) { return; }
 
         this.active.children("a")
             .removeClass("ui-state-hover")
             .removeAttr("id");
-        
+
         this._trigger("blur");
         this.active = null;
     },
@@ -307,7 +308,7 @@ $.widget("ui.menu", {
         $(":ui-menu").not(menu).not(menu.parents()).menu("hide");
         //TODO: include more specific orientation options here
         var isHorizontal = menu.parent().parent().is(".ui-menubar-nav");
-        
+
         var myPosition = "left top";
         var atPosition =  isHorizontal ? "left bottom" : "right top";
         var posOffset = isHorizontal ? "0 0" : "-1 0";
@@ -319,7 +320,7 @@ $.widget("ui.menu", {
             of: caller,
             offset: posOffset
         });
-        
+
         $(document).bind("click.menubar", function(event) {
             if ($(event.target).closest(".ui-menu")[0] == menu[0]) {
                 return;
@@ -328,22 +329,22 @@ $.widget("ui.menu", {
             menu.hide();
         });
     },
-    
+
     hide: function(caller) {
            this.element.hide()
             .attr('aria-expanded', 'false')
             .attr('aria-hidden', 'true')
             .find("ui-state-hover").removeClass("u-state-hover");
     },
-    
+
     toggle: function(caller) {
-        if (this.element.is(":visible")) 
+        if (this.element.is(":visible"))
             this.hide(caller);
-        else 
+        else
             this.show(caller);
 
     },
-    
+
     next: function(event) {
         this.move("next", ".ui-menu-item:first, .ui-menubar-item:first", event);
     },
@@ -366,13 +367,13 @@ $.widget("ui.menu", {
             return;
         }
         var next = this.active[direction + "All"](".ui-menu-item, .ui-menubar-item ").eq(0);
-        
+
         if (next.length) {
             this.activate(event, next);
         } else {
             this.activate(event, this.element.children(edge));
         }
-        
+
     },
 
     // TODO merge with previousPage
