@@ -1,6 +1,8 @@
 $(function() {
 	
-	$("#timeStamp").html(document.lastModified);
+	var months= ["January","February","March","April","May","June","July","August","September","October","November","December"];
+	var lastMod = new Date(document.lastModified);
+	$("#timeStamp").html(lastMod.getDate() + " " + months[lastMod.getMonth()] + " " + lastMod.getFullYear());
     
     $("#tabs").tabs({labelledBy: "tabsLbl"});
 
