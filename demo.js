@@ -1,4 +1,6 @@
 $(function() {
+	
+	$("#timeStamp").html(document.lastModified);
     
     $("#tabs").tabs({labelledBy: "tabsLbl"});
 
