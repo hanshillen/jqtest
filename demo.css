@@ -55,7 +55,7 @@ a:focus {
 	display: inline; 
  }
  
- .logoList img {
+ .logoList img	{
 	border: none;	 
  }
  
@@ -69,7 +69,5 @@ a:focus {
  }
  
  .tpgLogo {
-	padding-bottom: 23px;	 
+	padding: 23px 0;	 
  }
- 
-
