@@ -1,9 +1,9 @@
 $(function() {
-	
+
 	var months= ["January","February","March","April","May","June","July","August","September","October","November","December"];
 	var lastMod = new Date(document.lastModified);
 	$("#timeStamp").html(lastMod.getDate() + " " + months[lastMod.getMonth()] + " " + lastMod.getFullYear());
-    
+
     $("#tabs").tabs({labelledBy: "tabsLbl"});
 
 
@@ -11,7 +11,7 @@ $(function() {
     $(".menubar").menu({isMenuBar : true});
 
     //single slider
-    $("#slider").slider({unittext : "MB", 
+    $("#slider").slider({unittext : "MB",
         label : "price",
         unittext: "$",
         slide: function(event, ui) {
@@ -48,7 +48,7 @@ $(function() {
         // need to be able to determine which of the handles actually changes
         var index = $.inArray(ui.value, ui.values);
         var myAlign = index == 0 ? "right" : "left";
-        var atAlign = index == 0 ? "left" : "right";               
+        var atAlign = index == 0 ? "left" : "right";
             $(valueLabels[index])
                 .position({
                     my: myAlign + " bottom",
@@ -57,7 +57,7 @@ $(function() {
                     })
                 .text("$" + ui.value);
    }
-    
+
     var sliderValues = rangeSlider.slider("values");
     updateSliderLabels({value : sliderValues[0], values : sliderValues, handle : rangeSlider.find(".ui-slider-handle").eq(0)}, ["#slider2ValMin", "#slider2ValMax"]);
     updateSliderLabels({value : sliderValues[1], values : sliderValues, handle : rangeSlider.find(".ui-slider-handle").eq(1)}, ["#slider2ValMin", "#slider2ValMax"]);
@@ -77,20 +77,20 @@ $(function() {
             if (!$("#progressMsg").length)
                 progressBar.append("<p id='progressMsg'>Loading Files...</p>");
             var progressDialog = $("#progressDialog")
-            .dialog({autoOpen : true, 
-                modal : true, 
+            .dialog({autoOpen : true,
+                modal : true,
                 title :  "progress",
                 resizable : false,
                 draggable : false,
                 dialogClass : "noCloseBtn",
-                width : 500, 
+                width : 500,
                 beforeClose : function() {
-                if ($("#progressbar").progressbar('value') != 100) 
+                if ($("#progressbar").progressbar('value') != 100)
                     return false;}
             })
             .append(progressBar);
-            
-            
+
+
             setTimeout(function() {
                 $("#progressbar").progressbar('value', 0);
                 progressUpdater = setInterval(function() {
@@ -101,9 +101,9 @@ $(function() {
                     }
                     $("#progressbar").progressbar('value', $("#progressbar").progressbar('value') + 2);
                     }, 250);
-            }, 100);       
+            }, 100);
         });
-    
+
     //buttons
     $('#beginning').button({
         text: false,
@@ -179,13 +179,13 @@ $(function() {
             .find(":input").eq(0).focus();
             return false;
         });
-    
+
     //Checkboxes
-    
+
         $("#tabs-6").find(":checkbox").checkbox();
 
 	// carousel
-	    
+
     function itemSelectedCallback(carousel, item, index) {
 	    item = $(item);
 	    var src = item.find("img").attr("src");
@@ -204,15 +204,15 @@ $(function() {
 	    switch(ui.panel.id) {
 	        case "tabs-7":
 	            if (!accordionLoaded ) {
-	                $("#accordion").accordion();    
+	                $("#accordion").accordion();
 	                accordionLoaded = true;
 	            }
 	        break;
 	        case "tabs-8":
                 if (!treeLoaded ) {
-                    $('#sampleTree').jstree({plugins : ["themes", "html_data", "ui", "hotkeys"]});                    
+                    $('#sampleTree').jstree({plugins : ["themes", "html_data", "ui", "hotkeys"]});
                     treeLoaded = true;
-                }        
+                }
             break;
             case "tabs-9":
                 if (!carouselLoaded ) {
@@ -221,14 +221,23 @@ $(function() {
                         itemSelectedCallback : itemSelectedCallback
                     });
                     carouselLoaded = true;
-                }        
+                }
             break;
 	    }
 	});
-	
+
 	// tabs demo
-        
+
         $("#tabs-demo").tabs({labelledBy: "tabsDemoLbl"});
+
+
+   // tooltip
+        $("[title]").tooltip();
+        $("<button/>").text("Show tooltips").button().toggle(function() {
+            $(".toggleTooltips :ui-tooltip").tooltip("open");
+        }, function() {
+            $(".toggleTooltips :ui-tooltip").tooltip("close");
+        }).appendTo(".toggleTooltips");
 });
 
 

@@ -40,7 +40,7 @@ a:focus {
 }
 
 #tabs {
-    min-width: 910px; 
+    /*min-width: 910px;*/ 
  }
  
  .ui-widget-content h3 a {
@@ -71,3 +71,18 @@ a:focus {
  .tpgLogo {
 	padding: 23px 0;	 
  }
+ 
+#tabs-11 label { display: inline-block; width: 5em; }
+#tabs-11 .ui-icon { display: inline-block; }
+#tabs-11 fieldset div {
+	margin-bottom: 2em;
+}
+#tabs-11 .ui-tooltip { width: 210px; }
+
+.toggleTooltips img {
+	margin-bottom: 10px;	
+}
+
+.toggleTooltips blockquote {
+	width: 200px;	
+}

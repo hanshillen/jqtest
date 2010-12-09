@@ -22,6 +22,7 @@
 <script type="text/javascript" src="jquery-ui/ui/jquery.ui.dialog.js"></script>
 <script type="text/javascript" src="jquery-ui/ui/jquery.ui.checkbox.js"></script>
 <script type="text/javascript" src="jquery-ui/ui/jquery.ui.accordion.js"></script>
+<script type="text/javascript" src="jquery-ui/ui/jquery.ui.tooltip.js"></script>
 <script type="text/javascript" src="jcarousel/lib/jquery.jcarousel.js"></script>
 <script type="text/javascript" src="jstree-a11y/jsTree.v.1.0rc2/lib/jquery.cookie.js"></script>
 <script type="text/javascript" src="jstree-a11y/jsTree.v.1.0rc2/lib/jquery.hotkeys.js"></script>
@@ -49,6 +50,7 @@
             <li><a href="#tabs-8">Tree</a></li>
             <li><a href="#tabs-9">Carousel</a></li>
             <li><a href="#tabs-10">Tabs</a></li>
+            <li><a href="#tabs-11">Tooltip</a></li>
         </ul>
 		<div id="tabs-1">
 <p>Price: </p>
@@ -59,9 +61,9 @@
             <br />
             <div class="ui-helper-clearfix">
                 <span class="sliderValue" id="slider2ValMin"></span>
-                <span class="sliderValue" id="slider2ValMax"></span>                
+                <span class="sliderValue" id="slider2ValMax"></span>
                 <div id="slider-range"></div>
-                
+
             </div>
             <h3>Accessibility Changes Made to the <a href="before/jquery-ui/demos/slider/default.html" target="_blank">Original Slider</a>:</h3>
             <ul>
@@ -142,7 +144,7 @@
                             </ul>
                         </li>
                     </ul>
-                </li>   
+                </li>
                 <li>
                     <a href="#">View</a>
                     <ul aria-label="View">
@@ -183,9 +185,9 @@
                 <button id="stop">stop</button>
                 <button id="forward">fast forward</button>
                 <button id="end">go to end</button>
-                
+
                 <input type="checkbox" id="shuffle" /><label for="shuffle">Shuffle</label>
-                
+
                 <span id="repeat">
                     <input type="radio" id="repeat0" name="repeat" checked="checked" /><label for="repeat0">No Repeat</label>
                     <input type="radio" id="repeat1" name="repeat" /><label for="repeat1">Once</label>
@@ -220,8 +222,8 @@
 	                    <input type="text" id="sampleField3" />
 	                </p>
                 </div>
-                
-                
+
+
             </div>
 			<h3>Accessibility Changes Made to the <a href="before/jquery-ui/demos/dialog/default.html" target="_blank">Original Dialog</a>:</h3>
 			<ul>
@@ -242,7 +244,7 @@
 			</ul>
         </div>
         <div id="tabs-7">
-            <h2>Accordion</h2>        
+            <h2>Accordion</h2>
 	        <div id="accordion">
 				<h3><a href="#">Section 1</a></h3>
 				<div>
@@ -274,7 +276,7 @@
 						<li>List item one</li>
 						<li>List item two</li>
 						<li>List item three</li>
-					</ul>	
+					</ul>
 					<h3>Accessibility Changes Made to the Original Accordeon:</h3>
 					<p>No changes were made. </p>
 				</div>
@@ -383,7 +385,7 @@
 			</ul>
         </div>
         <div id="tabs-9">
-            <h2>Carousel</h2>        
+            <h2>Carousel</h2>
 			<h3 id="carouselId">My Favorite Flowers</h3>
 			<div class="viewer">
 		        <img id="viewerImg" alt="" src="images/199481236_dc98b5abb3_s.jpg" width="250" height="250" />
@@ -418,36 +420,60 @@
 		    <div id="tabsdemo-1">
 		    <h2>Dogs</h2>
 		    <p>The <b>dog</b> (<i>Canis lupus familiaris</i>,<sup id="cite_ref-ADW_0-0" class="reference"><a href="#cite_note-ADW-0"><span>[</span>1<span>]</span></a></sup> is a <a href="/wiki/Race_(biology)" title="Race (biology)">domesticated form</a> of the <a href="/wiki/Wolf" title="Wolf" class="mw-redirect">wolf</a>, a member of the <a href="/wiki/Canidae" title="Canidae">Canidae</a> family of the order <a href="/wiki/Carnivora" title="Carnivora">Carnivora</a>. The term is used for both <a href="/wiki/Feral" title="Feral">feral</a> and <a href="/wiki/Pet" title="Pet">pet</a> varieties. The domestic dog has been one of the most widely kept <a href="/wiki/Working_dog" title="Working dog">working</a> and companion animals in human history. The word "dog" may also mean the male of a canine species,<sup id="cite_ref-1" class="reference"><a href="#cite_note-1"><span>[</span>2<span>]</span></a></sup> as opposed to the word "<a href="/wiki/Bitch" title="Bitch">bitch</a>" for the female of the species.<sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span>[</span>3<span>]</span></a></sup></p>
-		
+
 		<p>The dog quickly became ubiquitous across culture across the world, and was extremely valuable to early human settlements. For instance, it is believed that the successful emigration across the <a href="/wiki/Bering_Strait" title="Bering Strait">Bering Strait</a> might not have been possible without <a href="/wiki/Sled_dog" title="Sled dog">sled dogs</a>.<sup id="cite_ref-miklosi_3-0" class="reference"><a href="#cite_note-miklosi-3"><span>[</span>4<span>]</span></a></sup> Dogs perform many roles for people, such as <a href="/wiki/Hunting_dog" title="Hunting dog">hunting</a>, <a href="/wiki/Herding_dog" title="Herding dog">herding</a>, protection, <a href="/wiki/Police_dog" title="Police dog">assisting police and military</a>, <a href="/wiki/Pet" title="Pet">companionship</a>, and, more recently, <a href="/wiki/Service_dog" title="Service dog">aiding handicapped individuals</a>. This versatility, more than almost any other known animal, has given them the nickname "Man's best friend" in the western world. Currently, there are estimated to be 400 million dogs in the world.<sup id="cite_ref-Coppinger_4-0" class="reference"><a href="#cite_note-Coppinger-4"><span>[</span>5<span>]</span></a></sup></p>
-		
+
 		<p>Over the 15,000 year span that the dog had been domesticated, it diverged into only a handful of <a href="/wiki/Landrace" title="Landrace">landraces</a>, groups of similar animals whose <a href="/wiki/Morphology_(biology)" title="Morphology (biology)">morphology</a> and behavior have been shaped by <a href="/wiki/Environmental_factor" title="Environmental factor">environmental factors</a> and functional roles. As the modern understanding of genetics developed, humans began to intentionally breed dogs for a wide range of specific traits. Through this process, the dog has developed into hundreds of varied <a href="/wiki/Dog_breed" title="Dog breed">breeds</a>, and shows more behavioral and morphological variation than any other land mammal.<sup id="cite_ref-spady_5-0" class="reference"><a href="#cite_note-spady-5"><span>[</span>6<span>]</span></a></sup> For example, height measured to the <a href="/wiki/Withers" title="Withers">withers</a> ranges from a few inches in the <a href="/wiki/Chihuahua_(dog)" title="Chihuahua (dog)">Chihuahua</a> to a few feet in the <a href="/wiki/Irish_Wolfhound" title="Irish Wolfhound">Irish Wolfhound</a>; color varies from white through grays (usually called "blue'") to black, and browns from light (tan) to dark ("red" or "chocolate") in a wide variation of patterns; <a href="/wiki/Coat_(dog)" title="Coat (dog)">coats</a> can be short or long, coarse-haired to wool-like, straight, curly, or smooth.<sup id="cite_ref-6" class="reference"><a href="#cite_note-6"><span>[</span>7<span>]</span></a></sup> It is common for most breeds to <a href="/wiki/Moult" title="Moult" class="mw-redirect">shed</a> this coat.</p>
-		
-		    
+
+
 		    </div>
 		    <div id="tabsdemo-2">
 		       <h2>Cats</h2>
 		        <p>The <b>cat</b> (<i>Felis catus</i>), also known as the <b>domestic cat</b> or <b>housecat</b><sup id="cite_ref-4" class="reference"><a href="#cite_note-4"><span>[</span>5<span>]</span></a></sup> to distinguish it from other <a href="/wiki/Felinae" title="Felinae">felines</a> and <a href="/wiki/Felidae" title="Felidae">felids</a>, is a small <a href="/wiki/Domestication" title="Domestication">domesticated</a> <a href="/wiki/Carnivore" title="Carnivore">carnivorous</a> <a href="/wiki/Mammal" title="Mammal">mammal</a> that is valued by humans for its companionship and its ability to hunt <a href="/wiki/Vermin" title="Vermin">vermin</a> and household pests. Cats have been associated with humans for at least 9,500 years,<sup id="cite_ref-9500_years_5-0" class="reference"><a href="#cite_note-9500_years-5"><span>[</span>6<span>]</span></a></sup> and are currently the most popular pet in the world.<sup id="cite_ref-SciAm_6-0" class="reference"><a href="#cite_note-SciAm-6"><span>[</span>7<span>]</span></a></sup> Due to their close association with humans, cats are now found almost everywhere on Earth. This extreme adaptability and their worrying impacts on native animals has led to them being classed as an <a href="/wiki/Invasive_species" title="Invasive species">invasive species</a>. Most of these problems are caused by the large number of <a href="/wiki/Feral_cat" title="Feral cat">feral cats</a> worldwide, with a population of up to 60&#160;million of these animals in the United States alone.</p>
-		
+
 		<p>Cats are similar in size and anatomy to the other <a href="/wiki/Felid" title="Felid" class="mw-redirect">Felids</a>, with light, flexible bodies and teeth adapted to killing small prey. A skilled predator, the cat hunts over 1,000 species for food, using its excellent eyesight and hearing. Unusually, cats have lost the ability to taste <a href="/wiki/Sugar" title="Sugar">sugar</a> and in some breeds show hereditary <a href="/wiki/Hearing_impairment" title="Hearing impairment">deafness</a>. Despite being solitary hunters, cats are a social species and use a variety of <a href="/wiki/Animal_communication" title="Animal communication">vocalizations</a>, <a href="/wiki/Pheromone" title="Pheromone">pheromones</a> and types of <a href="/wiki/Cat_body_language" title="Cat body language">body language</a> for <a href="/wiki/Cat_communication" title="Cat communication">communication</a>. These include <a href="/wiki/Cat_communication#Meowing" title="Cat communication">meowing</a>, <a href="/wiki/Purr" title="Purr">purring</a>, <a href="/wiki/Trill_consonant" title="Trill consonant">trilling</a>, <a href="/wiki/Hiss#Animals" title="Hiss">hissing</a>, <a href="/wiki/Growling" title="Growling">growling</a>, and grunting.<sup id="cite_ref-Moelk_7-0" class="reference"><a href="#cite_note-Moelk-7"><span>[</span>8<span>]</span></a></sup> They are also bred and shown as <a href="/wiki/Cat_registry" title="Cat registry">registered</a> pedigree pets. This hobby is known as <a href="/wiki/Animal_fancy" title="Animal fancy">cat fancy</a>.</p>
-		
+
 		<p>As <i><a href="/wiki/The_New_York_Times" title="The New York Times">The New York Times</a></i> wrote in 2007, "Until recently the cat was commonly believed to have been domesticated in <a href="/wiki/Ancient_Egypt" title="Ancient Egypt">ancient Egypt</a>, where it was a <a href="/wiki/Cult" title="Cult">cult</a> animal."<sup id="cite_ref-NYT_8-0" class="reference"><a href="#cite_note-NYT-8"><span>[</span>9<span>]</span></a></sup> A study that year found that the lines of descent of all house cats probably run through as few as five <a href="/wiki/Self-domestication" title="Self-domestication">self-domesticating</a> <a href="/wiki/African_Wildcat" title="African Wildcat">African Wildcats</a> <i>(Felis silvestris lybica)</i> circa 8000 BC, in the <a href="/wiki/Near_East" title="Near East">Near East</a>.<sup id="cite_ref-Driscoll_3-1" class="reference"><a href="#cite_note-Driscoll-3"><span>[</span>4<span>]</span></a></sup> The earliest direct evidence of cat domestication is a kitten that was buried with its owner 9,500 years ago in <a href="/wiki/Cyprus" title="Cyprus">Cyprus</a>.<sup id="cite_ref-9" class="reference"><a href="#cite_note-9"><span>[</span>10<span>]</span></a></sup></p>
-		        
+
 		    </div>
 		    <div id="tabsdemo-3">
 		    <h2>Sheep</h2>
 		        <p><b>Domestic sheep</b>  are <a href="/wiki/Quadruped" title="Quadruped" class="mw-redirect">quadrupedal</a>, <a href="/wiki/Ruminant" title="Ruminant">ruminant</a> <a href="/wiki/Mammal" title="Mammal">mammals</a> typically kept as <a href="/wiki/Livestock" title="Livestock">livestock</a>. Like all ruminants, sheep are members of the order Artiodactyla, the <a href="/wiki/Even-toed_ungulate" title="Even-toed ungulate">even-toed ungulates</a>. Although the name "sheep" applies to many species, in everyday usage it almost always refers to <i>Ovis aries</i>. Numbering a little over 1 billion, domestic sheep are the most numerous species in <a href="/wiki/Ovis" title="Ovis">their genus</a>.</p>
 		        <p>Sheep are most likely descended from the wild <a href="/wiki/Mouflon" title="Mouflon">mouflon</a> of Europe and Asia. One of the earliest animals to be domesticated for <a href="/wiki/Agriculture" title="Agriculture">agricultural</a> purposes, sheep are raised for <a href="/wiki/Fleece" title="Fleece">fleece</a>, meat (lamb, hogget or mutton) and <a href="/wiki/Sheep_milk" title="Sheep milk">milk</a>. A sheep's <a href="/wiki/Wool" title="Wool">wool</a> is the most widely used of any animal, and is usually harvested by <a href="/wiki/Sheep_shearing" title="Sheep shearing">shearing</a>. <a href="http://en.wiktionary.org/wiki/Ovine" class="extiw" title="wikt:Ovine">Ovine</a> meat is called <a href="/wiki/Lamb_and_mutton" title="Lamb and mutton">lamb</a> when from younger animals and <a href="/wiki/Lamb_and_mutton" title="Lamb and mutton">mutton</a> when from older ones. Sheep continue to be important for wool and meat today, and are also occasionally raised for <a href="/wiki/Sheepskin_(material)" title="Sheepskin (material)" class="mw-redirect">pelts</a>, as <a href="/wiki/Dairy" title="Dairy">dairy</a> animals, or as <a href="/wiki/Model_organism" title="Model organism">model organisms</a> for science.</p>
-		        
+
 		    </div>
 		</div>
-				
+
             <h3>Accessibility Changes made to the <a href="before/jquery-ui/demos/tabs/basiccontent.html" target="_blank">Original Tabs</a></h3>
 		    <ul>
 		        <li>Added ARIA Tablist markup so role, name &amp; state information is exposed</li>
 		        <li>Added keyboard navigation for switching tabs using arrow keys</li>
 		    </ul>
 		</div>
+		<div id="tabs-11">
+                   <p><a href="#" title="That's what this widget is">Tooltips</a> can be attached to any element. When you hover
+    the element with your mouse, the title attribute is displayed in a little box next to the element, just like a native tooltip.
+    </p>
+    <p>But as it's not a native tooltip, it can be styled. Any themes built with
+    <a href="http://themeroller.com" title="ThemeRoller, jQuery UI's theme builder application">ThemeRoller</a>
+    will also style tooltip's accordingly.</p>
+    <p>Tooltip's are also useful for form elements, to show some additional information in the context of each field.</p>
+    <p><label for="age">Your age:</label><input id="age" title="We ask for your age only for statistical purposes." /></p>
+    <p>Click the field to see the tooltip; when you tab out of the field, it gets hidden.</p>
+
+
+
+        <div class="toggleTooltips">
+            <div>
+                <img src="images/199481072_b4a0d09597_s.jpg" alt="My Favorite Flower" title="My Favorite Flower"/>
+            </div>
+            <div>
+                <blockquote title="Attributed to Elbert Hubbard">The man who doesn't relax and hoot a few hoots voluntarily, now and then, is in great danger of hooting hoots
+                and standing on his head for the edification of the pathologist and trained nurse, a little later on.</blockquote>
+            </div>
+        </div>
+
+        </div>
 	</div>
 	<div class="leftColumn">
 		<h1>Source</h1>
