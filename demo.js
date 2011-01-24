@@ -237,7 +237,7 @@ $(function() {
             $(".toggleTooltips :ui-tooltip").tooltip("open");
         }, function() {
             $(".toggleTooltips :ui-tooltip").tooltip("close");
-        }).appendTo(".toggleTooltips");
+        }).appendTo("#tooltipButtonAnchor");
 
    // auto complete
 
