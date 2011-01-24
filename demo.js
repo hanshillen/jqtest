@@ -8,7 +8,7 @@ $(function() {
 
 
     //menubar
-    $(".menubar").menu({isMenuBar : true});
+    $(".menubar").menubar({isMenuBar : true});
 
     //single slider
     $("#slider").slider({unittext : "MB",
