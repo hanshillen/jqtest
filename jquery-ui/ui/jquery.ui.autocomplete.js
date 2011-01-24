@@ -29,6 +29,7 @@ $.widget( "ui.autocomplete", {
     },
 
     pending: 0,
+    lastResultsCount : 0,
 
     _create: function() {
         var self = this,
@@ -98,6 +99,21 @@ $.widget( "ui.autocomplete", {
                             self.search( null, event );
                         }
                     }, self.options.delay );
+                    clearTimeout( self.screenReaderFeedback );
+                    self.screenReaderFeedback = setTimeout(function() {
+                        // only search if the value has changed
+                        //if ( self.term != self.element.val() ) {
+                            var msg = ""
+                            switch (self.lastResultsCount) {
+                                case 0: msg = "No autocomplete options";
+                                break;
+                                case 1: msg = "1 autocomplete option";
+                                break;
+                                default: msg = self.lastResultsCount + " autocomplete options";
+                            }
+                            self.liveRegion.html(msg);
+                        //}
+                    }, self.options.delay + 1000 );
                     break;
                 }
             })
@@ -127,6 +143,8 @@ $.widget( "ui.autocomplete", {
                     self._change( event );
                 }, 150 );
             });
+
+        this.liveRegion = this.element.after("<span role='status' class='ui-helper-hidden-accessible' aria-live='polite'></span>").next();
         this._initSource();
         this.response = function() {
             return self._response.apply( self, arguments );
@@ -212,6 +230,8 @@ $.widget( "ui.autocomplete", {
         if ( $.fn.bgiframe ) {
              this.menu.element.bgiframe();
         }
+
+        $(this.menu.element).find("li").attr("role", "option");
     },
 
     _destroy: function() {
@@ -289,7 +309,6 @@ $.widget( "ui.autocomplete", {
         if ( this._trigger( "search", event ) === false ) {
             return;
         }
-
         return this._search( value );
     },
 
@@ -305,8 +324,11 @@ $.widget( "ui.autocomplete", {
             content = this._normalize( content );
             this._suggest( content );
             this._trigger( "open" );
+
+            this.lastResultsCount = content.length;
         } else {
             this.close();
+            this.lastResultsCount = 0;
         }
         this.pending--;
         if ( !this.pending ) {
@@ -399,6 +421,9 @@ $.widget( "ui.autocomplete", {
             return;
         }
         this.menu[ direction ]( event );
+        var selectedItem = $(this.menu.element).find("a.ui-state-hover:eq(0)");
+        if (selectedItem.length > 0)
+            this.liveRegion.html(selectedItem.text());
     },
 
     widget: function() {
