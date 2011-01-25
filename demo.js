@@ -232,7 +232,7 @@ $(function() {
 
 
    // tooltip
-        $("[title]").tooltip();
+        $("#tabs-1 [title], #tabs-4 [title]").tooltip();
         $("<button/>").text("Show tooltips").button().toggle(function() {
             $(".toggleTooltips :ui-tooltip").tooltip("open");
         }, function() {
@@ -308,6 +308,29 @@ $(function() {
               return false;
           }
       });
+
+      // Panel
+
+      var panel = $("#panel1").panel();
+
+      $("#panel-icons").toggle(function() {
+          panel.panel("option", "icons", false);
+      }, function() {
+          panel.panel("option", "icons", $.ui.panel.prototype.options.icons);
+      });
+
+      $("#panel-disable").toggle(function() {
+          panel.panel("disable");
+      }, function() {
+          panel.panel("enable");
+      });
+
+      $("#panel-destroy").toggle(function() {
+          panel.panel("destroy");
+      }, function() {
+          panel.panel();
+      });
+
 
 });
 
