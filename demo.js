@@ -232,7 +232,7 @@ $(function() {
 
 
    // tooltip
-        $("#tabs-1 [title], #tabs-4 [title]").tooltip();
+        $("#tabs-1 [title], #tabs-4 [title], #tabs-11 [title]").tooltip();
         $("<button/>").text("Show tooltips").button().toggle(function() {
             $(".toggleTooltips :ui-tooltip").tooltip("open");
         }, function() {
