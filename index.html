@@ -41,37 +41,48 @@
 
 <div class="demo" role="application">
     <h1 id="tabsLbl">JQuery Widget Samples</h1>
-    <div id="tabs">
+    <div id="demoTabs">
         <ul>
-            <li><a href="#tabs-1">Slider</a></li>
-            <li><a href="#tabs-2">Progress bar</a></li>
-            <li><a href="#tabs-3">Menubar</a></li>
-            <li><a href="#tabs-4">Buttons</a></li>
-            <li><a href="#tabs-5">Dialog</a></li>
-            <li><a href="#tabs-6">Checkbox</a></li>
-            <li><a href="#tabs-7">Accordion</a></li>
-            <li><a href="#tabs-8">Tree</a></li>
-            <li><a href="#tabs-9">Carousel</a></li>
-            <li><a href="#tabs-10">Tabs</a></li>
-            <li><a href="#tabs-11">Tooltip</a></li>
-            <li><a href="#tabs-12">Autocomplete </a></li>
-            <li><a href="#tabs-13">Panel</a></li>
-            <li><a href="#tabs-14">Datepicker</a></li>
+            <li><a href="#slider">Slider</a></li>
+            <li><a href="#progressbar">Progress bar</a></li>
+            <li><a href="#menubar">Menubar</a></li>
+            <li><a href="#button">Buttons</a></li>
+            <li><a href="#dialog">Dialog</a></li>
+            <li><a href="#checkbox">Checkbox</a></li>
+            <li><a href="#accordion">Accordion</a></li>
+            <li><a href="#tree">Tree</a></li>
+            <li><a href="#carousel">Carousel</a></li>
+            <li><a href="#tabs">Tabs</a></li>
+            <li><a href="#tooltip">Tooltip</a></li>
+            <li><a href="#autocomplete">Autocomplete </a></li>
+            <li><a href="#panel">Panel</a></li>
+            <li><a href="#datepicker">Datepicker</a></li>
             <!-- <li><a href="#tabs-14">Select Menu</a></li>-->
         </ul>
-        <div id="tabs-1">
-<p>Price: </p>
-            <br />
-            <span id="slider1Val" class="sliderValue"></span>
-            <div id="slider"></div>
-            <p for="amount">Price range:</p>
-            <br />
+        <div id="slider">
+            <h2>Slider</h2>
+            <h3>Single Slider</h3>
+            <label for="txt1">Price:</label>
+            <div style="padding: 25px;">
+	            <span id="slider1Val" class="sliderValue"></span>
+	            <div id="singleSlider1" class="demoWidget"></div>
+				<input id="txt1"  type="text" class="fallback"/>
+			</div>
+            <h3>Range Slider</h3>
+            <p>Price range:</p>
+
             <div class="ui-helper-clearfix">
                 <span class="sliderValue" id="slider2ValMin"></span>
                 <span class="sliderValue" id="slider2ValMax"></span>
-                <div id="slider-range"></div>
-
+                <div id="rangeSlider1" class="demoWidget"></div>
             </div>
+			<div class="fallback">
+			     <label for="txt2">Price range minimum:</label>
+			     <input id="txt2" type="text" />
+			     <label for="txt3">Price range Maximum:</label>
+			     <input id="txt3" type="text" />
+			 </div>
+
             <h3>Accessibility Changes Made to the <a href="before/jquery-ui/demos/slider/default.html" target="_blank">Original Slider</a>:</h3>
             <ul>
                 <li>Added ARIA markup so role, name &amp; state information is exposed</li>
@@ -79,13 +90,14 @@
                 <li>Support for Double Slider labeling      </li>
             </ul>
         </div>
-        <div id="tabs-2">
+
+        <div id="progressbar">
            <h2>Progressbar</h2>
            <a href="#" id="progressTrigger">Trigger Progressbar</a>
            <br />
            <br />
            <div id="progressDialog">
-               <div id='progressbar'></div>
+               <div id='sampleProgressBar'></div>
            </div>
            <h3>Accessibility Changes Made to the <a href="before/jquery-ui/demos/progressbar/default.html" target="_blank">Original Progressbar</a>:</h3>
            <ul>
@@ -93,7 +105,7 @@
             <li>Added ARIA markup for role &amp; state information</li>
             </ul>
         </div>
-        <div id="tabs-3">
+        <div id="menubar">
            <h2>Menubar</h2>
            <ul class="menubar" aria-label="Sample Options">
                 <li><a href="#">File</a>
@@ -183,7 +195,7 @@
                 <li>Added keyboard navigation support</li>
             </ul>
         </div>
-        <div id="tabs-4">
+        <div id="button">
             <h2>Buttons</h2>
             <span id="toolbar" class="ui-widget-header ui-corner-all" role="toolbar">
                 <button id="beginning">go to beginning</button>
@@ -206,7 +218,7 @@
                 <li>Applied fixes for vsual focus indications</li>
             </ul>
         </div>
-        <div id="tabs-5">
+        <div id="dialog">
             <h2>Dialog</h2>
             <a href="#" id="dialogTrigger">Trigger Dialog</a>
             <div id="sampleDialog" title="My Sample Form">
@@ -237,7 +249,7 @@
                 <li>Added support for high contrast mode</li>
             </ul>
         </div>
-        <div id="tabs-6">
+        <div id="checkbox">
             <h2>Checkbox</h2>
             <form>
                 <label><input type="checkbox" />Dogs</label>
@@ -250,9 +262,9 @@
                 <li>Applied fixes for visual indication of focus</li>
             </ul>
         </div>
-        <div id="tabs-7">
+        <div id="accordion">
             <h2>Accordion</h2>
-            <div id="accordion">
+            <div id="sampleAccordion">
                 <h3><a href="#">Section 1</a></h3>
                 <div>
                     <p>
@@ -304,7 +316,7 @@
             </div>
 
         </div>
-        <div id="tabs-8">
+        <div id="tree">
             <h2>Tree</h2>
             <div id="sampleTree">
                 <ul>
@@ -391,7 +403,7 @@
                 <li>Added fixes related to programmatic focus</li>
             </ul>
         </div>
-        <div id="tabs-9">
+        <div id="carousel">
             <h2>Carousel</h2>
             <h3 id="carouselId">My Favorite Flowers</h3>
             <div class="viewer">
@@ -416,9 +428,9 @@
                 <li>Made carousel items focusable and navigable</li>
             </ul>
         </div>
-        <div id="tabs-10">
+        <div id="tabs">
         <h2 id="tabsDemoLbl">Tabs</h2>
-        <div id="tabs-demo">
+        <div id="sampleTabs">
             <ul>
                 <li><a href="#tabsdemo-1">Dogs</a></li>
                 <li><a href="#tabsdemo-2">Cats</a></li>
@@ -456,7 +468,7 @@
                 <li>Added keyboard navigation for switching tabs using arrow keys</li>
             </ul>
         </div>
-        <div id="tabs-11">
+        <div id="tooltip">
           <h2>Tooltip</h2>
           <p><a href="#" title="That's what this widget is">Tooltips</a> can be attached to any element. When you hover
     the element with your mouse, the title attribute is displayed in a little box next to the element, just like a native tooltip.
@@ -487,7 +499,7 @@
 
         </div>
 
-        <div id="tabs-12">
+        <div id="autocomplete">
             <h2>Auto Complete</h2>
             <div class="ui-widget">
                 <label for="tags-1">Tags: </label>
@@ -506,7 +518,7 @@
             </ul>
         </div>
 
-        <div id="tabs-13">
+        <div id="panel">
             <h2>Panel</h2>
             <div id="panel1">
 			    <h3><a href="#">About JQuery</a></h3>
@@ -595,7 +607,7 @@
                 <li>Added ARIA markup and labeling</li>
             </ul>
         </div>
-        <div id="tabs-14">
+        <div id="datepicker">
             <h2>Datepicker</h2>
             <p><label for="datepicker1">Date:</label> <input type="text" id="datepicker1"></p>
         </div>
@@ -606,6 +618,7 @@
         </div>
         -->
     </div>
+    <!-- end tabs -->
     <div class="leftColumn">
         <h1>Source</h1>
         <p>Last updated: <strong id="timeStamp"></strong></p>
