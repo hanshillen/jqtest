@@ -117,7 +117,6 @@ $.widget("ui.dialog", {
 				})
 				.blur(function() {
 					uiDialogTitlebarClose.removeClass('ui-state-focus');
-					console.log("close blur");
 				})
 				.click(function(event) {
 					self.close(event);
