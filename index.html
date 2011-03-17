@@ -39,7 +39,7 @@
 </head>
 <body role="application">
 
-<div class="demo" role="application">
+<div class="demo">
     <h1 id="tabsLbl">JQuery Widget Samples</h1>
     <div id="demoTabs">
         <ul>
@@ -93,10 +93,10 @@
 
         <div id="progressbar">
            <h2>Progressbar</h2>
-           <a href="#" id="progressTrigger">Trigger Progressbar</a>
+           <button id="progressTrigger" onclick="console.log('miauw');">Trigger Progressbar</button>
            <br />
            <br />
-           <div id="progressDialog" class="demoWidget">
+           <div id="progressDialog">
                <div id='sampleProgressBar' class="demoWidget"></div>
            </div>
            <h3>Accessibility Changes Made to the <a href="before/jquery-ui/demos/progressbar/default.html" target="_blank">Original Progressbar</a>:</h3>
@@ -198,7 +198,7 @@
         <div id="button">
             <h2>Buttons</h2>
             <span id="toolbar" role="toolbar">
-                <button id="beginning" class="demoWidget" >go to beginning</button>
+                <button id="beginning" class="demoWidget" onclick="console.log('werkt het?');">go to beginning</button>
                 <button id="rewind" class="demoWidget">rewind</button>
                 <button id="play" class="demoWidget">play</button>
                 <button id="stop" class="demoWidget">stop</button>
@@ -222,7 +222,7 @@
         <div id="dialog">
             <h2>Dialog</h2>
             <a href="#" id="dialogTrigger">Trigger Dialog</a>
-            <div id="sampleDialog" title="My Sample Form!">
+            <div id="sampleDialog" title="My Sample Form">
                 <p id="dialogDescription">
                     Please enter your personal information
                 </p>

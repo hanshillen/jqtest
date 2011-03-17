@@ -8,7 +8,7 @@ $(function() {
     var months= ["January","February","March","April","May","June","July","August","September","October","November","December"];
     var lastMod = new Date(document.lastModified);
     $("#timeStamp").html(lastMod.getDate() + " " + months[lastMod.getMonth()] + " " + lastMod.getFullYear());
-
+    $(document.body).append($("<span id='statusUpdater' aria-live='polite' class='ui-helper-hidden-accessible'></span>"));
     // Allow tab to be selected through deep linking
     var selectedTabId = 0
     var query = document.location.search;
@@ -49,10 +49,12 @@ $(function() {
                     var btn = $(this);
                     if (btn.hasClass("enabled")) {
                         toggleEnabledInPanel(btn.closest(".ui-tabs-panel"), false);
+                        $("#statusUpdater").text(btn.text().replace(/disable/i, "") +  " disabled");
                         btn.toggleClass("enabled").button("option", "label", btn.text().replace(/Disable/i, "Enable"));
                     }
                     else {
                         toggleEnabledInPanel(btn.closest(".ui-tabs-panel"), true);
+                        $("#statusUpdater").text(btn.text().replace(/enable/i, "") +  " enabled");
                         btn.toggleClass("enabled").button("option", "label", btn.text().replace(/Enable/i, "Disable"));
                     }
 
@@ -62,11 +64,14 @@ $(function() {
                 var btn = $(this);
                 if (btn.hasClass("created")) {
                     destroyInPanel(btn.closest(".ui-tabs-panel"));
+                    $("#statusUpdater").text(btn.text().replace(/destroy/i, "") +  " destroyed");
                     btn.toggleClass("created").button("option", "label", btn.text().replace(/Destroy/i, "Create"));
                 }
                 else {
                     createTabPanelContents(btn.closest(".ui-tabs-panel"), true);
+                    $("#statusUpdater").text(btn.text().replace(/create/i, "") +  " created");
                     btn.toggleClass("created").button("option", "label", btn.text().replace(/Create/i, "Destroy"));
+
                 }
             }));
     });
@@ -287,9 +292,8 @@ $(function() {
                      value: 0,
                      labelledBy: "progressMsg"
                  });
-                if (!$("#progressMsg").length)
-                    progressBar.append("<p id='progressMsg'>Loading Files...</p>");
                 var progressDialog = $("#progressDialog")
+                .append("<p id='progressMsg' aria-live='true'>Loading Files...</p>")
                 .dialog({autoOpen : true,
                     modal : true,
                     title :  "progress",
@@ -301,7 +305,6 @@ $(function() {
                     if ($("#sampleProgressBar").progressbar('value') != 100)
                         return false;}
                 })
-                .append(progressBar);
 
                 var progressUpdater;
 

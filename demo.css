@@ -119,3 +119,7 @@ a:focus {
     height: 1px;
     overflow: hidden;
  }
+
+ a {
+    color: #000;
+ }
