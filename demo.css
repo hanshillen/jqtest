@@ -70,6 +70,17 @@ a:focus {
  	clear:both;
  }
 
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+    }
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
  .tpgLogo {
 	padding: 23px 0;
  }
@@ -92,3 +103,19 @@ a:focus {
 #panel1 {
     width: 50%;
 }
+
+.hiddenFieldset {
+    padding: 0;
+    border: 0;
+    border: none;
+    display: inline;
+}
+
+.hiddenFieldset legend{
+    position: absolute;
+    top: -10000px;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+ }

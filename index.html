@@ -96,8 +96,8 @@
            <a href="#" id="progressTrigger">Trigger Progressbar</a>
            <br />
            <br />
-           <div id="progressDialog">
-               <div id='sampleProgressBar'></div>
+           <div id="progressDialog" class="demoWidget">
+               <div id='sampleProgressBar' class="demoWidget"></div>
            </div>
            <h3>Accessibility Changes Made to the <a href="before/jquery-ui/demos/progressbar/default.html" target="_blank">Original Progressbar</a>:</h3>
            <ul>
@@ -107,7 +107,7 @@
         </div>
         <div id="menubar">
            <h2>Menubar</h2>
-           <ul class="menubar" aria-label="Sample Options">
+           <ul class="menubar demoWidget" aria-label="Sample Options">
                 <li><a href="#">File</a>
                     <ul aria-label="File">
                         <li><a href="#">Open...</a></li>
@@ -197,21 +197,22 @@
         </div>
         <div id="button">
             <h2>Buttons</h2>
-            <span id="toolbar" class="ui-widget-header ui-corner-all" role="toolbar">
-                <button id="beginning">go to beginning</button>
-                <button id="rewind">rewind</button>
-                <button id="play">play</button>
-                <button id="stop">stop</button>
-                <button id="forward">fast forward</button>
-                <button id="end">go to end</button>
+            <span id="toolbar" role="toolbar">
+                <button id="beginning" class="demoWidget" >go to beginning</button>
+                <button id="rewind" class="demoWidget">rewind</button>
+                <button id="play" class="demoWidget">play</button>
+                <button id="stop" class="demoWidget">stop</button>
+                <button id="forward" class="demoWidget">fast forward</button>
+                <button id="end" class="demoWidget">go to end</button>
 
-                <input type="checkbox" id="shuffle" /><label for="shuffle">Shuffle</label>
+                <input type="checkbox" id="shuffle" class="demoWidget" /><label for="shuffle">Shuffle</label>
 
-                <span id="repeat">
+                <fieldset class="hiddenFieldset" id="repeat">
+                    <legend>Repeat options</legend>
                     <input type="radio" id="repeat0" name="repeat" checked="checked" /><label for="repeat0">No Repeat</label>
                     <input type="radio" id="repeat1" name="repeat" /><label for="repeat1">Once</label>
                     <input type="radio" id="repeatall" name="repeat" /><label for="repeatall">All</label>
-                </span>
+                </fieldset>
             </span>
                         <h3>Accessibility Changes Made to the <a href="before/jquery-ui/demos/button/toolbar.html" target="_blank">original Button / Buttongroup</a></h3>
                         <ul>
@@ -221,7 +222,7 @@
         <div id="dialog">
             <h2>Dialog</h2>
             <a href="#" id="dialogTrigger">Trigger Dialog</a>
-            <div id="sampleDialog" title="My Sample Form">
+            <div id="sampleDialog" title="My Sample Form!">
                 <p id="dialogDescription">
                     Please enter your personal information
                 </p>
@@ -252,10 +253,10 @@
         <div id="checkbox">
             <h2>Checkbox</h2>
             <form>
-                <label><input type="checkbox" />Dogs</label>
-                <label><input type="checkbox" id="check2" />Cats</label>
-                <input type="checkbox" id="check3" /><label for="check3">Cows</label>
-                <input type="checkbox" id="check4" /><span><label for="check4">Bees</label></span>
+                <label><input type="checkbox" class="demoWidget"/>Dogs</label>
+                <label><input type="checkbox" id="check2" class="demoWidget" />Cats</label>
+                <input type="checkbox" id="check3" class="demoWidget" /><label for="check3">Cows</label>
+                <input type="checkbox" id="check4" class="demoWidget" /><span><label for="check4">Bees</label></span>
             </form>
             <h3>Accessibility Changes Made to the <a href="before/jquery-ui/demos/checkbox/default.html" target="_blank">Original Checkbox</a>:</h3>
             <ul>
@@ -264,7 +265,7 @@
         </div>
         <div id="accordion">
             <h2>Accordion</h2>
-            <div id="sampleAccordion">
+            <div id="sampleAccordion" class="demoWidget">
                 <h3><a href="#">Section 1</a></h3>
                 <div>
                     <p>
@@ -430,7 +431,7 @@
         </div>
         <div id="tabs">
         <h2 id="tabsDemoLbl">Tabs</h2>
-        <div id="sampleTabs">
+        <div id="sampleTabs" class="demoWidget">
             <ul>
                 <li><a href="#tabsdemo-1">Dogs</a></li>
                 <li><a href="#tabsdemo-2">Cats</a></li>
@@ -470,24 +471,21 @@
         </div>
         <div id="tooltip">
           <h2>Tooltip</h2>
-          <p><a href="#" title="That's what this widget is">Tooltips</a> can be attached to any element. When you hover
+          <p><a href="#" class="demoWidget" title="That's what this widget is">Tooltips</a> can be attached to any element. When you hover
     the element with your mouse, the title attribute is displayed in a little box next to the element, just like a native tooltip.
     </p>
-    <p>But as it's not a native tooltip, it can be styled. Any themes built with
-    <a href="http://themeroller.com" title="ThemeRoller, jQuery UI's theme builder application">ThemeRoller</a>
-    will also style tooltip's accordingly.</p>
     <p>Tooltip's are also useful for form elements, to show some additional information in the context of each field.</p>
-    <p><label for="age">Your age:</label><input id="age" title="We ask for your age only for statistical purposes." /></p>
+    <p><label for="age">Your age:</label><input class="demoWidget" id="age" title="We ask for your age only for statistical purposes." /></p>
     <p>Click the field to see the tooltip; when you tab out of the field, it gets hidden.</p>
 
 
 
         <div class="toggleTooltips">
             <div>
-                <img src="images/199481072_b4a0d09597_s.jpg" alt="My Favorite Flower" title="My Favorite Flower"/>
+                <img src="images/199481072_b4a0d09597_s.jpg" alt="My Favorite Flower" title="My Favorite Flower" class="demoWidget"/>
             </div>
             <div id="tooltipButtonAnchor">
-                <blockquote title="Attributed to Elbert Hubbard">The man who doesn't relax and hoot a few hoots voluntarily, now and then, is in great danger of hooting hoots
+                <blockquote  class="demoWidget" title="Attributed to Elbert Hubbard">The man who doesn't relax and hoot a few hoots voluntarily, now and then, is in great danger of hooting hoots
                 and standing on his head for the edification of the pathologist and trained nurse, a little later on.</blockquote>
             </div>
 
@@ -503,12 +501,12 @@
             <h2>Auto Complete</h2>
             <div class="ui-widget">
                 <label for="tags-1">Tags: </label>
-                <input id="tags-1" />
+                <input id="tags-1"  class="demoWidget"/>
             </div>
             <h3>Autocomplete with Multiple Values</h3>
             <div class="ui-widget">
 			    <label for="tags-2">Tag programming languages: </label>
-			    <input id="tags-2" size="50" />
+			    <input id="tags-2" size="50" class="demoWidget"/>
 			</div>
 			<h3>Accessibility Changes Made to Autocomplete:</h3>
             <ul>
@@ -520,7 +518,7 @@
 
         <div id="panel">
             <h2>Panel</h2>
-            <div id="panel1">
+            <div id="samplePanel" class="demoWidget">
 			    <h3><a href="#">About JQuery</a></h3>
 			    <div id="jq-intro" class="jq-clearfix">
                     <h4><span class="jq-jquery"><span>jQuery</span></span> is a new kind of JavaScript Library.</h4>
@@ -597,11 +595,6 @@
                     </div>
 			    </div>
 			</div>
-            <div style="margin-top: 15px;">
-				<button id="panel-icons">Icons</button>
-				<button id="panel-disable">Disable</button>
-				<button id="panel-destroy">Destroy</button>
-            </div>
             <h3>Accessibility Changes Made to the Panel:</h3>
             <ul>
                 <li>Added ARIA markup and labeling</li>
@@ -609,7 +602,7 @@
         </div>
         <div id="datepicker">
             <h2>Datepicker</h2>
-            <p><label for="datepicker1">Date:</label> <input type="text" id="datepicker1"></p>
+            <p><label for="datepicker1">Date:</label> <input type="text" id="datepicker1" class="demoWidget"></p>
         </div>
 
         <!--
