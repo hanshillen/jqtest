@@ -146,7 +146,52 @@ $.widget("ui.menubar", {
 
     destroy: function() {
         // TODO implement destroy
-        $.Widget.prototype.apply(this, arguments);
+        $.Widget.prototype.destroy.apply(this, arguments);
+        var self = this;
+
+        if (self.options.isMenuBar) {
+            this.element.unwrap();
+            this.element.find("ul").menubar("destroy");
+
+        }
+        this.element
+            .removeClass(self.options.isMenuBar ? "ui-menubar-nav ui-helper-reset ui-helper-clearfix": "ui-menu ui-widget ui-widget-content ui-helper-hidden")
+            .removeAttr("role")
+            .removeAttr("aria-activedescendant")
+            .removeClass( "ui-menu ui-widget ui-widget-content ui-corner-all" )
+            .removeAttr( "tabindex" )
+            .removeAttr( "aria-hidden" )
+            .removeAttr( "aria-expanded" )
+            ;
+
+
+        this.element.children( self.options.isMenuBar ? ".ui-menubar-item" : ".ui-menu-item" )
+            .removeClass( self.options.isMenuBar ? "ui-menubar-item" : "ui-menu-item" )
+            .removeAttr( "role" )
+            .children( "a" )
+            .removeClass( "ui-corner-all" )
+            .removeClass("ui-state-default")
+            .removeAttr( "tabIndex" )
+            .removeAttr( "aria-haspopup" )
+            .removeAttr( "aria-expanded" )
+            .removeAttr( "style" )
+            .removeAttr("role")
+            .removeAttr("tabindex")
+            .unbind()
+            .children(".ui-icon").remove()
+            .end()
+            .each(function() {
+                var wrapInnerSpan = $(this).children("span:eq(0)");
+                wrapInnerSpan.replaceWith(wrapInnerSpan.html());
+            })
+
+
+        if (self.options.isMenuBar) {
+            this.active = self.element.children(":first").eq(0);
+            self.element.find("ul").removeAttr('aria-hidden').removeAttr("style");
+        }
+
+        this.options.input.unbind();
     },
 
     refresh: function() {
@@ -208,7 +253,7 @@ $.widget("ui.menubar", {
                     menu.attr('aria-expanded', 'false');
 
                     if (isTopLevel)
-                        $(this).addClass("ui-state-default")
+                        $(this).addClass("ui-state-default");
                 }
             });
         }
