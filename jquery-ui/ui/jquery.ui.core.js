@@ -21,7 +21,7 @@ if ($.ui.version) {
 //Helper functions and ui object
 $.extend($.ui, {
 	version: "@VERSION",
-    
+
 	// $.ui.plugin is deprecated.  Use the proxy pattern instead.
 	plugin: {
 		add: function(module, option, set) {
@@ -128,7 +128,7 @@ $.fn.extend({
 			})
 			: this._focus.apply(this, arguments);
 	},
-	
+
 	enableSelection: function() {
 		return this
 			.attr('unselectable', 'off')
@@ -160,7 +160,7 @@ $.fn.extend({
 		if (zIndex !== undefined) {
 			return this.css('zIndex', zIndex);
 		}
-		
+
 		if (this.length) {
 			var elem = $(this[0]), position, value;
 			while (elem.length && elem[0] !== document) {
@@ -215,6 +215,23 @@ $.extend($.expr[':'], {
 
 //Initialize high-contrast mode check when we have document.body
 $(function() {
+    var e,c;
+    //Create a test div
+    e=document.createElement("div");
+    //Set its color style to something unusual
+    e.style.color="rgb(31,41,59)";
+    //Attach to body so we can inspect it
+    document.body.appendChild(e);
+    //Use standard means if available, otherwise use the IE methods
+    c=document.defaultView?document.defaultView.getComputedStyle(e,null).color:e.currentStyle.color;
+    //Delete the test DIV
+    document.body.removeChild(e);
+    //get rid of extra spaces in result
+    c=c.replace(/ /g,"");
+    //Check if we got back what we set
+    //If not we are in high contrast mode
+    $.support.highContrast = c!="rgb(31,41,59)";
+    /*
     // create div for testing if high contrast mode is on or images are turned off
     var div = document.createElement("div");
     // The ui-icon class will give it a background image.
@@ -237,9 +254,12 @@ $(function() {
     } else {
         document.body.removeChild(div);
     }
+    */
+
     if ($.support.highContrast) {
         $("body").addClass("high-contrast");
     }
+
 });
 
 
