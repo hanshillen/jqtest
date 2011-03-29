@@ -1,6 +1,6 @@
 /*
  * jQuery UI Menu @VERSION
- * 
+ *
  * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
  * Dual licensed under the MIT or GPL Version 2 licenses.
  * http://jquery.org/license
@@ -12,7 +12,7 @@
  *	jquery.ui.widget.js
  */
 (function($) {
-	
+
 var idIncrement = 0;
 
 $.widget("ui.menu", {
@@ -23,7 +23,7 @@ $.widget("ui.menu", {
 			.addClass( "ui-menu ui-widget ui-widget-content ui-corner-all" )
 			.attr({
 				id: this.menuId,
-				role: "listbox"
+				role: "menu"
 			})
 			.bind( "click.menu", function( event ) {
 				if ( self.options.disabled ) {
@@ -55,7 +55,7 @@ $.widget("ui.menu", {
 				}
 			});
 		this.refresh();
-		
+
 		if ( !this.options.input ) {
 			this.options.input = this.element.attr( "tabIndex", 0 );
 		}
@@ -92,14 +92,14 @@ $.widget("ui.menu", {
 			}
 		});
 	},
-	
+
 	_destroy: function() {
 		this.element
 			.removeClass( "ui-menu ui-widget ui-widget-content ui-corner-all" )
 			.removeAttr( "tabIndex" )
 			.removeAttr( "role" )
 			.removeAttr( "aria-activedescendant" );
-		
+
 		this.element.children( ".ui-menu-item" )
 			.removeClass( "ui-menu-item" )
 			.removeAttr( "role" )
@@ -108,13 +108,13 @@ $.widget("ui.menu", {
 			.removeAttr( "tabIndex" )
 			.unbind( ".menu" );
 	},
-	
+
 	refresh: function() {
 		// don't refresh list items that are already adapted
 		var items = this.element.children( "li:not(.ui-menu-item):has(a)" )
 			.addClass( "ui-menu-item" )
 			.attr( "role", "menuitem" );
-		
+
 		items.children( "a" )
 			.addClass( "ui-corner-all" )
 			.attr( "tabIndex", -1 );
@@ -145,7 +145,7 @@ $.widget("ui.menu", {
 			.end();
 		// need to remove the attribute before adding it for the screenreader to pick up the change
 		// see http://groups.google.com/group/jquery-a11y/msg/929e0c1e8c5efc8f
-		this.element.removeAttr("aria-activedescenant").attr("aria-activedescenant", self.itemId);
+		this.element.removeAttr("aria-activedescendant").attr("aria-activedescendant", self.itemId);
 		this._trigger( "focus", event, { item: item } );
 	},
 
@@ -191,7 +191,7 @@ $.widget("ui.menu", {
 			this.activate( event, this.element.children(edge)[filter]() );
 		}
 	},
-	
+
 	nextPage: function( event ) {
 		if ( this._hasScroll() ) {
 			if ( !this.active || this.last() ) {

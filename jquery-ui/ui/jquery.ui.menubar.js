@@ -136,6 +136,10 @@ $.widget("ui.menubar", {
                 }
                 else {
                     //switch main menus
+                rootItem = $(event.target).closest(".ui-widget");
+                if (rootItem.length) {
+                rootItem.next().attr("tabindex", "-1").focus();
+                } // if found top of this widget
                 }
                 event.preventDefault();
                 event.stopImmediatePropagation();
