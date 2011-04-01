@@ -2,16 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>JsTree-A11y Demo</title>
-    <script type="text/javascript" src="_lib/jquery.js"></script>
-    <script type="text/javascript" src="_lib/jquery.cookie.js"></script>
-    <script type="text/javascript" src="_lib/jquery.hotkeys.js"></script>
+    <script type="text/javascript" src="lib/jquery.js"></script>
+    <script type="text/javascript" src="lib/jquery.cookie.js"></script>
+    <script type="text/javascript" src="lib/jquery.hotkeys.js"></script>
     <script type="text/javascript" src="jquery.jstree.js"></script>
     <style type="text/css"></style>
     <script type="text/javascript">
     $(function() {
         $('#sampleTree1').jstree();
         $('#sampleTree2').jstree({plugins : ["themes", "html_data", "ui", "hotkeys"]});
-        
+
         $(".jstree-closed > a")
             .attr("aria-expanded", "false");
         $(".jstree-open > a")
