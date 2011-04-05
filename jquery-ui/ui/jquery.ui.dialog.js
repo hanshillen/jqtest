@@ -120,16 +120,119 @@ $.widget("ui.dialog", {
             uiDialogTitlebar = ( self.uiDialogTitlebar = $( "<div>" ) )
                 .addClass( "ui-dialog-titlebar  ui-widget-header  " +
                     "ui-corner-all  ui-helper-clearfix" )
-                .prependTo( uiDialog ),
+                .prependTo( uiDialog );
+        
+        var uiDialogToolbar = $("<div class='ui-dialog-toolbar'></div>")
+            .appendTo(uiDialogTitlebar);
+        
+        var uiDialogTitlebarResize = !options.resizable ? null : 
+            $("<a href='#' title='resize' class='ui-dialog-toolbarbutton ui-dialog-titlebar-resize ui-corner-all'>" +
+                    "<span class='ui-icon ui-icon-arrowthick-2-se-nw'>Resize Dialog with arrow keys</span>" +
+                "</a>")
+        .click(function(){return false;})
+        .keydown(function(event) {
+            if (jQuery.inArray(event.keyCode, [37, 38, 39, 40]) == -1)
+                return true; //only interested in arrow keys
+            var resizeHandle = self.uiDialog.find(".ui-resizable-se");
+            if (resizeHandle.length == 0)
+                return;
+            var offset = resizeHandle.offset();
+            var increment = event.ctrlKey ? 100 : (event.shiftKey ? 1 : 20);
+            var overEvent, downEvent, moveEvent1, moveEvent2, upEvent;
+            // simulate mouse events to trigger resize action
+            overEvent = new $.Event("mouseover");
+            downEvent = new $.Event("mousedown");
+            moveEvent1 = new $.Event("mousemove");
+            moveEvent2 = new $.Event("mousemove"); //only second move event leads to actual resize 
+            upEvent = new $.Event("mouseup");
+            overEvent.pageX = downEvent.pageX = moveEvent1.pageX = 
+                moveEvent2.pageX = upEvent.pageX = offset.left;
+            overEvent.pageY = downEvent.pageY = moveEvent1.pageY = 
+                moveEvent2.pageY = upEvent.pageY = offset.top;
+            downEvent.which = upEvent.which = 1;
+            // prevents drag from being canceled for IE in _mouseMove:
+            moveEvent1.button = moveEvent2.button = 1; 
+            
+            switch (event.keyCode) {
+                case 37: //left
+                    moveEvent1.pageX = moveEvent2.pageX = upEvent.pageX = downEvent.pageX - increment;
+                    break;
+                case 38: //up
+                    moveEvent1.pageY = moveEvent2.pageY = upEvent.pageY = downEvent.pageY - increment;
+                    break;
+                case 39: //right
+                    moveEvent1.pageX = moveEvent2.pageX = upEvent.pageX = downEvent.pageX + increment;
+                    break;
+                case 40: //down
+                    moveEvent1.pageY = moveEvent2.pageY = upEvent.pageY = downEvent.pageY + increment;
+                    break;
+            }
+            resizeHandle.trigger(overEvent);
+            resizeHandle.trigger(downEvent);
+            resizeHandle.trigger(moveEvent1);
+            resizeHandle.trigger(moveEvent2);
+            resizeHandle.trigger(upEvent);
+            event.stopPropagation();
+            return false;
+        })
+        .appendTo(uiDialogToolbar);     
+        this._hoverable(uiDialogTitlebarResize);
+        this._focusable(uiDialogTitlebarResize);
+        
+        var uiDialogTitlebarMove = !options.draggable ? null : 
+            $("<a href='#' title='move' class='ui-dialog-toolbarbutton ui-dialog-titlebar-move ui-corner-all'>" +
+                    "<span class='ui-icon ui-icon-arrow-4'>Move Dialog with arrow keys</span>" +
+                "</a>")
+        .click(function(){return false;})
+        .keydown(function(event) {
+            
+            if (jQuery.inArray(event.keyCode, [37, 38, 39, 40]) == -1)
+                return true;
+            var offset = self.uiDialogTitlebar.offset();
+            var increment = event.ctrlKey ? 100 : (event.shiftKey ? 1 : 20);
+            // simulate mouse events to trigger drag action
+            var downEvent, moveEvent, upEvent;
+            downEvent = new $.Event("mousedown");
+            moveEvent = new $.Event("mousemove");
+            upEvent = new $.Event("mouseup");
+            downEvent.pageX = moveEvent.pageX = upEvent.pageX = offset.left;
+            downEvent.pageY = moveEvent.pageY = upEvent.pageY = offset.top;
+            downEvent.which = upEvent.which = 1;
+            // prevents drag from being canceled for IE in _mouseMove:
+            moveEvent.button = 1;
+            switch (event.keyCode) {
+                case 37: //left
+                    moveEvent.pageX = upEvent.pageX = moveEvent.pageX - increment;
+                    break;
+                case 38: //up
+                    moveEvent.pageY = upEvent.pageY = moveEvent.pageY - increment;
+                    break;
+                case 39: //right
+                    moveEvent.pageX = upEvent.pageX = moveEvent.pageX + increment;
+                    break;
+                case 40: //down
+                    moveEvent.pageY = upEvent.pageY = moveEvent.pageY + increment;
+                    break;
+            }
 
-            uiDialogTitlebarClose = $( "<a href='#'></a>" )
-                .addClass( "ui-dialog-titlebar-close  ui-corner-all" )
-                .attr( "role", "button" )
-                .click(function( event ) {
-                    event.preventDefault();
-                    self.close( event );
-                })
-                .appendTo( uiDialogTitlebar ),
+            self.uiDialogTitlebar.trigger(downEvent);
+            self.uiDialogTitlebar.trigger(moveEvent);
+            //self.uiDialogTitlebar.trigger(upEvent);
+            event.stopPropagation();
+            return false;
+        })
+        .appendTo(uiDialogToolbar); 
+        this._hoverable(uiDialogTitlebarMove);
+        this._focusable(uiDialogTitlebarMove);
+        
+        var uiDialogTitlebarClose = $( "<a href='#'></a>" )
+            .addClass( "ui-dialog-toolbarbutton ui-dialog-titlebar-close  ui-corner-all" )
+            .attr( "role", "button" )
+            .click(function( event ) {
+                event.preventDefault();
+                self.close( event );
+            })
+            .appendTo( uiDialogToolbar );
 
             uiDialogTitlebarCloseText = ( self.uiDialogTitlebarCloseText = $( "<span>" ) )
                 .addClass( "ui-icon ui-icon-closethick" )
