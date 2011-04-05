@@ -226,7 +226,7 @@ $.widget( "ui.slider", $.ui.mouse, {
         var ariaDefaults = {
             role: 'slider',
             "aria-valuemin": this.options.min, 
-            "aria-valuemax": this.options.max,
+            "aria-valuemax": this.options.max
         };
         
         if (this.handles.length > 1) {
