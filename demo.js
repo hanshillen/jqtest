@@ -13,7 +13,7 @@ $(function() {
     var selectedTabId = 0
     var query = document.location.search;
     if (query) {
-        var match = query.match("(\\?|&)tabId=([^&]+)(\\&|$)");
+        var match = query.match(/(\\?|&)tabId=([^&]+)(\\&|$)/i);
         if (match && match[2]) {
             if (!isNaN(match[2]))
                 selectedTabId = match[2];
@@ -270,7 +270,7 @@ $(function() {
                 .position({
                     my: myAlign + " bottom",
                     at : atAlign + " top",
-                    of: ui.handle,
+                    of: ui.handle
                     })
                 .text("$" + ui.value);
             return;
@@ -287,6 +287,7 @@ $(function() {
     function createProgressBars(panel) {
         $(panel).find('#progressTrigger').button()
             .click(function() {
+                $("#progressMsg").remove();
                 var progressBar = $("#sampleProgressBar")
                 .progressbar({
                      value: 0,
@@ -395,6 +396,10 @@ $(function() {
 
     function createDialog(panel) {
         $("#sampleDialog").dialog({
+            draggable : true,
+            resizable : true,
+            minHeight: 350,
+            minWidth: 270,
             close : function(e){
                 $('#dialogTrigger').focus()
                 }
