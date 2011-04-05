@@ -37,6 +37,8 @@ $(function() {
 
     $('#demoTabs').bind('tabsshow', function(event, ui) {
         createTabPanelContents($(ui.panel));
+        if ($(ui.panel).attr("id") != "tooltip" && loadedWidgets["tooltip"])
+            $(".toggleTooltips :ui-tooltip").tooltip("close");
     });
 
     $('#demoTabs > .ui-tabs-panel').each(function() {
@@ -113,7 +115,7 @@ $(function() {
                 break;
             case "tooltip":
                 autoCreateInPanel(panel);
-                $("<button id='tooltipToggler'/>").text("Trigger tooltips for static elements").button().toggle(function() {
+                $("<button id='tooltipToggler'/>").text("Toggle tooltips for static elements").button().toggle(function() {
                     $(".toggleTooltips :ui-tooltip").tooltip("open");
                 }, function() {
                     $(".toggleTooltips :ui-tooltip").tooltip("close");
