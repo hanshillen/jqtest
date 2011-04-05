@@ -98,7 +98,21 @@ $(function() {
                 createButtons(panel);
                 break;
             case "menubar":
-                $(".menubar").menubar({isMenuBar : true});
+                $("#sampleMenubar").menubar({isMenuBar : true});
+                //VERY experimental: Moving focus back when accessing menu by shortcut
+                $(document).bind("keyup", function(event){
+                 if (event.keyCode == 77 & event.shiftKey && event.altKey) {
+                     if (event.target.nodeType != 1 || !$(event.target).is(":focusable"))
+                         $("#sampleMenubar").data("returnFocusTo", null)
+                     else 
+                         $("#sampleMenubar").data("returnFocusTo", event.target)
+                    var tabId = $.inArray("menubar", widgetNames);
+                    if (tabId != -1) { 
+                        $("#demoTabs").tabs("select", tabId);
+                        $("#sampleMenubar").find("a[tabindex=0]").get(0).focus();
+                    }
+                 }
+                })
                 break;
             case "dialog":
                 createDialog(panel);

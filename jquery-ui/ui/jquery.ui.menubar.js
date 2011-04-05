@@ -39,8 +39,7 @@ $.widget("ui.menubar", {
         if (!this.options.input) {
             this.options.input = this.element;//.attr("tabindex", 0);
         }
-
-        this.options.input.bind("keydown.menubar", function(event) {
+        this.element.bind("keydown.menubar", function(event) {
             var subMenu, parentMenu, rootItem, newItem;
             switch (event.keyCode) {
             case $.ui.keyCode.PAGE_UP:
@@ -122,11 +121,6 @@ $.widget("ui.menubar", {
                     event.stopImmediatePropagation();
                 }
                 break;
-            case $.ui.keyCode.ENTER:
-                self.select(event);
-                event.preventDefault();
-                event.stopImmediatePropagation();
-                break;
 
             case $.ui.keyCode.ESCAPE:
                 parentMenu = $(event.target).closest(".ui-menu")
@@ -146,6 +140,15 @@ $.widget("ui.menubar", {
                 break;
             }
         });
+        if (self.options.isMenuBar) {
+            this.element.bind("keydown.menubar", function(event) {
+                if (event.keyCode == $.ui.keyCode.ENTER) {
+                    self.select(event);
+                    event.preventDefault();
+                    event.stopImmediatePropagation();
+                }
+            });
+        }
     },
 
     destroy: function() {
@@ -483,9 +486,14 @@ $.widget("ui.menubar", {
     },
 
     select: function( event ) {
-        this._trigger("select", event, { item: this.active });
         var rootItem = $(event.target).closest(".ui-menubar-item");
-        rootItem.parent().menubar("activate", event, rootItem);
+        this._trigger("select", event, { item: this.active });
+        var returnFocusTo = this.element.data("returnFocusTo");
+        var noFocusReset = false;
+        if (returnFocusTo && $(returnFocusTo).is(":focusable")) {
+            try { returnFocusTo.focus(); noFocusReset = true;}catch(e) {}; 
+        }
+        rootItem.parent().menubar("activate", event, rootItem, noFocusReset);
         $(".ui-menu").menubar("hide");
     }
 });
