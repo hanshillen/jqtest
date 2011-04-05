@@ -46,18 +46,33 @@
 ----------------------------------*/
 .ui-menubar { position: relative; zoom: 1; } /* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
 .ui-menubar .ui-menubar-nav { margin: 0; padding: .1em .1em 0; }
-.ui-menubar .ui-menubar-nav li { list-style: none; float: left; position: relative; border-bottom: 0 !important; padding: 0; white-space: nowrap; }
-.ui-menubar .ui-menubar-nav li a { float: left; padding: .1em 1em; text-decoration: none; font-weight: normal}
+.ui-menubar .ui-menubar-nav li { list-style: none; position: relative; border-bottom: 0 !important; padding: 0;}
+.ui-menubar .ui-menubar-nav .ui-menubar-item a { padding: .1em 1em; text-decoration: none; font-weight: normal}
+.ui-menubar .ui-menubar-nav .ui-menu-item a {display: block;}
+
+
+
 .ui-menubar .ui-menubar-nav li.ui-menubar-selected { margin-bottom: 0; padding-bottom: 1px; }
 .ui-menubar .ui-menubar-nav li.ui-menubar-selected a, .ui-menubar .ui-menubar-nav li.ui-state-disabled a, .ui-menubar .ui-menubar-nav li.ui-state-processing a { cursor: text; }
 .ui-menubar .ui-menubar-nav li a, .ui-menubar.ui-menubar-collapsible .ui-menubar-nav li.ui-menubar-selected a { cursor: pointer; } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
 .ui-menubar .ui-menubar-panel { display: block; border-width: 0; padding: 1em 1.4em; background: none; }
 .ui-menubar .ui-menubar-hide { display: none !important; }
 
-.ui-menubar .ui-menubar-nav li a span {float: left}
-.ui-menubar .ui-menubar-nav li a .ui-icon {float: right}
-.ui-menu {width: 11em;}
-.ui-menu a {width: 9em;}
+
+.ui-menubar .ui-menubar-nav .ui-menubar-item {float: left;}
+.ui-menubar .ui-menubar-nav .ui-menubar-item a { float: left;} 
+.ui-menubar .ui-menubar-nav .ui-menubar-item a span {float: left}
+.ui-menubar .ui-menubar-nav .ui-menubar-item a .ui-icon {float: right}
+
+.ui-menubar .ui-menubar-nav .ui-menubar-item .ui-menu-item {float: none;}
+.ui-menubar .ui-menubar-nav .ui-menubar-item .ui-menu-item a { float: none;}
+.ui-menubar .ui-menubar-nav .ui-menubar-item .ui-menu-item a span {float: none;}
+.ui-menubar .ui-menubar-nav .ui-menubar-item .ui-menu-item a .ui-icon {position: absolute; right: 2px; top: .3em}
+
+
+
+.ui-menubar-item .ui-menu {width: 20em}
+.ui-menu a {display: block;}
 
 .high-contrast .ui-menu .ui-icon, .high-contrast .ui-menubar .ui-icon {
     text-indent: 0px;
