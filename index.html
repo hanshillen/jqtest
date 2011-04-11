@@ -10,8 +10,8 @@
 <script type="text/javascript" src="jquery-ui/ui/jquery.ui.tabs.js"></script>
 <script type="text/javascript" src="jquery-ui/ui/jquery.ui.position.js"></script>
 <script type="text/javascript" src="jquery-ui/ui/jquery.ui.button.js"></script>
-
-<script type="text/javascript" src="jquery-ui/ui/jquery.ui.menubar.js"></script>
+<script type="text/javascript" src="jquery-ui/ui/jquery.ui.menu.js"></script>
+<script type="text/javascript" src="jquery-ui/tests/visual/menu/menubar.js"></script>
 <script type="text/javascript" src="jquery-ui/ui/jquery.ui.mouse.js"></script>
 <script type="text/javascript" src="jquery-ui/ui/jquery.ui.slider.js"></script>
 <script type="text/javascript" src="jquery-ui/ui/jquery.ui.progressbar.js"></script>
@@ -34,518 +34,601 @@
 <link rel="stylesheet" type="text/css" href="demo.css" />
 <link rel="stylesheet" type="text/css" href="jcarousel/skins/tango/skin.css" />
 
+
+	<style type="text/css">
+		body { font-size:62.5%; }
+		#bar1, #bar2 { margin: 0 0 4em; } /* style for this page only */
+		.ui-menu { width: 200px; position: absolute; outline: none; z-index: 9999; }
+		.ui-menu .ui-icon { float: right; }
+		.ui-menu li.ui-state-disabled {
+			font-weight: bold;
+			padding: .0em .4em;
+			margin: .4em 0 .2em;
+			line-height: 1.5;
+		}
+		
+		/* menubar styles */
+		.ui-menubar .ui-button { float: left; font-weight: normal; border-top-width: 0 !important; border-bottom-width: 0 !important; margin: 0; outline: none; }
+		.ui-menubar .ui-menubar-link { border-right: 1px dashed transparent; border-left: 1px dashed transparent; }
+		
+		ol.ui-menubar, ul.ui-menubar {
+			list-style: none;
+			margin-left: 0;
+			padding-left: 0;	
+		}
+		
+		li.ui-menubar-item {
+			float: left;  		
+		}
+		
+		
+		table {
+			border-collapse: collapse;
+		}
+		th, td {
+			padding: 0.5em;
+			border: 1px solid black;
+		}
+ 	</style>
+
 </head>
 <body>
 
 <div class="demo">
-    <h1 id="tabsLbl">Accessible jQuery-ui Components Demonstration</h1>
-    <div id="demoTabs">
-        <ul>
-            <li><a href="#slider">Slider</a></li>
-            <li><a href="#progressbar">Progress bar</a></li>
-            <li><a href="#menubar">Menubar</a></li>
-            <li><a href="#button">Buttons</a></li>
-            <li><a href="#dialog">Dialog</a></li>
-            <li><a href="#checkbox">Checkbox</a></li>
-            <li><a href="#accordion">Accordion</a></li>
-            <li><a href="#tree">Tree</a></li>
-            <li><a href="#carousel">Carousel</a></li>
-            <li><a href="#tabs">Tabs</a></li>
-            <li><a href="#tooltip">Tooltip</a></li>
-            <li><a href="#autocomplete">Autocomplete </a></li>
-            <li><a href="#panel">Panel</a></li>
-            <li><a href="#datepicker">Datepicker</a></li>
-            <!-- <li><a href="#tabs-14">Select Menu</a></li>-->
-        </ul>
-        <div id="slider">
-            <h2>Slider</h2>
-            <h3>Single Slider</h3>
-            <label for="txt1">Price:</label>
-            <div style="padding: 25px;">
-	            <span id="slider1Val" class="sliderValue"></span>
-	            <div id="singleSlider1" class="demoWidget"></div>
+	<h1 id="tabsLbl">Accessible jQuery-ui Components Demonstration</h1>
+	<div id="demoTabs">
+		<ul>
+			<li><a href="#slider">Slider</a></li>
+			<li><a href="#progressbar">Progress bar</a></li>
+			<li><a href="#menubar">Menubar</a></li>
+			<li><a href="#button">Buttons</a></li>
+			<li><a href="#dialog">Dialog</a></li>
+			<li><a href="#checkbox">Checkbox</a></li>
+			<li><a href="#accordion">Accordion</a></li>
+			<li><a href="#tree">Tree</a></li>
+			<li><a href="#carousel">Carousel</a></li>
+			<li><a href="#tabs">Tabs</a></li>
+			<li><a href="#tooltip">Tooltip</a></li>
+			<li><a href="#autocomplete">Autocomplete </a></li>
+			<li><a href="#panel">Panel</a></li>
+			<li><a href="#datepicker">Datepicker</a></li>
+			<!-- <li><a href="#tabs-14">Select Menu</a></li>-->
+		</ul>
+		<div id="slider">
+			<h2>Slider</h2>
+			<h3>Single Slider</h3>
+			<label for="txt1">Price:</label>
+			<div style="padding: 25px;">
+				<span id="slider1Val" class="sliderValue"></span>
+				<div id="singleSlider1" class="demoWidget"></div>
 				<input id="txt1"  type="text" class="fallback"/>
 			</div>
-            <h3>Range Slider</h3>
-            <p>Price range:</p>
+			<h3>Range Slider</h3>
+			<p>Price range:</p>
 
-            <div class="ui-helper-clearfix">
-                <span class="sliderValue" id="slider2ValMin"></span>
-                <span class="sliderValue" id="slider2ValMax"></span>
-                <div id="rangeSlider1" class="demoWidget"></div>
-            </div>
+			<div class="ui-helper-clearfix">
+				<span class="sliderValue" id="slider2ValMin"></span>
+				<span class="sliderValue" id="slider2ValMax"></span>
+				<div id="rangeSlider1" class="demoWidget"></div>
+			</div>
 			<div class="fallback">
-			     <label for="txt2">Price range minimum:</label>
-			     <input id="txt2" type="text" />
-			     <label for="txt3">Price range Maximum:</label>
-			     <input id="txt3" type="text" />
+				 <label for="txt2">Price range minimum:</label>
+				 <input id="txt2" type="text" />
+				 <label for="txt3">Price range Maximum:</label>
+				 <input id="txt3" type="text" />
 			 </div>
 
-            <h3>Accessibility Changes Made to the <a href="before/jquery-ui/demos/slider/default.html" target="_blank">Original Slider</a>:</h3>
-            <ul>
-                <li>Added ARIA markup so role, name &amp; state information is exposed</li>
-                <li>Added keyboard support</li>
-                <li>Support for Double Slider labeling      </li>
-            </ul>
-        </div>
+			<h3>Accessibility Changes Made to the <a href="before/jquery-ui/demos/slider/default.html" target="_blank">Original Slider</a>:</h3>
+			<ul>
+				<li>Added ARIA markup so role, name &amp; state information is exposed</li>
+				<li>Added keyboard support</li>
+				<li>Support for Double Slider labeling	  </li>
+			</ul>
+		</div>
 
-        <div id="progressbar">
-           <h2>Progressbar</h2>
-           <button id="progressTrigger">Trigger Progressbar</button>
-           <br />
-           <br />
-           <div id="progressDialog">
-               <div id='sampleProgressBar' class="demoWidget"></div>
-           </div>
-           <h3>Accessibility Changes Made to the <a href="before/jquery-ui/demos/progressbar/default.html" target="_blank">Original Progressbar</a>:</h3>
-           <ul>
-            <li>Added support for high contrast mode</li>
-            <li>Added ARIA markup for role &amp; state information</li>
-            </ul>
-        </div>
-        <div id="menubar">
-           <h2>Menubar</h2>
-           <ul id="sampleMenubar" class="demoWidget" aria-label="Sample Options">
-                <li><a href="#">File</a>
-                    <ul aria-label="File">
-                        <li><a href="#">Open...</a></li>
-                        <li><a href="#">Save</a></li>
-                        <li><a href="#">Save as...</a></li>
-                        <li><a href="#">Recent Documents</a>
-                            <ul>
-                                <li><a href="#">Document 1</a></li>
-                                <li><a href="#">Document 2</a></li>
-                                <li><a href="#">Document 3</a></li>
-                                <li><a href="#">Continuous Web Accessibility Monitoring</a></li>
-                                <li><a href="#">Multimedia Transcription and Captioning</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Close</a></li>
-                        <li><a href="#">Quit</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Edit</a>
-                    <ul aria-label="Edit">
-                        <li><a href="#">Copy</a></li>
-                        <li><a href="#">Cut</a></li>
-                        <li><a href="#">Paste</a></li>
-                        <li><a href="#">Options</a>
-                            <ul>
-                                <li><a href="#">Sub Options</a>
-                                    <ul>
-                                        <li><a href="#">Sub Option 1</a></li>
-                                        <li><a href="#">Sub Option 2</a></li>
-                                        <li><a href="#">Sub Option 3</a></li>
-                                        <li><a href="#">Sub Option 4</a></li>
-                                        <li><a href="#">Sub Option 5</a></li>
-                                        <li><a href="#">Sub Option 6</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Option 1</a></li>
-                                <li><a href="#">Option 2</a></li>
-                                <li><a href="#">Option 3</a></li>
-                                <li><a href="#">More Options</a>
-                                    <ul>
-                                        <li><a href="#">Sub Option 1</a></li>
-                                        <li><a href="#">Sub Option 2</a></li>
-                                        <li><a href="#">Sub Option 3</a></li>
-                                        <li><a href="#">Sub Option 4</a></li>
-                                        <li><a href="#">Sub Option 5</a></li>
-                                        <li><a href="#">Sub Option 6</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Option 4</a></li>
-                                <li><a href="#">Option 5</a></li>
-                                <li><a href="#">Option 6</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">View</a>
-                    <ul aria-label="View">
-                        <li><a href="#">Fullscreen</a></li>
-                        <li><a href="#">Fit into view</a></li>
-                        <li><a href="#">Customize</a>
-                            <ul>
-                                <li><a href="#">480 x 640</a></li>
-                                <li><a href="#">800 x 600</a></li>
-                                <li><a href="#">1024 x 768</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="#">More Options</a>
-                    <ul aria-label="More options">
-                        <li><a href="#">Sub Option 1</a></li>
-                        <li><a href="#">Sub Option 2</a></li>
-                        <li><a href="#">Sub Option 3</a></li>
-                        <li><a href="#">Sub Option 4</a></li>
-                        <li><a href="#">Sub Option 5</a></li>
-                        <li><a href="#">Sub Option 6</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <h3>Accessibility Changes Made to the Menubar (no original version):</h3>
-            <ul>
-                <li>Added ARIA markup so role, name &amp; state information is exposed</li>
-                <li>Added keyboard navigation support</li>
-                <li>Added high contrast mode support</li>
-            </ul>
-        </div>
-        <div id="button">
-            <h2>Buttons</h2>
-            <span id="toolbar" role="toolbar">
-                <button id="beginning" class="demoWidget">go to beginning</button>
-                <button id="rewind" class="demoWidget">rewind</button>
-                <button id="play" class="demoWidget">play</button>
-                <button id="stop" class="demoWidget">stop</button>
-                <button id="forward" class="demoWidget">fast forward</button>
-                <button id="end" class="demoWidget">go to end</button>
+		<div id="progressbar">
+		   <h2>Progressbar</h2>
+		   <button id="progressTrigger">Trigger Progressbar</button>
+		   <br />
+		   <br />
+		   <div id="progressDialog">
+			   <div id='sampleProgressBar' class="demoWidget"></div>
+		   </div>
+		   <h3>Accessibility Changes Made to the <a href="before/jquery-ui/demos/progressbar/default.html" target="_blank">Original Progressbar</a>:</h3>
+		   <ul>
+			<li>Added support for high contrast mode</li>
+			<li>Added ARIA markup for role &amp; state information</li>
+			</ul>
+		</div>
+		<div id="menubar">
+		   <h2>Menubar</h2>
+		   <h3>Built from &lt;ul&gt; element:</h3>
+		   <ul id="sampleMenubar" class="myTest demoWidget" aria-label="Sample Options">
+				<li><a href="#">File</a>
+					<ul aria-label="File">
+						<li><a href="#">Open...</a></li>
+						<li><a href="#">Save</a></li>
+						<li><a href="#">Save as...</a></li>
+						<li><a href="#">Recent Documents</a>
+							<ul>
+								<li><a href="#">Document 1</a></li>
+								<li><a href="#">Document 2</a></li>
+								<li><a href="#">Document 3</a></li>
+								<li><a href="#">Continuous Web Accessibility Monitoring</a></li>
+								<li><a href="#">Multimedia Transcription and Captioning</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Close</a></li>
+						<li><a href="#">Quit</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">Edit</a>
+					<ul aria-label="Edit">
+						<li><a href="#">Copy</a></li>
+						<li><a href="#">Cut</a></li>
+						<li><a href="#">Paste</a></li>
+						<li><a href="#">Options</a>
+							<ul>
+								<li><a href="#">Sub Options</a>
+									<ul>
+										<li><a href="#">Sub Option 1</a></li>
+										<li><a href="#">Sub Option 2</a></li>
+										<li><a href="#">Sub Option 3</a></li>
+										<li><a href="#">Sub Option 4</a></li>
+										<li><a href="#">Sub Option 5</a></li>
+										<li><a href="#">Sub Option 6</a></li>
+									</ul>
+								</li>
+								<li><a href="#">Option 1</a></li>
+								<li><a href="#">Option 2</a></li>
+								<li><a href="#">Option 3</a></li>
+								<li><a href="#">More Options</a>
+									<ul>
+										<li><a href="#">Sub Option 1</a></li>
+										<li><a href="#">Sub Option 2</a></li>
+										<li><a href="#">Sub Option 3</a></li>
+										<li><a href="#">Sub Option 4</a></li>
+										<li><a href="#">Sub Option 5</a></li>
+										<li><a href="#">Sub Option 6</a></li>
+									</ul>
+								</li>
+								<li><a href="#">Option 4</a></li>
+								<li><a href="#">Option 5</a></li>
+								<li><a href="#">Option 6</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">View</a>
+					<ul aria-label="View">
+						<li><a href="#">Fullscreen</a></li>
+						<li><a href="#">Fit into view</a></li>
+						<li><a href="#">Customize</a>
+							<ul>
+								<li><a href="#">480 x 640</a></li>
+								<li><a href="#">800 x 600</a></li>
+								<li><a href="#">1024 x 768</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li><a href="#">More Options</a>
+					<ul aria-label="More options">
+						<li><a href="#">Sub Option 1</a></li>
+						<li><a href="#">Sub Option 2</a></li>
+						<li><a href="#">Sub Option 3</a></li>
+						<li><a href="#">Sub Option 4</a></li>
+						<li><a href="#">Sub Option 5</a></li>
+						<li><a href="#">Sub Option 6</a></li>
+					</ul>
+				</li>
+			</ul>
+		   <h3>Built from &lt;div&gt; element:</h3>
+		   <div id="bar1" class="menubar">
+				<a href="#">File</a>
+				<ul>
+					<li><a href="#">Open...</a></li>
+					<li class="ui-state-disabled">Open recent...</li>
+			
+					<li><a href="#">Save</a></li>
+					<li><a href="#">Save as...</a></li>
+					<li><a href="#">Close</a></li>
+					<li><a href="#">Quit</a></li>
+				</ul>
+				<a href="#">Edit</a>
+			
+				<ul>
+					<li><a href="#">Copy</a></li>
+					<li><a href="#">Cut</a></li>
+					<li class="ui-state-disabled">Paste</li>
+				</ul>
+				<a href="#">View</a>
+				<ul>
+			
+					<li><a href="#">Fullscreen</a></li>
+					<li><a href="#">Fit into view</a></li>
+					<li>
+						<a href="#">Encoding</a>
+						<ul>
+							<li><a href="#">Auto-detect</a></li>
+							<li><a href="#">UTF-8</a></li>
+			
+							<li>
+							  <a href="#">UTF-16</a>
+							  <ul>
+								 <li><a href="#">Option 1</a></li>
+								 <li><a href="#">Option 2</a></li>
+								 <li><a href="#">Option 3</a></li>
+								 <li><a href="#">Option 4</a></li>
+			
+							  </ul>
+						   </li>
+						</ul>
+					</li>
+					<li><a href="#">Customize...</a></li>
+				</ul>
+			</div>
+			<h3>Accessibility Changes Made to the Menubar (no original version):</h3>
+			<ul>
+				<li>Added ARIA markup so role, name &amp; state information is exposed</li>
+				<li>Added keyboard navigation support</li>
+				<li>Added high contrast mode support</li>
+			</ul>
+		</div>
+		<div id="button">
+			<h2>Buttons</h2>
+			<span id="toolbar" role="toolbar">
+				<button id="beginning" class="demoWidget">go to beginning</button>
+				<button id="rewind" class="demoWidget">rewind</button>
+				<button id="play" class="demoWidget">play</button>
+				<button id="stop" class="demoWidget">stop</button>
+				<button id="forward" class="demoWidget">fast forward</button>
+				<button id="end" class="demoWidget">go to end</button>
 
-                <input type="checkbox" id="shuffle" class="demoWidget" /><label for="shuffle">Shuffle</label>
+				<input type="checkbox" id="shuffle" class="demoWidget" /><label for="shuffle">Shuffle</label>
 
-                <fieldset class="hiddenFieldset" id="repeat">
-                    <legend>Repeat options</legend>
-                    <input type="radio" id="repeat0" name="repeat" checked="checked" /><label for="repeat0">No Repeat</label>
-                    <input type="radio" id="repeat1" name="repeat" /><label for="repeat1">Once</label>
-                    <input type="radio" id="repeatall" name="repeat" /><label for="repeatall">All</label>
-                </fieldset>
-            </span>
-                        <h3>Accessibility Changes Made to the <a href="before/jquery-ui/demos/button/toolbar.html" target="_blank">original Button / Buttongroup</a></h3>
-                        <ul>
-                <li>Applied fixes for visual focus indications</li>
-            </ul>
-        </div>
-        <div id="dialog">
-            <h2>Dialog</h2>
-            <a href="#" id="dialogTrigger">Trigger Dialog</a>
-            <div id="sampleDialog" title="My Sample Form" tabindex="-1">
-                <p id="dialogDescription">
-                    Please enter your personal information
-                </p>
-                <p>
-                    <label for="sampleField1">First Name:</label>
-                    <input type="text" id="sampleField1" />
-                </p>
-                <p>
-                    <label for="sampleField2">Last Name:</label>
-                    <input type="text" id="sampleField2" />
-                </p>
-                <div class="dialogSubGroup" role="group" aria-labelledby="groupLbl1" aria-describedby="groupDesc1">
-                    <h3 id="groupLbl1">Additional Information</h3>
-                    <p id="groupDesc1">These fields are optional</p>
-                    <p>
-                        <label for="sampleField3">Favorite Food:</label>
-                        <input type="text" id="sampleField3" />
-                    </p>
-                </div>
-
-
-            </div>
-            <h3>Accessibility Changes Made to the <a href="before/jquery-ui/demos/dialog/default.html" target="_blank">Original Dialog</a>:</h3>
-            <ul>
-                <li>Added support for high contrast mode</li>
-            </ul>
-        </div>
-        <div id="checkbox">
-            <h2>Checkbox</h2>
-            <form>
-                <label><input type="checkbox" class="demoWidget"/>Dogs</label>
-                <label><input type="checkbox" id="check2" class="demoWidget" />Cats</label>
-                <input type="checkbox" id="check3" class="demoWidget" /><label for="check3">Cows</label>
-                <input type="checkbox" id="check4" class="demoWidget" /><span><label for="check4">Bees</label></span>
-            </form>
-            <h3>Accessibility Changes Made to the <a href="before/jquery-ui/demos/checkbox/default.html" target="_blank">Original Checkbox</a>:</h3>
-            <ul>
-                <li>Applied fixes for visual indication of focus</li>
-            </ul>
-        </div>
-        <div id="accordion">
-            <h2>Accordion</h2>
-            <div id="sampleAccordion" class="demoWidget">
-                <h3><a href="#">Section 1</a></h3>
-                <div>
-                    <p>
-                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
-                    </p>
-                </div>
-                <h3><a href="#">Section 2</a></h3>
-                <div>
-                    <p>
-                    Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
-                    purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
-                    velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
-                    suscipit faucibus urna.
-                    </p>
-                </div>
-                <h3><a href="#">Section 3</a></h3>
-                <div>
-                    <p>
-                    Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
-                    Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
-                    ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
-                    lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
-                    </p>
-                    <ul>
-                        <li>List item one</li>
-                        <li>List item two</li>
-                        <li>List item three</li>
-                    </ul>
-                    <h3>Accessibility Changes Made to the Original Accordeon:</h3>
-                    <p>No changes were made. </p>
-                </div>
-                <h3><a href="#">Section 4</a></h3>
-                <div>
-                    <p>
-                    Cras dictum. Pellentesque habitant morbi tristique senectus et netus
-                    et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
-                    faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
-                    mauris vel est.
-                    </p>
-                    <p>
-                    Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
-                    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-                    inceptos himenaeos.
-                    </p>
-                </div>
-            </div>
-
-        </div>
-        <div id="tree">
-            <h2>Tree</h2>
-            <div id="sampleTree">
-                <ul>
-                    <li> <a href="#">Invoices</a>
-                        <ul>
-                            <li> <a href="#">January</a>
-                                    <ul>
-                                    <li> <a href="#">Invoice A</a> </li>
-                                    <li> <a href="#">Invoice B</a> </li>
-                                    <li> <a href="#">Invoice C</a> </li>
-                                </ul>
-                                </li>
-                            <li> <a href="#">February</a>
-                                    <ul>
-                                    <li> <a href="#">Invoice D</a> </li>
-                                    <li> <a href="#">Invoice E</a> </li>
-                                    <li> <a href="#">Invoice F</a> </li>
-                                </ul>
-                                </li>
-                            <li> <a href="#">March</a>
-                                    <ul>
-                                    <li> <a href="#">Invoice G</a> </li>
-                                    <li> <a href="#">Invoice H</a> </li>
-                                    <li> <a href="#">Invoice I</a> </li>
-                                </ul>
-                                </li>
-                        </ul>
-                        </li>
-                    <li> <a href="#">Job Applications</a>
-                        <ul>
-                            <li> <a href="#">Unhandled</a>
-                                    <ul>
-                                    <li> <a href="#">Application A</a> </li>
-                                    <li> <a href="#">Application B</a> </li>
-                                    <li> <a href="#">Application C</a> </li>
-                                    <li> <a href="#">Application D</a> </li>
-                                    <li> <a href="#">Application E</a> </li>
-                                    <li> <a href="#">Application F</a> </li>
-                                    <li> <a href="#">Application G</a> </li>
-                                    <li> <a href="#">Application H</a> </li>
-                                </ul>
-                                </li>
-                            <li> <a href="#">Accepted</a>
-                                    <ul>
-                                    <li> <a href="#">Peter Merchant</a> </li>
-                                    <li> <a href="#">Susan Jennings</a> </li>
-                                    <li> <a href="#">John Smith</a> </li>
-                                </ul>
-                                </li>
-                            <li> <a href="#">Declined</a>
-                                    <ul>
-                                    <li> <a href="#">John Doe</a> </li>
-                                    <li> <a href="#">Jack Smith</a> </li>
-                                    <li> <a href="#">Hannah Boyd</a> </li>
-                                    <li> <a href="#">Reconsider?</a>
-                                            <ul>
-                                            <li> <a href="#">Sandra johnson</a> </li>
-                                            <li> <a href="#">Dan Smith</a> </li>
-                                            <li> <a href="#">Jason Bourne</a> </li>
-                                            <li> <a href="#">Jason Maple</a> </li>
-                                        </ul>
-                                        </li>
-                                </ul>
-                                </li>
-                        </ul>
-                        </li>
-                    <li> <a href="#">Manuals</a>
-                            <ul>
-                            <li> <a href="#">Fax</a> </li>
-                            <li> <a href="#">Copier</a> </li>
-                            <li> <a href="#">Scanner</a> </li>
-                            <li> <a href="#">Laptop</a> </li>
-                        </ul>
-                        </li>
-                    <li> <a href="#">Welcome Letter</a> </li>
-                    <li> <a href="#">Getting Started</a> </li>
-                    <li> <a href="#">Trouble Shooting</a> </li>
-                </ul>
-            </div>
-            <h3>Accessibility Changes Made to the <a href="before/jsTree/demo.html" target="_blank">Original Tree</a>:</h3>
-            <ul>
-                <li>Added ARIA tree markup so role, name &amp; state information is exposed</li>
-                <li>Added high contrast support</li>
-                <li>Added fixes related to programmatic focus</li>
-            </ul>
-        </div>
-        <div id="carousel">
-            <h2>Carousel</h2>
-            <h3 id="carouselId">My Favorite Flowers</h3>
-            <div class="viewer">
-                <img id="viewerImg" alt="" src="images/199481236_dc98b5abb3_s.jpg" width="250" height="250" />
-            </div>
-            <ul id="mycarousel1" aria-labelledby="carouselId" class="jcarousel-skin-tango">
-                <li><img src="images/199481236_dc98b5abb3_s.jpg" width="75" height="75" alt="Sun Flower" /></li>
-                <li><img src="images/199481072_b4a0d09597_s.jpg" width="75" height="75" alt="White Flower" /></li>
-                <li><img src="images/199481087_33ae73a8de_s.jpg" width="75" height="75" alt="Lilly" /></li>
-                <li><img src="images/199481108_4359e6b971_s.jpg" width="75" height="75" alt="Orange Flowers" /></li>
-                <li><img src="images/199481143_3c148d9dd3_s.jpg" width="75" height="75" alt="Petals" /></li>
-                <li><img src="images/199481203_ad4cdcf109_s.jpg" width="75" height="75" alt="More Petals" /></li>
-                <li><img src="images/199481218_264ce20da0_s.jpg" width="75" height="75" alt="Rose" /></li>
-                <li><img src="images/199481255_fdfe885f87_s.jpg" width="75" height="75" alt="Tulip" /></li>
-                <li><img src="images/199480111_87d4cb3e38_s.jpg" width="75" height="75" alt="Unidentified Flower" /></li>
-                <li><img src="images/229228324_08223b70fa_s.jpg" width="75" height="75" alt="Purple Flower" /></li>
-            </ul>
-            <h3>Accessibility Changes Made to the <a href="before/jcarousel/examples/static_simple.html" target="_blank">Original Carousel</a>:</h3>
-            <ul>
-                <li>Added ARIA markup so role, name &amp; state information is exposed</li>
-                <li>Added keyboard navigation for switching items using arrow keys</li>
-                <li>Made carousel items focusable and navigable</li>
-            </ul>
-        </div>
-        <div id="tabs">
-        <h2 id="tabsDemoLbl">Tabs</h2>
-        <div id="sampleTabs" class="demoWidget">
-            <ul>
-                <li><a href="#tabsdemo-1">Dogs</a></li>
-                <li><a href="#tabsdemo-2">Cats</a></li>
-                <li><a href="#tabsdemo-3">Sheep</a></li>
-            </ul>
-            <div id="tabsdemo-1">
-            <h2>Dogs</h2>
-            <p>The <b>dog</b> (<i>Canis lupus familiaris</i>,<sup id="cite_ref-ADW_0-0" class="reference"><a href="#cite_note-ADW-0"><span>[</span>1<span>]</span></a></sup> is a <a href="/wiki/Race_(biology)" title="Race (biology)">domesticated form</a> of the <a href="/wiki/Wolf" title="Wolf" class="mw-redirect">wolf</a>, a member of the <a href="/wiki/Canidae" title="Canidae">Canidae</a> family of the order <a href="/wiki/Carnivora" title="Carnivora">Carnivora</a>. The term is used for both <a href="/wiki/Feral" title="Feral">feral</a> and <a href="/wiki/Pet" title="Pet">pet</a> varieties. The domestic dog has been one of the most widely kept <a href="/wiki/Working_dog" title="Working dog">working</a> and companion animals in human history. The word "dog" may also mean the male of a canine species,<sup id="cite_ref-1" class="reference"><a href="#cite_note-1"><span>[</span>2<span>]</span></a></sup> as opposed to the word "<a href="/wiki/Bitch" title="Bitch">bitch</a>" for the female of the species.<sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span>[</span>3<span>]</span></a></sup></p>
-
-        <p>The dog quickly became ubiquitous across culture across the world, and was extremely valuable to early human settlements. For instance, it is believed that the successful emigration across the <a href="/wiki/Bering_Strait" title="Bering Strait">Bering Strait</a> might not have been possible without <a href="/wiki/Sled_dog" title="Sled dog">sled dogs</a>.<sup id="cite_ref-miklosi_3-0" class="reference"><a href="#cite_note-miklosi-3"><span>[</span>4<span>]</span></a></sup> Dogs perform many roles for people, such as <a href="/wiki/Hunting_dog" title="Hunting dog">hunting</a>, <a href="/wiki/Herding_dog" title="Herding dog">herding</a>, protection, <a href="/wiki/Police_dog" title="Police dog">assisting police and military</a>, <a href="/wiki/Pet" title="Pet">companionship</a>, and, more recently, <a href="/wiki/Service_dog" title="Service dog">aiding handicapped individuals</a>. This versatility, more than almost any other known animal, has given them the nickname "Man's best friend" in the western world. Currently, there are estimated to be 400 million dogs in the world.<sup id="cite_ref-Coppinger_4-0" class="reference"><a href="#cite_note-Coppinger-4"><span>[</span>5<span>]</span></a></sup></p>
-
-        <p>Over the 15,000 year span that the dog had been domesticated, it diverged into only a handful of <a href="/wiki/Landrace" title="Landrace">landraces</a>, groups of similar animals whose <a href="/wiki/Morphology_(biology)" title="Morphology (biology)">morphology</a> and behavior have been shaped by <a href="/wiki/Environmental_factor" title="Environmental factor">environmental factors</a> and functional roles. As the modern understanding of genetics developed, humans began to intentionally breed dogs for a wide range of specific traits. Through this process, the dog has developed into hundreds of varied <a href="/wiki/Dog_breed" title="Dog breed">breeds</a>, and shows more behavioral and morphological variation than any other land mammal.<sup id="cite_ref-spady_5-0" class="reference"><a href="#cite_note-spady-5"><span>[</span>6<span>]</span></a></sup> For example, height measured to the <a href="/wiki/Withers" title="Withers">withers</a> ranges from a few inches in the <a href="/wiki/Chihuahua_(dog)" title="Chihuahua (dog)">Chihuahua</a> to a few feet in the <a href="/wiki/Irish_Wolfhound" title="Irish Wolfhound">Irish Wolfhound</a>; color varies from white through grays (usually called "blue'") to black, and browns from light (tan) to dark ("red" or "chocolate") in a wide variation of patterns; <a href="/wiki/Coat_(dog)" title="Coat (dog)">coats</a> can be short or long, coarse-haired to wool-like, straight, curly, or smooth.<sup id="cite_ref-6" class="reference"><a href="#cite_note-6"><span>[</span>7<span>]</span></a></sup> It is common for most breeds to <a href="/wiki/Moult" title="Moult" class="mw-redirect">shed</a> this coat.</p>
+				<fieldset class="hiddenFieldset" id="repeat">
+					<legend>Repeat options</legend>
+					<input type="radio" id="repeat0" name="repeat" checked="checked" /><label for="repeat0">No Repeat</label>
+					<input type="radio" id="repeat1" name="repeat" /><label for="repeat1">Once</label>
+					<input type="radio" id="repeatall" name="repeat" /><label for="repeatall">All</label>
+				</fieldset>
+			</span>
+						<h3>Accessibility Changes Made to the <a href="before/jquery-ui/demos/button/toolbar.html" target="_blank">original Button / Buttongroup</a></h3>
+						<ul>
+				<li>Applied fixes for visual focus indications</li>
+			</ul>
+		</div>
+		<div id="dialog">
+			<h2>Dialog</h2>
+			<a href="#" id="dialogTrigger">Trigger Dialog</a>
+			<div id="sampleDialog" title="My Sample Form" tabindex="-1">
+				<p id="dialogDescription">
+					Please enter your personal information
+				</p>
+				<p>
+					<label for="sampleField1">First Name:</label>
+					<input type="text" id="sampleField1" />
+				</p>
+				<p>
+					<label for="sampleField2">Last Name:</label>
+					<input type="text" id="sampleField2" />
+				</p>
+				<div class="dialogSubGroup" role="group" aria-labelledby="groupLbl1" aria-describedby="groupDesc1">
+					<h3 id="groupLbl1">Additional Information</h3>
+					<p id="groupDesc1">These fields are optional</p>
+					<p>
+						<label for="sampleField3">Favorite Food:</label>
+						<input type="text" id="sampleField3" />
+					</p>
+				</div>
 
 
-            </div>
-            <div id="tabsdemo-2">
-               <h2>Cats</h2>
-                <p>The <b>cat</b> (<i>Felis catus</i>), also known as the <b>domestic cat</b> or <b>housecat</b><sup id="cite_ref-4" class="reference"><a href="#cite_note-4"><span>[</span>5<span>]</span></a></sup> to distinguish it from other <a href="/wiki/Felinae" title="Felinae">felines</a> and <a href="/wiki/Felidae" title="Felidae">felids</a>, is a small <a href="/wiki/Domestication" title="Domestication">domesticated</a> <a href="/wiki/Carnivore" title="Carnivore">carnivorous</a> <a href="/wiki/Mammal" title="Mammal">mammal</a> that is valued by humans for its companionship and its ability to hunt <a href="/wiki/Vermin" title="Vermin">vermin</a> and household pests. Cats have been associated with humans for at least 9,500 years,<sup id="cite_ref-9500_years_5-0" class="reference"><a href="#cite_note-9500_years-5"><span>[</span>6<span>]</span></a></sup> and are currently the most popular pet in the world.<sup id="cite_ref-SciAm_6-0" class="reference"><a href="#cite_note-SciAm-6"><span>[</span>7<span>]</span></a></sup> Due to their close association with humans, cats are now found almost everywhere on Earth. This extreme adaptability and their worrying impacts on native animals has led to them being classed as an <a href="/wiki/Invasive_species" title="Invasive species">invasive species</a>. Most of these problems are caused by the large number of <a href="/wiki/Feral_cat" title="Feral cat">feral cats</a> worldwide, with a population of up to 60&#160;million of these animals in the United States alone.</p>
+			</div>
+			<h3>Accessibility Changes Made to the <a href="before/jquery-ui/demos/dialog/default.html" target="_blank">Original Dialog</a>:</h3>
+			<ul>
+				<li>Added support for high contrast mode</li>
+			</ul>
+		</div>
+		<div id="checkbox">
+			<h2>Checkbox</h2>
+			<form>
+				<label><input type="checkbox" class="demoWidget"/>Dogs</label>
+				<label><input type="checkbox" id="check2" class="demoWidget" />Cats</label>
+				<input type="checkbox" id="check3" class="demoWidget" /><label for="check3">Cows</label>
+				<input type="checkbox" id="check4" class="demoWidget" /><span><label for="check4">Bees</label></span>
+			</form>
+			<h3>Accessibility Changes Made to the <a href="before/jquery-ui/demos/checkbox/default.html" target="_blank">Original Checkbox</a>:</h3>
+			<ul>
+				<li>Applied fixes for visual indication of focus</li>
+			</ul>
+		</div>
+		<div id="accordion">
+			<h2>Accordion</h2>
+			<div id="sampleAccordion" class="demoWidget">
+				<h3><a href="#">Section 1</a></h3>
+				<div>
+					<p>
+					Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+					ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+					amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+					odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+					</p>
+				</div>
+				<h3><a href="#">Section 2</a></h3>
+				<div>
+					<p>
+					Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+					purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
+					velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
+					suscipit faucibus urna.
+					</p>
+				</div>
+				<h3><a href="#">Section 3</a></h3>
+				<div>
+					<p>
+					Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
+					Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
+					ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
+					lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
+					</p>
+					<ul>
+						<li>List item one</li>
+						<li>List item two</li>
+						<li>List item three</li>
+					</ul>
+					<h3>Accessibility Changes Made to the Original Accordeon:</h3>
+					<p>No changes were made. </p>
+				</div>
+				<h3><a href="#">Section 4</a></h3>
+				<div>
+					<p>
+					Cras dictum. Pellentesque habitant morbi tristique senectus et netus
+					et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
+					faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
+					mauris vel est.
+					</p>
+					<p>
+					Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
+					Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
+					inceptos himenaeos.
+					</p>
+				</div>
+			</div>
 
-        <p>Cats are similar in size and anatomy to the other <a href="/wiki/Felid" title="Felid" class="mw-redirect">Felids</a>, with light, flexible bodies and teeth adapted to killing small prey. A skilled predator, the cat hunts over 1,000 species for food, using its excellent eyesight and hearing. Unusually, cats have lost the ability to taste <a href="/wiki/Sugar" title="Sugar">sugar</a> and in some breeds show hereditary <a href="/wiki/Hearing_impairment" title="Hearing impairment">deafness</a>. Despite being solitary hunters, cats are a social species and use a variety of <a href="/wiki/Animal_communication" title="Animal communication">vocalizations</a>, <a href="/wiki/Pheromone" title="Pheromone">pheromones</a> and types of <a href="/wiki/Cat_body_language" title="Cat body language">body language</a> for <a href="/wiki/Cat_communication" title="Cat communication">communication</a>. These include <a href="/wiki/Cat_communication#Meowing" title="Cat communication">meowing</a>, <a href="/wiki/Purr" title="Purr">purring</a>, <a href="/wiki/Trill_consonant" title="Trill consonant">trilling</a>, <a href="/wiki/Hiss#Animals" title="Hiss">hissing</a>, <a href="/wiki/Growling" title="Growling">growling</a>, and grunting.<sup id="cite_ref-Moelk_7-0" class="reference"><a href="#cite_note-Moelk-7"><span>[</span>8<span>]</span></a></sup> They are also bred and shown as <a href="/wiki/Cat_registry" title="Cat registry">registered</a> pedigree pets. This hobby is known as <a href="/wiki/Animal_fancy" title="Animal fancy">cat fancy</a>.</p>
+		</div>
+		<div id="tree">
+			<h2>Tree</h2>
+			<div id="sampleTree">
+				<ul>
+					<li> <a href="#">Invoices</a>
+						<ul>
+							<li> <a href="#">January</a>
+									<ul>
+									<li> <a href="#">Invoice A</a> </li>
+									<li> <a href="#">Invoice B</a> </li>
+									<li> <a href="#">Invoice C</a> </li>
+								</ul>
+								</li>
+							<li> <a href="#">February</a>
+									<ul>
+									<li> <a href="#">Invoice D</a> </li>
+									<li> <a href="#">Invoice E</a> </li>
+									<li> <a href="#">Invoice F</a> </li>
+								</ul>
+								</li>
+							<li> <a href="#">March</a>
+									<ul>
+									<li> <a href="#">Invoice G</a> </li>
+									<li> <a href="#">Invoice H</a> </li>
+									<li> <a href="#">Invoice I</a> </li>
+								</ul>
+								</li>
+						</ul>
+						</li>
+					<li> <a href="#">Job Applications</a>
+						<ul>
+							<li> <a href="#">Unhandled</a>
+									<ul>
+									<li> <a href="#">Application A</a> </li>
+									<li> <a href="#">Application B</a> </li>
+									<li> <a href="#">Application C</a> </li>
+									<li> <a href="#">Application D</a> </li>
+									<li> <a href="#">Application E</a> </li>
+									<li> <a href="#">Application F</a> </li>
+									<li> <a href="#">Application G</a> </li>
+									<li> <a href="#">Application H</a> </li>
+								</ul>
+								</li>
+							<li> <a href="#">Accepted</a>
+									<ul>
+									<li> <a href="#">Peter Merchant</a> </li>
+									<li> <a href="#">Susan Jennings</a> </li>
+									<li> <a href="#">John Smith</a> </li>
+								</ul>
+								</li>
+							<li> <a href="#">Declined</a>
+									<ul>
+									<li> <a href="#">John Doe</a> </li>
+									<li> <a href="#">Jack Smith</a> </li>
+									<li> <a href="#">Hannah Boyd</a> </li>
+									<li> <a href="#">Reconsider?</a>
+											<ul>
+											<li> <a href="#">Sandra johnson</a> </li>
+											<li> <a href="#">Dan Smith</a> </li>
+											<li> <a href="#">Jason Bourne</a> </li>
+											<li> <a href="#">Jason Maple</a> </li>
+										</ul>
+										</li>
+								</ul>
+								</li>
+						</ul>
+						</li>
+					<li> <a href="#">Manuals</a>
+							<ul>
+							<li> <a href="#">Fax</a> </li>
+							<li> <a href="#">Copier</a> </li>
+							<li> <a href="#">Scanner</a> </li>
+							<li> <a href="#">Laptop</a> </li>
+						</ul>
+						</li>
+					<li> <a href="#">Welcome Letter</a> </li>
+					<li> <a href="#">Getting Started</a> </li>
+					<li> <a href="#">Trouble Shooting</a> </li>
+				</ul>
+			</div>
+			<h3>Accessibility Changes Made to the <a href="before/jsTree/demo.html" target="_blank">Original Tree</a>:</h3>
+			<ul>
+				<li>Added ARIA tree markup so role, name &amp; state information is exposed</li>
+				<li>Added high contrast support</li>
+				<li>Added fixes related to programmatic focus</li>
+			</ul>
+		</div>
+		<div id="carousel">
+			<h2>Carousel</h2>
+			<h3 id="carouselId">My Favorite Flowers</h3>
+			<div class="viewer">
+				<img id="viewerImg" alt="" src="images/199481236_dc98b5abb3_s.jpg" width="250" height="250" />
+			</div>
+			<ul id="mycarousel1" aria-labelledby="carouselId" class="jcarousel-skin-tango">
+				<li><img src="images/199481236_dc98b5abb3_s.jpg" width="75" height="75" alt="Sun Flower" /></li>
+				<li><img src="images/199481072_b4a0d09597_s.jpg" width="75" height="75" alt="White Flower" /></li>
+				<li><img src="images/199481087_33ae73a8de_s.jpg" width="75" height="75" alt="Lilly" /></li>
+				<li><img src="images/199481108_4359e6b971_s.jpg" width="75" height="75" alt="Orange Flowers" /></li>
+				<li><img src="images/199481143_3c148d9dd3_s.jpg" width="75" height="75" alt="Petals" /></li>
+				<li><img src="images/199481203_ad4cdcf109_s.jpg" width="75" height="75" alt="More Petals" /></li>
+				<li><img src="images/199481218_264ce20da0_s.jpg" width="75" height="75" alt="Rose" /></li>
+				<li><img src="images/199481255_fdfe885f87_s.jpg" width="75" height="75" alt="Tulip" /></li>
+				<li><img src="images/199480111_87d4cb3e38_s.jpg" width="75" height="75" alt="Unidentified Flower" /></li>
+				<li><img src="images/229228324_08223b70fa_s.jpg" width="75" height="75" alt="Purple Flower" /></li>
+			</ul>
+			<h3>Accessibility Changes Made to the <a href="before/jcarousel/examples/static_simple.html" target="_blank">Original Carousel</a>:</h3>
+			<ul>
+				<li>Added ARIA markup so role, name &amp; state information is exposed</li>
+				<li>Added keyboard navigation for switching items using arrow keys</li>
+				<li>Made carousel items focusable and navigable</li>
+			</ul>
+		</div>
+		<div id="tabs">
+		<h2 id="tabsDemoLbl">Tabs</h2>
+		<div id="sampleTabs" class="demoWidget">
+			<ul>
+				<li><a href="#tabsdemo-1">Dogs</a></li>
+				<li><a href="#tabsdemo-2">Cats</a></li>
+				<li><a href="#tabsdemo-3">Sheep</a></li>
+			</ul>
+			<div id="tabsdemo-1">
+			<h2>Dogs</h2>
+			<p>The <b>dog</b> (<i>Canis lupus familiaris</i>,<sup id="cite_ref-ADW_0-0" class="reference"><a href="#cite_note-ADW-0"><span>[</span>1<span>]</span></a></sup> is a <a href="/wiki/Race_(biology)" title="Race (biology)">domesticated form</a> of the <a href="/wiki/Wolf" title="Wolf" class="mw-redirect">wolf</a>, a member of the <a href="/wiki/Canidae" title="Canidae">Canidae</a> family of the order <a href="/wiki/Carnivora" title="Carnivora">Carnivora</a>. The term is used for both <a href="/wiki/Feral" title="Feral">feral</a> and <a href="/wiki/Pet" title="Pet">pet</a> varieties. The domestic dog has been one of the most widely kept <a href="/wiki/Working_dog" title="Working dog">working</a> and companion animals in human history. The word "dog" may also mean the male of a canine species,<sup id="cite_ref-1" class="reference"><a href="#cite_note-1"><span>[</span>2<span>]</span></a></sup> as opposed to the word "<a href="/wiki/Bitch" title="Bitch">bitch</a>" for the female of the species.<sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span>[</span>3<span>]</span></a></sup></p>
 
-        <p>As <i><a href="/wiki/The_New_York_Times" title="The New York Times">The New York Times</a></i> wrote in 2007, "Until recently the cat was commonly believed to have been domesticated in <a href="/wiki/Ancient_Egypt" title="Ancient Egypt">ancient Egypt</a>, where it was a <a href="/wiki/Cult" title="Cult">cult</a> animal."<sup id="cite_ref-NYT_8-0" class="reference"><a href="#cite_note-NYT-8"><span>[</span>9<span>]</span></a></sup> A study that year found that the lines of descent of all house cats probably run through as few as five <a href="/wiki/Self-domestication" title="Self-domestication">self-domesticating</a> <a href="/wiki/African_Wildcat" title="African Wildcat">African Wildcats</a> <i>(Felis silvestris lybica)</i> circa 8000 BC, in the <a href="/wiki/Near_East" title="Near East">Near East</a>.<sup id="cite_ref-Driscoll_3-1" class="reference"><a href="#cite_note-Driscoll-3"><span>[</span>4<span>]</span></a></sup> The earliest direct evidence of cat domestication is a kitten that was buried with its owner 9,500 years ago in <a href="/wiki/Cyprus" title="Cyprus">Cyprus</a>.<sup id="cite_ref-9" class="reference"><a href="#cite_note-9"><span>[</span>10<span>]</span></a></sup></p>
+		<p>The dog quickly became ubiquitous across culture across the world, and was extremely valuable to early human settlements. For instance, it is believed that the successful emigration across the <a href="/wiki/Bering_Strait" title="Bering Strait">Bering Strait</a> might not have been possible without <a href="/wiki/Sled_dog" title="Sled dog">sled dogs</a>.<sup id="cite_ref-miklosi_3-0" class="reference"><a href="#cite_note-miklosi-3"><span>[</span>4<span>]</span></a></sup> Dogs perform many roles for people, such as <a href="/wiki/Hunting_dog" title="Hunting dog">hunting</a>, <a href="/wiki/Herding_dog" title="Herding dog">herding</a>, protection, <a href="/wiki/Police_dog" title="Police dog">assisting police and military</a>, <a href="/wiki/Pet" title="Pet">companionship</a>, and, more recently, <a href="/wiki/Service_dog" title="Service dog">aiding handicapped individuals</a>. This versatility, more than almost any other known animal, has given them the nickname "Man's best friend" in the western world. Currently, there are estimated to be 400 million dogs in the world.<sup id="cite_ref-Coppinger_4-0" class="reference"><a href="#cite_note-Coppinger-4"><span>[</span>5<span>]</span></a></sup></p>
 
-            </div>
-            <div id="tabsdemo-3">
-            <h2>Sheep</h2>
-                <p><b>Domestic sheep</b>  are <a href="/wiki/Quadruped" title="Quadruped" class="mw-redirect">quadrupedal</a>, <a href="/wiki/Ruminant" title="Ruminant">ruminant</a> <a href="/wiki/Mammal" title="Mammal">mammals</a> typically kept as <a href="/wiki/Livestock" title="Livestock">livestock</a>. Like all ruminants, sheep are members of the order Artiodactyla, the <a href="/wiki/Even-toed_ungulate" title="Even-toed ungulate">even-toed ungulates</a>. Although the name "sheep" applies to many species, in everyday usage it almost always refers to <i>Ovis aries</i>. Numbering a little over 1 billion, domestic sheep are the most numerous species in <a href="/wiki/Ovis" title="Ovis">their genus</a>.</p>
-                <p>Sheep are most likely descended from the wild <a href="/wiki/Mouflon" title="Mouflon">mouflon</a> of Europe and Asia. One of the earliest animals to be domesticated for <a href="/wiki/Agriculture" title="Agriculture">agricultural</a> purposes, sheep are raised for <a href="/wiki/Fleece" title="Fleece">fleece</a>, meat (lamb, hogget or mutton) and <a href="/wiki/Sheep_milk" title="Sheep milk">milk</a>. A sheep's <a href="/wiki/Wool" title="Wool">wool</a> is the most widely used of any animal, and is usually harvested by <a href="/wiki/Sheep_shearing" title="Sheep shearing">shearing</a>. <a href="http://en.wiktionary.org/wiki/Ovine" class="extiw" title="wikt:Ovine">Ovine</a> meat is called <a href="/wiki/Lamb_and_mutton" title="Lamb and mutton">lamb</a> when from younger animals and <a href="/wiki/Lamb_and_mutton" title="Lamb and mutton">mutton</a> when from older ones. Sheep continue to be important for wool and meat today, and are also occasionally raised for <a href="/wiki/Sheepskin_(material)" title="Sheepskin (material)" class="mw-redirect">pelts</a>, as <a href="/wiki/Dairy" title="Dairy">dairy</a> animals, or as <a href="/wiki/Model_organism" title="Model organism">model organisms</a> for science.</p>
-            </div>
-        </div>
-
-            <h3>Accessibility Changes made to the <a href="before/jquery-ui/demos/tabs/basiccontent.html" target="_blank">Original Tabs</a></h3>
-            <ul>
-                <li>Added ARIA Tablist markup so role, name &amp; state information is exposed</li>
-                <li>Added keyboard navigation for switching tabs using arrow keys</li>
-            </ul>
-        </div>
-        <div id="tooltip">
-          <h2>Tooltip</h2>
-          <p><a href="#" class="demoWidget" title="That's what this widget is">Tooltips</a> can be attached to any element. When you hover
-    the element with your mouse, the title attribute is displayed in a little box next to the element, just like a native tooltip.
-    </p>
-    <p>Tooltip's are also useful for form elements, to show some additional information in the context of each field.</p>
-    <p><label for="age">Your age:</label><input class="demoWidget" id="age" title="We ask for your age only for statistical purposes." /></p>
-    <p>Click the field to see the tooltip; when you tab out of the field, it gets hidden.</p>
+		<p>Over the 15,000 year span that the dog had been domesticated, it diverged into only a handful of <a href="/wiki/Landrace" title="Landrace">landraces</a>, groups of similar animals whose <a href="/wiki/Morphology_(biology)" title="Morphology (biology)">morphology</a> and behavior have been shaped by <a href="/wiki/Environmental_factor" title="Environmental factor">environmental factors</a> and functional roles. As the modern understanding of genetics developed, humans began to intentionally breed dogs for a wide range of specific traits. Through this process, the dog has developed into hundreds of varied <a href="/wiki/Dog_breed" title="Dog breed">breeds</a>, and shows more behavioral and morphological variation than any other land mammal.<sup id="cite_ref-spady_5-0" class="reference"><a href="#cite_note-spady-5"><span>[</span>6<span>]</span></a></sup> For example, height measured to the <a href="/wiki/Withers" title="Withers">withers</a> ranges from a few inches in the <a href="/wiki/Chihuahua_(dog)" title="Chihuahua (dog)">Chihuahua</a> to a few feet in the <a href="/wiki/Irish_Wolfhound" title="Irish Wolfhound">Irish Wolfhound</a>; color varies from white through grays (usually called "blue'") to black, and browns from light (tan) to dark ("red" or "chocolate") in a wide variation of patterns; <a href="/wiki/Coat_(dog)" title="Coat (dog)">coats</a> can be short or long, coarse-haired to wool-like, straight, curly, or smooth.<sup id="cite_ref-6" class="reference"><a href="#cite_note-6"><span>[</span>7<span>]</span></a></sup> It is common for most breeds to <a href="/wiki/Moult" title="Moult" class="mw-redirect">shed</a> this coat.</p>
 
 
+			</div>
+			<div id="tabsdemo-2">
+			   <h2>Cats</h2>
+				<p>The <b>cat</b> (<i>Felis catus</i>), also known as the <b>domestic cat</b> or <b>housecat</b><sup id="cite_ref-4" class="reference"><a href="#cite_note-4"><span>[</span>5<span>]</span></a></sup> to distinguish it from other <a href="/wiki/Felinae" title="Felinae">felines</a> and <a href="/wiki/Felidae" title="Felidae">felids</a>, is a small <a href="/wiki/Domestication" title="Domestication">domesticated</a> <a href="/wiki/Carnivore" title="Carnivore">carnivorous</a> <a href="/wiki/Mammal" title="Mammal">mammal</a> that is valued by humans for its companionship and its ability to hunt <a href="/wiki/Vermin" title="Vermin">vermin</a> and household pests. Cats have been associated with humans for at least 9,500 years,<sup id="cite_ref-9500_years_5-0" class="reference"><a href="#cite_note-9500_years-5"><span>[</span>6<span>]</span></a></sup> and are currently the most popular pet in the world.<sup id="cite_ref-SciAm_6-0" class="reference"><a href="#cite_note-SciAm-6"><span>[</span>7<span>]</span></a></sup> Due to their close association with humans, cats are now found almost everywhere on Earth. This extreme adaptability and their worrying impacts on native animals has led to them being classed as an <a href="/wiki/Invasive_species" title="Invasive species">invasive species</a>. Most of these problems are caused by the large number of <a href="/wiki/Feral_cat" title="Feral cat">feral cats</a> worldwide, with a population of up to 60&#160;million of these animals in the United States alone.</p>
 
-        <div class="toggleTooltips">
-            <div>
-                <img src="images/199481072_b4a0d09597_s.jpg" alt="My Favorite Flower" title="My Favorite Flower" class="demoWidget"/>
-            </div>
-            <div id="tooltipButtonAnchor">
-                <blockquote  class="demoWidget" title="Attributed to Elbert Hubbard">The man who doesn't relax and hoot a few hoots voluntarily, now and then, is in great danger of hooting hoots
-                and standing on his head for the edification of the pathologist and trained nurse, a little later on.</blockquote>
-            </div>
+		<p>Cats are similar in size and anatomy to the other <a href="/wiki/Felid" title="Felid" class="mw-redirect">Felids</a>, with light, flexible bodies and teeth adapted to killing small prey. A skilled predator, the cat hunts over 1,000 species for food, using its excellent eyesight and hearing. Unusually, cats have lost the ability to taste <a href="/wiki/Sugar" title="Sugar">sugar</a> and in some breeds show hereditary <a href="/wiki/Hearing_impairment" title="Hearing impairment">deafness</a>. Despite being solitary hunters, cats are a social species and use a variety of <a href="/wiki/Animal_communication" title="Animal communication">vocalizations</a>, <a href="/wiki/Pheromone" title="Pheromone">pheromones</a> and types of <a href="/wiki/Cat_body_language" title="Cat body language">body language</a> for <a href="/wiki/Cat_communication" title="Cat communication">communication</a>. These include <a href="/wiki/Cat_communication#Meowing" title="Cat communication">meowing</a>, <a href="/wiki/Purr" title="Purr">purring</a>, <a href="/wiki/Trill_consonant" title="Trill consonant">trilling</a>, <a href="/wiki/Hiss#Animals" title="Hiss">hissing</a>, <a href="/wiki/Growling" title="Growling">growling</a>, and grunting.<sup id="cite_ref-Moelk_7-0" class="reference"><a href="#cite_note-Moelk-7"><span>[</span>8<span>]</span></a></sup> They are also bred and shown as <a href="/wiki/Cat_registry" title="Cat registry">registered</a> pedigree pets. This hobby is known as <a href="/wiki/Animal_fancy" title="Animal fancy">cat fancy</a>.</p>
 
-            <h3>Accessibility Changes Made to the Original Tooltip:</h3>
-            <ul>
-                <li>Added keyboard support for tooltips on static content </li>
-            </ul>
-        </div>
+		<p>As <i><a href="/wiki/The_New_York_Times" title="The New York Times">The New York Times</a></i> wrote in 2007, "Until recently the cat was commonly believed to have been domesticated in <a href="/wiki/Ancient_Egypt" title="Ancient Egypt">ancient Egypt</a>, where it was a <a href="/wiki/Cult" title="Cult">cult</a> animal."<sup id="cite_ref-NYT_8-0" class="reference"><a href="#cite_note-NYT-8"><span>[</span>9<span>]</span></a></sup> A study that year found that the lines of descent of all house cats probably run through as few as five <a href="/wiki/Self-domestication" title="Self-domestication">self-domesticating</a> <a href="/wiki/African_Wildcat" title="African Wildcat">African Wildcats</a> <i>(Felis silvestris lybica)</i> circa 8000 BC, in the <a href="/wiki/Near_East" title="Near East">Near East</a>.<sup id="cite_ref-Driscoll_3-1" class="reference"><a href="#cite_note-Driscoll-3"><span>[</span>4<span>]</span></a></sup> The earliest direct evidence of cat domestication is a kitten that was buried with its owner 9,500 years ago in <a href="/wiki/Cyprus" title="Cyprus">Cyprus</a>.<sup id="cite_ref-9" class="reference"><a href="#cite_note-9"><span>[</span>10<span>]</span></a></sup></p>
 
-        </div>
+			</div>
+			<div id="tabsdemo-3">
+			<h2>Sheep</h2>
+				<p><b>Domestic sheep</b>  are <a href="/wiki/Quadruped" title="Quadruped" class="mw-redirect">quadrupedal</a>, <a href="/wiki/Ruminant" title="Ruminant">ruminant</a> <a href="/wiki/Mammal" title="Mammal">mammals</a> typically kept as <a href="/wiki/Livestock" title="Livestock">livestock</a>. Like all ruminants, sheep are members of the order Artiodactyla, the <a href="/wiki/Even-toed_ungulate" title="Even-toed ungulate">even-toed ungulates</a>. Although the name "sheep" applies to many species, in everyday usage it almost always refers to <i>Ovis aries</i>. Numbering a little over 1 billion, domestic sheep are the most numerous species in <a href="/wiki/Ovis" title="Ovis">their genus</a>.</p>
+				<p>Sheep are most likely descended from the wild <a href="/wiki/Mouflon" title="Mouflon">mouflon</a> of Europe and Asia. One of the earliest animals to be domesticated for <a href="/wiki/Agriculture" title="Agriculture">agricultural</a> purposes, sheep are raised for <a href="/wiki/Fleece" title="Fleece">fleece</a>, meat (lamb, hogget or mutton) and <a href="/wiki/Sheep_milk" title="Sheep milk">milk</a>. A sheep's <a href="/wiki/Wool" title="Wool">wool</a> is the most widely used of any animal, and is usually harvested by <a href="/wiki/Sheep_shearing" title="Sheep shearing">shearing</a>. <a href="http://en.wiktionary.org/wiki/Ovine" class="extiw" title="wikt:Ovine">Ovine</a> meat is called <a href="/wiki/Lamb_and_mutton" title="Lamb and mutton">lamb</a> when from younger animals and <a href="/wiki/Lamb_and_mutton" title="Lamb and mutton">mutton</a> when from older ones. Sheep continue to be important for wool and meat today, and are also occasionally raised for <a href="/wiki/Sheepskin_(material)" title="Sheepskin (material)" class="mw-redirect">pelts</a>, as <a href="/wiki/Dairy" title="Dairy">dairy</a> animals, or as <a href="/wiki/Model_organism" title="Model organism">model organisms</a> for science.</p>
+			</div>
+		</div>
 
-        <div id="autocomplete">
-            <h2>Auto Complete</h2>
-            <div class="ui-widget">
-                <label for="tags-1">Tags: </label>
-                <input id="tags-1"  class="demoWidget"/>
-            </div>
-            <h3>Autocomplete with Multiple Values</h3>
-            <div class="ui-widget">
-			    <label for="tags-2">Tag programming languages: </label>
-			    <input id="tags-2" size="50" class="demoWidget"/>
+			<h3>Accessibility Changes made to the <a href="before/jquery-ui/demos/tabs/basiccontent.html" target="_blank">Original Tabs</a></h3>
+			<ul>
+				<li>Added ARIA Tablist markup so role, name &amp; state information is exposed</li>
+				<li>Added keyboard navigation for switching tabs using arrow keys</li>
+			</ul>
+		</div>
+		<div id="tooltip">
+		  <h2>Tooltip</h2>
+		  <p><a href="#" class="demoWidget" title="That's what this widget is">Tooltips</a> can be attached to any element. When you hover
+	the element with your mouse, the title attribute is displayed in a little box next to the element, just like a native tooltip.
+	</p>
+	<p>Tooltip's are also useful for form elements, to show some additional information in the context of each field.</p>
+	<p><label for="age">Your age:</label><input class="demoWidget" id="age" title="We ask for your age only for statistical purposes." /></p>
+	<p>Click the field to see the tooltip; when you tab out of the field, it gets hidden.</p>
+
+
+
+		<div class="toggleTooltips">
+			<div>
+				<img src="images/199481072_b4a0d09597_s.jpg" alt="My Favorite Flower" title="My Favorite Flower" class="demoWidget"/>
+			</div>
+			<div id="tooltipButtonAnchor">
+				<blockquote  class="demoWidget" title="Attributed to Elbert Hubbard">The man who doesn't relax and hoot a few hoots voluntarily, now and then, is in great danger of hooting hoots
+				and standing on his head for the edification of the pathologist and trained nurse, a little later on.</blockquote>
+			</div>
+
+			<h3>Accessibility Changes Made to the Original Tooltip:</h3>
+			<ul>
+				<li>Added keyboard support for tooltips on static content </li>
+			</ul>
+		</div>
+
+		</div>
+
+		<div id="autocomplete">
+			<h2>Auto Complete</h2>
+			<div class="ui-widget">
+				<label for="tags-1">Tags: </label>
+				<input id="tags-1"  class="demoWidget"/>
+			</div>
+			<h3>Autocomplete with Multiple Values</h3>
+			<div class="ui-widget">
+				<label for="tags-2">Tag programming languages: </label>
+				<input id="tags-2" size="50" class="demoWidget"/>
 			</div>
 			<h3>Accessibility Changes Made to Autocomplete:</h3>
-            <ul>
-                <li>Added Screen reader support for autocomplete fields using multiple values</li>
-                <li>Added notification about number of results found</li>
+			<ul>
+				<li>Added Screen reader support for autocomplete fields using multiple values</li>
+				<li>Added notification about number of results found</li>
 
-            </ul>
-        </div>
+			</ul>
+		</div>
 
-        <div id="panel">
-            <h2>Panel</h2>
-            <div id="samplePanel" class="demoWidget">
-			    <h3><a href="#">About jQuery</a></h3>
-			    <div id="jq-intro" class="ui-helper-clearfix">
-                    <h4><span class="jq-jquery"><span>jQuery</span></span> is a new kind of JavaScript Library.</h4>
-                    <p>jQuery is a fast and concise JavaScript Library that simplifies HTML document traversing, event handling, animating, and Ajax interactions for rapid web development. <strong>jQuery is designed to change the way that you write JavaScript.</strong></p>
-                    <ul class="jq-checkpoints ui-helper-clearfix">
-                        <li><a href="http://docs.jquery.com/Tutorials" title="Lightweight Footprint" class="jq-thickbox">Lightweight Footprint</a>
-                            <div class="jq-checkpointSubhead" style="display: none; ">
-                                <p>About 24KB in size <em>(Minified and Gzipped)</em></p>
-                            </div>
-                        </li>
-                        <li><a href="http://docs.jquery.com/Tutorials" title="CSS3 Compliant" class="jq-thickbox">CSS3 Compliant</a>
-                            <div class="jq-checkpointSubhead" style="display: none; ">
-                                <p>Supports CSS 1-3 selectors and more!</p>
-                            </div>
+		<div id="panel">
+			<h2>Panel</h2>
+			<div id="samplePanel" class="demoWidget">
+				<h3><a href="#">About jQuery</a></h3>
+				<div id="jq-intro" class="ui-helper-clearfix">
+					<h4><span class="jq-jquery"><span>jQuery</span></span> is a new kind of JavaScript Library.</h4>
+					<p>jQuery is a fast and concise JavaScript Library that simplifies HTML document traversing, event handling, animating, and Ajax interactions for rapid web development. <strong>jQuery is designed to change the way that you write JavaScript.</strong></p>
+					<ul class="jq-checkpoints ui-helper-clearfix">
+						<li><a href="http://docs.jquery.com/Tutorials" title="Lightweight Footprint" class="jq-thickbox">Lightweight Footprint</a>
+							<div class="jq-checkpointSubhead" style="display: none; ">
+								<p>About 24KB in size <em>(Minified and Gzipped)</em></p>
+							</div>
+						</li>
+						<li><a href="http://docs.jquery.com/Tutorials" title="CSS3 Compliant" class="jq-thickbox">CSS3 Compliant</a>
+							<div class="jq-checkpointSubhead" style="display: none; ">
+								<p>Supports CSS 1-3 selectors and more!</p>
+							</div>
 
-                        </li>
-                        <li><a href="http://docs.jquery.com/Tutorials" title="Cross-browser" class="jq-thickbox">Cross-browser</a>
-                            <div class="jq-checkpointSubhead" style="display: none; ">
-                                <p>IE 6.0+, FF 2+, Safari 3.0+, Opera 9.0+, Chrome</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-			    <h3 id="panelTestId"><a href="#">Getting Started with jQuery</a></h3>
-			    <div>
-			        <div class="leftColumn">
-			             <h4>Useful Links</h4>
-				        <ul><li> <a href="/Downloading_jQuery" title="Downloading jQuery">Downloading jQuery</a>
+						</li>
+						<li><a href="http://docs.jquery.com/Tutorials" title="Cross-browser" class="jq-thickbox">Cross-browser</a>
+							<div class="jq-checkpointSubhead" style="display: none; ">
+								<p>IE 6.0+, FF 2+, Safari 3.0+, Opera 9.0+, Chrome</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<h3 id="panelTestId"><a href="#">Getting Started with jQuery</a></h3>
+				<div>
+					<div class="leftColumn">
+						 <h4>Useful Links</h4>
+						<ul><li> <a href="/Downloading_jQuery" title="Downloading jQuery">Downloading jQuery</a>
 						</li><li> <a href="/How_jQuery_Works" title="How jQuery Works">How jQuery Works</a>
 						</li><li> <a href="/Frequently_Asked_Questions" title="Frequently Asked Questions">Frequently Asked Questions</a>
 						</li><li> <a href="/Tutorials" title="Tutorials">Tutorials</a>
@@ -554,8 +637,8 @@
 						</li></ul>
 					</div>
 					<div class="rightColumn">
-                        <h4>jQuery API Reference</h4>
-                        <ul><li> <a href="/Core" title="Core">jQuery Core</a>
+						<h4>jQuery API Reference</h4>
+						<ul><li> <a href="/Core" title="Core">jQuery Core</a>
 							</li><li> <a href="/Selectors" title="Selectors">Selectors</a>
 							</li><li> <a href="/Attributes" title="Attributes">Attributes</a>
 							</li><li> <a href="/Traversing" title="Traversing">Traversing</a>
@@ -568,68 +651,68 @@
 							</li><li> <a href="/Internals" title="Internals">Internals</a>
 							</li></ul>
 					</div>
-			    </div>
-			    <h3><a href="#">jQuery Resources</a></h3>
-			    <div id="jq-resources" class="ui-helper-clearfix">
+				</div>
+				<h3><a href="#">jQuery Resources</a></h3>
+				<div id="jq-resources" class="ui-helper-clearfix">
 
-                    <div class="jq-gettingStarted leftColumn">
-                        <h3>Getting Started With jQuery</h3>
-                        <ul>
-                            <li><a href="http://docs.jquery.com/How_jQuery_Works">How jQuery Works</a></li>
-                            <li><a href="http://docs.jquery.com/Tutorials">Tutorials</a></li>
-                            <li><a href="http://docs.jquery.com/Using_jQuery_with_Other_Libraries">Using jQuery with other libraries</a></li>
-                            <li><a href="http://docs.jquery.com/">jQuery Documentation</a></li>
+					<div class="jq-gettingStarted leftColumn">
+						<h3>Getting Started With jQuery</h3>
+						<ul>
+							<li><a href="http://docs.jquery.com/How_jQuery_Works">How jQuery Works</a></li>
+							<li><a href="http://docs.jquery.com/Tutorials">Tutorials</a></li>
+							<li><a href="http://docs.jquery.com/Using_jQuery_with_Other_Libraries">Using jQuery with other libraries</a></li>
+							<li><a href="http://docs.jquery.com/">jQuery Documentation</a></li>
 
-                        </ul>
-                    </div>
-                    <div class="jq-devResources rightColumn">
-                        <h3>Developer Resources</h3>
-                        <ul>
-                            <li><a href="http://docs.jquery.com/Discussion">Mailing List</a></li>
-                            <li><a href="http://docs.jquery.com/Downloading_jQuery">Source code / SVN</a></li>
+						</ul>
+					</div>
+					<div class="jq-devResources rightColumn">
+						<h3>Developer Resources</h3>
+						<ul>
+							<li><a href="http://docs.jquery.com/Discussion">Mailing List</a></li>
+							<li><a href="http://docs.jquery.com/Downloading_jQuery">Source code / SVN</a></li>
 
-                            <li><a href="http://docs.jquery.com/Plugins/Authoring">Plugin Authoring</a></li>
-                            <li><a href="http://dev.jquery.com/newticket/">Submit a New Bug Report</a></li>
-                        </ul>
-                    </div>
-			    </div>
+							<li><a href="http://docs.jquery.com/Plugins/Authoring">Plugin Authoring</a></li>
+							<li><a href="http://dev.jquery.com/newticket/">Submit a New Bug Report</a></li>
+						</ul>
+					</div>
+				</div>
 			</div>
-            <h3>Accessibility Changes Made to the Panel:</h3>
-            <ul>
-                <li>Added ARIA markup and labeling</li>
-            </ul>
-        </div>
-        <div id="datepicker">
-            <h2>Datepicker</h2>
-            <p><label for="datepicker1">Date:</label> <input type="text" id="datepicker1" class="demoWidget"></p>
-            <h3>Accessibility Changes Made to the Datepicker:</h3>
-            <ul>
-                <li>Currently under construction</li>
-            </ul>
-        </div>
+			<h3>Accessibility Changes Made to the Panel:</h3>
+			<ul>
+				<li>Added ARIA markup and labeling</li>
+			</ul>
+		</div>
+		<div id="datepicker">
+			<h2>Datepicker</h2>
+			<p><label for="datepicker1">Date:</label> <input type="text" id="datepicker1" class="demoWidget"></p>
+			<h3>Accessibility Changes Made to the Datepicker:</h3>
+			<ul>
+				<li>Currently under construction</li>
+			</ul>
+		</div>
 
-        <!--
-        <div id="tabs-15">
-            <h2>SelectMenu</h2>
-        </div>
-        -->
-    </div>
-    <!-- end tabs -->
-    <div class="ui-helper-clearfix">
-	    <div class="leftColumn">
-	        <h1>Source</h1>
-	        <p>Last updated: <strong id="timeStamp"></strong></p>
-	        <p><a href="http://github.com/hanshillen/aegisdemo/zipball/master">Download the latest version of this demo as a zip file</a></p>
-	    </div>
-	    <div class="rightColumn">
-	        <h1>Acknowledgements</h1>
-	        <p>Accessibility work on these widgets was implemented by <a href="http://www.paciellogroup.com/">The Paciello Group (TPG)</a> and funded by <a href="http://corp.aol.com/our-values/accessibility">AOL</a> and <a href="http://www.aegis-project.eu/">AEGIS</a>.</p>
-	        <ul class="logoList">
-	            <li><a href="http://www.aegis-project.eu/"><img src="images/AEGIS Logo.png" alt="Aegis" /></a></li>
-	            <li><a href="http://corp.aol.com/our-values/accessibility"><img src="images/AOL Logo.png" alt="AOL" /></a></li>
-	            <li><a href="http://www.paciellogroup.com/"><img class="tpgLogo" src="images/TPG Logo.gif" alt="TPG" /></a></li>
-	        </ul>
-	    </div>
+		<!--
+		<div id="tabs-15">
+			<h2>SelectMenu</h2>
+		</div>
+		-->
+	</div>
+	<!-- end tabs -->
+	<div class="ui-helper-clearfix">
+		<div class="leftColumn">
+			<h1>Source</h1>
+			<p>Last updated: <strong id="timeStamp"></strong></p>
+			<p><a href="http://github.com/hanshillen/aegisdemo/zipball/master">Download the latest version of this demo as a zip file</a></p>
+		</div>
+		<div class="rightColumn">
+			<h1>Acknowledgements</h1>
+			<p>Accessibility work on these widgets was implemented by <a href="http://www.paciellogroup.com/">The Paciello Group (TPG)</a> and funded by <a href="http://corp.aol.com/our-values/accessibility">AOL</a> and <a href="http://www.aegis-project.eu/">AEGIS</a>.</p>
+			<ul class="logoList">
+				<li><a href="http://www.aegis-project.eu/"><img src="images/AEGIS Logo.png" alt="Aegis" /></a></li>
+				<li><a href="http://corp.aol.com/our-values/accessibility"><img src="images/AOL Logo.png" alt="AOL" /></a></li>
+				<li><a href="http://www.paciellogroup.com/"><img class="tpgLogo" src="images/TPG Logo.gif" alt="TPG" /></a></li>
+			</ul>
+		</div>
 	</div>
  
 </div><!-- End demo -->
