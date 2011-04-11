@@ -23,6 +23,15 @@ $(function() {
                 selectedTabId = 0;
         }
     }
+    
+    //experimental: GLobal focusin handler that assigns focs classnames
+    
+    $(document).focusin(function(event){
+    	$(event.target).addClass("ui-global-focus");
+    })
+    .focusout(function(event){
+    	$(event.target).removeClass("ui-global-focus");
+    });
 
     //Load main tabs
     $("#demoTabs").tabs({labelledBy: "tabsLbl", selected : selectedTabId});
@@ -98,6 +107,7 @@ $(function() {
                 createButtons(panel);
                 break;
             case "menubar":
+            	$("#bar1").menubar();
                 $("#sampleMenubar").menubar({isMenuBar : true});
                 //VERY experimental: Moving focus back when accessing menu by shortcut
                 $(document).bind("keyup", function(event){

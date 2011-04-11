@@ -35,7 +35,7 @@ body { font-size: 62.5%; font-family:Arial, Helvetica, sans-serif }
 }
 
 
-.ui-state-focus {
+.ui-state-focus, a.ui-global-focus, input.ui-global-focus, div.ui-global-focus, select.ui-global-focus, button.ui-global-focus {
 	outline: 2px solid #412C84 !important;
     outline-offset: 0;
     -moz-outline-radius: 5px;
