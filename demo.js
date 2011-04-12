@@ -103,7 +103,6 @@ $(function() {
                 break;
             case "button":
                 $("#repeat").addClass("hiddenFieldset")
-                $("#toolbar").addClass("ui-widget-header").addClass("ui-corner-all");
                 createButtons(panel);
                 break;
             case "menubar":
@@ -178,11 +177,12 @@ $(function() {
                 destroySliders(panel);
                 break;
             case "button":
-                autoDestroyInPanel(panel);
+            	$("#toolbar").find(":ui-button").unbind("click");
+            	autoDestroyInPanel(panel);
+            	$("#buttonStatusUpdater").remove();
                 $("#repeat").buttonset("destroy");
                 $("#repeat").removeClass("hiddenFieldset");
                 $("#toolbar").removeClass("ui-widget-header").removeClass("ui-corner-all");
-
                 break;
             case "autocomplete":
                 autoDestroyInPanel(panel);
@@ -369,25 +369,6 @@ $(function() {
                 primary: 'ui-icon-play'
             }
         })
-        .click(function() {
-            var options;
-            if ($(this).text() == 'play') {
-                options = {
-                    label: 'pause',
-                    icons: {
-                        primary: 'ui-icon-pause'
-                    }
-                };
-            } else {
-                options = {
-                    label: 'play',
-                    icons: {
-                        primary: 'ui-icon-play'
-                    }
-                };
-            }
-            $(this).button('option', options);
-        });
         $('#stop').button({
             text: false,
             icons: {
@@ -416,6 +397,31 @@ $(function() {
         });
         $("#shuffle").button();
         $("#repeat").buttonset();
+        $("#toolbar").after($("<p aria-live='polite' id='buttonStatusUpdater'>&nbsp;</p>"));
+        $("#toolbar").find(":ui-button").click(function(e) {
+        	var msg = "'" + $(this).button("option", "label") + "' was activated";
+        	$("#buttonStatusUpdater").text(msg)
+        	
+        	if (this.id == "play") {
+                var options;
+                if ($(this).text() == 'play') {
+                    options = {
+                        label: 'pause',
+                        icons: {
+                            primary: 'ui-icon-pause'
+                        }
+                    };
+                } else {
+                    options = {
+                        label: 'play',
+                        icons: {
+                            primary: 'ui-icon-play'
+                        }
+                    };
+                }
+                $(this).button('option', options);	
+        	}
+        });
     }
 
     // DIALOG;
