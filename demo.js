@@ -106,7 +106,9 @@ $(function() {
                 createButtons(panel);
                 break;
             case "menubar":
-                $("#sampleMenubar").menubar({select : function(event, ui){
+                $("#sampleMenubar").menubar({
+                	menuIcon : true,
+                	select : function(event, ui){
                 	$("#menubarStatusUpdater").text("'" + ui.item.text() + "' menubar item selected");
                 	}});
                 //VERY experimental: Moving focus back when accessing menu by shortcut
