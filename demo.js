@@ -106,9 +106,11 @@ $(function() {
                 createButtons(panel);
                 break;
             case "menubar":
-            	$("#bar1").menubar();
-                $("#sampleMenubar").menubar({isMenuBar : true});
+                $("#sampleMenubar").menubar({select : function(event, ui){
+                	$("#menubarStatusUpdater").text("'" + ui.item.text() + "' menubar item selected");
+                	}});
                 //VERY experimental: Moving focus back when accessing menu by shortcut
+                /*
                 $(document).bind("keyup", function(event){
                  if (event.keyCode == 77 & event.shiftKey && event.altKey) {
                      if (event.target.nodeType != 1 || !$(event.target).is(":focusable"))
@@ -121,7 +123,8 @@ $(function() {
                         $("#sampleMenubar").find("a[tabindex=0]").get(0).focus();
                     }
                  }
-                })
+                })*/
+                $("#sampleMenubar").after($("<p aria-live='polite' id='menubarStatusUpdater'>&nbsp;</p>"));
                 break;
             case "dialog":
                 createDialog(panel);
@@ -175,6 +178,10 @@ $(function() {
             case "slider":
                 autoDestroyInPanel(panel);
                 destroySliders(panel);
+                break;
+            case "menubar":
+                autoDestroyInPanel(panel);
+                $("#menubarStatusUpdater").remove();
                 break;
             case "button":
             	$("#toolbar").find(":ui-button").unbind("click");
