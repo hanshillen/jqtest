@@ -236,7 +236,7 @@ $(function() {
                 autoToggleEnabled(panel, enable);
                 break;
         }
-    }
+    } 
 
     function autoToggleEnabled(panel, enable) {
         var elements = panel.find(".demoWidget");
