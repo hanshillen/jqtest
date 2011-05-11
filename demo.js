@@ -9,9 +9,11 @@ $(function() {
     var lastMod = new Date(document.lastModified);
     $("#timeStamp").html(lastMod.getDate() + " " + months[lastMod.getMonth()] + " " + lastMod.getFullYear());
     $(document.body).append($("<span id='statusUpdater' aria-live='polite' class='ui-helper-hidden-accessible'></span>"));
+    
     // Allow tab to be selected through deep linking
     var selectedTabId = 0
     var query = document.location.search;
+    var fragmentId = document.location.hash;
     if (query) {
         var match = query.match(/(\\?|&)tabId=([^&]+)(\\&|$)/i);
         if (match && match[2]) {
@@ -22,6 +24,18 @@ $(function() {
             if (selectedTabId == -1)
                 selectedTabId = 0;
         }
+    }
+    else if (fragmentId) {
+        var match = fragmentId.match(/^#goto_(.+)$/i);
+        if (match && match[1]) {
+            if (!isNaN(match[1]))
+                selectedTabId = match[1];
+            else
+                selectedTabId = jQuery.inArray(match[1], widgetNames);
+            if (selectedTabId == -1)
+                selectedTabId = 0;
+        }
+    
     }
     
     //experimental: GLobal focusin handler that assigns focs classnames
@@ -91,6 +105,7 @@ $(function() {
         if (!panel || panel.length == 0)
             return;
         var widgetId = $(panel).attr("id");
+        document.location.hash = "#goto_" + widgetId;
         if (!widgetId || (loadedWidgets[widgetId] & !skipLoadedCheck) || $.inArray(widgetId, widgetNames) == -1)
             return;
 
