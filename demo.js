@@ -58,7 +58,7 @@ $(function() {
     }, 500);
 
 
-    $('#demoTabs').bind('tabsshow', function(event, ui) {
+    $('#demoTabs').bind('tabsactivate', function(event, ui) {
         createTabPanelContents($(ui.newPanel));
         if ($(ui.oldPanel).attr("id") == "tooltip")
             $(".toggleTooltips :ui-tooltip").tooltip("close");
