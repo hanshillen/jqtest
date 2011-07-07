@@ -43,21 +43,21 @@ body { font-size: 62.5%; font-family:Arial, Helvetica, sans-serif }
 }
 
 .ui-state-focus .ui-button-icon-primary {
-	outline-offset: .4em;	
+	outline-offset: .4em;
 }
 
 .ui-button-icon-only.ui-state-focus, .ui-tabs-nav a.ui-global-focus {
 	outline: none !important;
 }
 
-/* End global focus styles */ 
+/* End global focus styles */
 
 
  .ui-widget-content h3 a {
     color: navy;
  }
- 
- 
+
+
 
  .logoList {
 	list-style: none;
@@ -121,4 +121,12 @@ body { font-size: 62.5%; font-family:Arial, Helvetica, sans-serif }
 
  a {
     color: #000;
+ }
+
+ .widgetControls {
+ 	margin: 20px;
+ }
+
+ .widgetControls button {
+ 	margin-right: 10px;
  }
