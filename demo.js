@@ -9,7 +9,7 @@ $(function() {
     var lastMod = new Date(document.lastModified);
     $("#timeStamp").html(lastMod.getDate() + " " + months[lastMod.getMonth()] + " " + lastMod.getFullYear());
     $(document.body).append($("<span id='statusUpdater' aria-live='polite' class='ui-helper-hidden-accessible'></span>"));
-    
+
     // Allow tab to be selected through deep linking
     var selectedTabId = 0
     var query = document.location.search;
@@ -35,11 +35,11 @@ $(function() {
             if (selectedTabId == -1)
                 selectedTabId = 0;
         }
-    
+
     }
-    
+
     //experimental: GLobal focusin handler that assigns focs classnames
-    
+
     $(document).focusin(function(event){
     	$(event.target).addClass("ui-global-focus");
     })
@@ -132,10 +132,10 @@ $(function() {
                  if (event.keyCode == 77 & event.shiftKey && event.altKey) {
                      if (event.target.nodeType != 1 || !$(event.target).is(":focusable"))
                          $("#sampleMenubar").data("returnFocusTo", null)
-                     else 
+                     else
                          $("#sampleMenubar").data("returnFocusTo", event.target)
                     var tabId = $.inArray("menubar", widgetNames);
-                    if (tabId != -1) { 
+                    if (tabId != -1) {
                         $("#demoTabs").tabs("select", tabId);
                         $("#sampleMenubar").find("a[tabindex=0]").get(0).focus();
                     }
@@ -170,6 +170,19 @@ $(function() {
             case "autocomplete":
                 createAutoComplete(panel);
                 break;
+            case "datepicker":
+    			$( "#datepicker1" ).datepicker( {
+    				select: function( event, ui ) {
+    					$( "#dp1-output" ).text( "selected date: " + ui.date );
+    				}
+    			});
+
+    			$( "#datepicker2" ).datepicker( {
+    					select: function( event, ui ) {
+    					$( "#datepicker1" ).val( ui.date ).focus( 1 );
+    				}
+    			});
+            	break;
 
             default: //No special logic required, simply call component's method on demo objects in tab poanel
                 autoCreateInPanel(panel);
@@ -251,7 +264,7 @@ $(function() {
                 autoToggleEnabled(panel, enable);
                 break;
         }
-    } 
+    }
 
     function autoToggleEnabled(panel, enable) {
         var elements = panel.find(".demoWidget");
@@ -425,7 +438,7 @@ $(function() {
         $("#toolbar").find(":ui-button").click(function(e) {
         	var msg = "'" + $(this).button("option", "label") + "' was activated";
         	$("#buttonStatusUpdater").text(msg)
-        	
+
         	if (this.id == "play") {
                 var options;
                 if ($(this).text() == 'play') {
@@ -443,7 +456,7 @@ $(function() {
                         }
                     };
                 }
-                $(this).button('option', options);	
+                $(this).button('option', options);
         	}
         });
     }

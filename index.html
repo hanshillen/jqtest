@@ -23,11 +23,18 @@
 <script type="text/javascript" src="jquery-ui/ui/jquery.ui.tooltip.js"></script>
 <script type="text/javascript" src="jquery-ui/ui/jquery.ui.autocomplete.js"></script>
 <script type="text/javascript" src="jquery-ui/ui/jquery.ui.panel.js"></script>
-<script type="text/javascript" src="jquery-ui/ui/jquery.ui.datepicker.js"></script>
+<script type="text/javascript" src="jquery-ui/ui/jquery.ui.popup.js"></script>
 <script type="text/javascript" src="jcarousel/lib/jquery.jcarousel.js"></script>
 <script type="text/javascript" src="jstree-a11y/jsTree.v.1.0rc2/lib/jquery.cookie.js"></script>
 <script type="text/javascript" src="jstree-a11y/jsTree.v.1.0rc2/lib/jquery.hotkeys.js"></script>
 <script type="text/javascript" src="jstree-a11y/jsTree.v.1.0rc2/jquery.jstree.js"></script>
+<script type="text/javascript" src="jquery-ui/external/jquery.global.js"></script>
+<script type="text/javascript" src="jquery-ui/external/jquery.global.de-DE.js"></script>
+<script type="text/javascript" src="jquery-ui/external/jquery.global.ja-JP.js"></script>
+<script type="text/javascript" src="jquery-ui/datepicker-rewrite/localization.js"></script>
+<script type="text/javascript" src="jquery-ui/datepicker-rewrite/date.js"></script>
+<script type="text/javascript" src="jquery-ui/datepicker-rewrite/picker.js"></script>
+<script type="text/javascript" src="jquery-ui/datepicker-rewrite/jquery.tmpl.js"></script>
 
 
 <script type="text/javascript" src="demo.js"></script>
@@ -46,22 +53,22 @@
 			margin: .4em 0 .2em;
 			line-height: 1.5;
 		}
-		
+
 		/* menubar styles */
 		.ui-menubar .ui-button { float: left; font-weight: normal; border-top-width: 0 !important; border-bottom-width: 0 !important; margin: 0; outline: none; }
 		.ui-menubar .ui-menubar-link { border-right: 1px dashed transparent; border-left: 1px dashed transparent; }
-		
+
 		ol.ui-menubar, ul.ui-menubar {
 			list-style: none;
 			margin-left: 0;
-			padding-left: 0;	
+			padding-left: 0;
 		}
-		
+
 		li.ui-menubar-item {
-			float: left;  		
+			float: left;
 		}
-		
-		
+
+
 		table {
 			border-collapse: collapse;
 		}
@@ -69,6 +76,11 @@
 			padding: 0.5em;
 			border: 1px solid black;
 		}
+
+		.ui-datepicker-calendar a.ui-state-focus {
+			text-decoration: underline;
+		}
+		.ui-popup { position: absolute; z-index: 5000; }
  	</style>
 
 </head>
@@ -92,7 +104,7 @@
 			<li><a href="#tooltip">Tooltip</a></li>
 			<li><a href="#autocomplete">Autocomplete </a></li>
 			<li><a href="#panel">Panel</a></li>
-			<!-- <li><a href="#datepicker">Datepicker</a></li>-->
+			<li><a href="#datepicker">Datepicker</a></li>
 			<!-- <li><a href="#selectmenu">Select Menu</a></li>-->
 		</ul>
 		<div id="slider">
@@ -638,15 +650,21 @@
 				<li>Added ARIA markup and labeling</li>
 			</ul>
 		</div>
-		<!-- <div id="datepicker">
+		 <div id="datepicker">
 			<h2>Datepicker</h2>
-			<p><label for="datepicker1">Date:</label> <input type="text" id="datepicker1" class="demoWidget"></p>
+			<h3>Popup Version:</h3>
+			<p><label for="datepicker2">Date of Birth:</label> <input type="text" id="datepicker2" class="demoWidget"></p>
+			<h3>Inline Version:</h3>
+			<div id="datepicker1" class="demoWidget"></div>
+			<p id="dp1-output"></p>
+
 			<h3>Accessibility Changes Made to the Datepicker:</h3>
 			<ul>
-				<li>Currently under construction</li>
+				<li>ARIA Implementation</li>
+				<li>Keybiard & Focus Handling</li>
 			</ul>
 		</div>
- 		-->
+
 		<!--
 		<div id="selectmenu">
 			<h2>SelectMenu</h2>
@@ -670,7 +688,58 @@
 			</ul>
 		</div>
 	</div>
- 
+
 </div><!-- End demo -->
+<script id="ui-datepicker-tmpl" type="text/x-jquery-tmpl">
+		<div class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" role="region" aria-labelledby="${instance.id} + "-title"">
+			<div class="ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-all">
+				<a href="#" class="ui-datepicker-prev ui-corner-all" title="${labels.prevText}"><span class="ui-icon ui-icon-circle-triangle-w">${labels.prevText}</span></a>
+				<a href="#" class="ui-datepicker-next ui-corner-all" title="${labels.nextText}"><span class="ui-icon ui-icon-circle-triangle-e">${labels.nextText}</span></a>
+				<div role="header" id="${instance.id} + "-title"" class="ui-datepicker-title" aria-live="assertive" aria-atomic="true">
+					<div id="${instance.id}-month-lbl">
+						<span class="ui-datepicker-month">${date.monthname()}</span> <span class="ui-datepicker-year">${date.year()}</span>
+					</div>
+					<span class="ui-helper-hidden-accessible">Date Picker</span>
+				</div>
+			</div>
+			<table class="ui-datepicker-calendar" role="grid" aria-labelledby="${instance.id}-month-lbl" tabindex="0" aria-activedescendant="${instance.id}-${instance.focusedDay}">
+				<thead role="presentation">
+					<tr role="row">
+						{{each(index, day) date.weekdays()}}
+							<th class="" role="columnheader" abbr="${day.fullname}" aria-label="${day.fullname}"><span title="${day.fullname}">${day.shortname}</span></th>
+						{{/each}}
+					</tr>
+				</thead>
+				<tbody role="presentation">
+					{{each(weekIndex, week) date.days()}}
+					<tr role="row">
+						{{each(dayIndex, day) week.days}}
+							<td {{if day.render}}id="${instance.id}-${day.date}"{{/if}} role="gridcell" aria-selected="{{if day.current}}true{{else}}false{{/if}}" {{if !day.selectable}}aria-disabled="true"{{/if}}>
+								{{if day.render}}
+									{{if day.selectable}}
+									<a title="${day.title}" class="{{if day.date == instance.focusedDay}}ui-state-focus {{/if}}ui-state-default{{if day.current}} ui-state-active{{/if}}{{if day.today}} ui-state-highlight{{/if}} ${day.extraClasses}" href="#" tabindex="-1" data-day=${day.date}>
+										${day.date}
+										{{if day.today}} <span class="ui-helper-hidden-accessible">, today</span>{{/if}}
+										{{if day.current}}<span class="ui-helper-hidden-accessible">, selected</span>{{/if}}
+									</a>
+									{{/if}}
+									{{if !day.selectable}}
+									<span title="${day.title}" class="{{if day.current}} ui-state-active{{/if}}{{if day.today}} ui-state-highlight{{/if}} ${day.extraClasses}">
+										${day.date}
+									</span>
+									{{/if}}
+								{{/if}}
+							</td>
+						{{/each}}
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+			<div class="ui-datepicker-buttonpane ui-widget-content">
+				<button class="ui-datepicker-current">${labels.currentText}</button>
+				<button class="ui-datepicker-close">${labels.closeText}</button>
+			</div>
+		</div>
+	</script>
 </body>
 </html>
