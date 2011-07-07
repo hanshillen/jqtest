@@ -38,7 +38,7 @@ $(function() {
 
     }
 
-    //experimental: GLobal focusin handler that assigns focs classnames
+    //experimental: GLobal focusin handler that assigns focus classnames
 
     $(document).focusin(function(event){
     	$(event.target).addClass("ui-global-focus");
@@ -69,7 +69,7 @@ $(function() {
         if (jQuery.inArray(this.id, coreWidgets) == -1)
             return;
         $(this)
-            .prepend($("<button class='enabled'>Disable "+ this.id+"</button>").button().click(
+            .append($("<button class='enabled'>Disable "+ this.id+"</button>").button().click(
                 function(){
                     var btn = $(this);
                     if (btn.hasClass("enabled")) {
@@ -84,7 +84,7 @@ $(function() {
                     }
 
                 }))
-        .prepend($("<button class='created'>Destroy "+ this.id+"</button>").button().click(
+        .append($("<button class='created'>Destroy "+ this.id+"</button>").button().click(
             function(){
                 var btn = $(this);
                 if (btn.hasClass("created")) {
