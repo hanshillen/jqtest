@@ -73,7 +73,8 @@ body { font-size: 62.5%; font-family:Arial, Helvetica, sans-serif }
 
  .leftColumn, .rightColumn {
 	float: left;
-	width: 30em;
+	width: 35em;
+	margin-right: 50px;
  }
 
  .clear {

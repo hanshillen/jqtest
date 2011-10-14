@@ -103,7 +103,7 @@
 			<li><a href="#tabs">Tabs</a></li>
 			<li><a href="#tooltip">Tooltip</a></li>
 			<li><a href="#autocomplete">Autocomplete </a></li>
-			<li><a href="#panel">Panel</a></li>
+			<!--  <li><a href="#panel">Panel</a></li>-->
 			<li><a href="#datepicker">Datepicker</a></li>
 			<!-- <li><a href="#selectmenu">Select Menu</a></li>-->
 		</ul>
@@ -133,15 +133,8 @@
 			 <div class="widgetControls"></div>
 			<div class="ui-helper-clearfix">
 				<div class="leftColumn">
-					<h3>Accessibility Changes Made to the <a href="before/jquery-ui/demos/slider/default.html" target="_blank">Original Slider</a>:</h3>
-					<ul>
-						<li>Added ARIA markup so role, name &amp; state information is exposed</li>
-						<li>Added keyboard support</li>
-						<li>Support for Double Slider labeling	  </li>
-					</ul>
-				</div>
-				<div class="rightColumn">
-					<h3>Keyboard Shortcuts:</h3>
+					<h3>How to use the Slider widget:</h3>
+					<p>Each slider thumb takes up one stop in the tab order. The slider thumb's value can be changed using the following shortcuts:</p>
 					<ul>
 						<li>Left Arrow: Descrease value by 1</li>
 						<li>Left Arrow: Inscrease value by 1</li>
@@ -151,15 +144,17 @@
 						<li>End: Set value to maximum</li>
 						<li>Tab: move focus between multiple thumbs</li>
 					</ul>
+					<p>To be announced properly, the slider must be used with an ARIA compliant browser and a screen readerin (auto) forms mode or application mode,</p>
 				</div>
 				<div class="rightColumn">
-					<h3>To use this widget:</h3>
+					<h3>Accessibility Changes Made to the <a href="before/jquery-ui/demos/slider/default.html" target="_blank">Original Slider</a>:</h3>
+					<ul>
+						<li>Added ARIA markup so role, name &amp; state information is exposed</li>
+						<li>Added keyboard support</li>
+						<li>Support for Double Slider labeling	  </li>
+					</ul>
 				</div>
 			</div>
-
-
-
-
 		</div>
 
 		<div id="progressbar">
@@ -170,11 +165,21 @@
 		   <div id="progressDialog">
 			   <div id='sampleProgressBar' class="demoWidget"></div>
 		   </div>
-		   <h3>Accessibility Changes Made to the <a href="before/jquery-ui/demos/progressbar/default.html" target="_blank">Original Progressbar</a>:</h3>
-		   <ul>
-			<li>Added support for high contrast mode</li>
-			<li>Added ARIA markup for role &amp; state information</li>
-			</ul>
+		   <div class="ui-helper-clearfix">
+			   <div class="leftColumn">
+					<h3>How to use the Progress Bar widget:</h3>
+					<p>Activate the button labeled &quot;Trigger Progressbar&quot;. A progressbar will appear and automatically increase it's value up to a 100%. This takes about 12 seconds. While the progressbar is being shown, keyboard interaction is prohibited.</p>
+					<p>The Progressbar widget does not require any keyboard shortcuts.</p>
+					<p>To be announced properly, the an ARIA compliant screen reader must be used that will correctly announce progressbar updates.</p>
+				</div>
+				<div class="rightColumn">
+				   <h3>Accessibility Changes Made to the <a href="before/jquery-ui/demos/progressbar/default.html" target="_blank">Original Progressbar</a>:</h3>
+				   <ul>
+					<li>Added support for high contrast mode</li>
+					<li>Added ARIA markup for role &amp; state information</li>
+					</ul>
+				</div>
+			</div>
 		</div>
 		<div id="menubar">
 		   <h2>Menubar</h2>
@@ -260,12 +265,29 @@
 					</ul>
 				</li>
 			</ul>
-			<h3>Accessibility Changes Made to the Menubar (no original version):</h3>
-			<ul>
-				<li>Added ARIA markup so role, name &amp; state information is exposed</li>
-				<li>Added keyboard navigation support</li>
-				<li>Added high contrast mode support</li>
-			</ul>
+			<div class="ui-helper-clearfix">
+			   <div class="leftColumn">
+					<h3>How to use the Menubar widget:</h3>
+					<p>The menubar takes up one stop in the tab order, can can be navigated with the following keyboard shortcuts:</p>
+					<ul>
+						<li>Left Arrow: Collapse currently focused expanded submenu, or move focus to the to left adjacent submenu in the menubar</li>
+						<li>Right Arrow: Expand currently focused collapsed menu item, or move focus to the right adjacent submenu in the menubar</li>
+						<li>Up Arrow: move focus up in the currently expanded submenu, or wrap focus to its last item</li>
+						<li>Down Arrow: move focus down in the currently expanded submenu, or wrap focus to its first item</li>
+						<li>Escape: Collapse the currently focused submenu without activating a menu item</li>
+						<li>Enter: Activate the currently focused menu item, or expand it if it has a submenu</li>
+						<li>Any letter key: Perform a first letter search the the currently expanded submenu</li>
+					</ul>
+				</div>
+				<div class="rightColumn">
+					<h3>Accessibility Changes Made to the Menubar (no original version):</h3>
+					<ul>
+						<li>Added ARIA markup so role, name &amp; state information is exposed</li>
+						<li>Added keyboard navigation support</li>
+						<li>Added high contrast mode support</li>
+					</ul>
+				</div>
+			</div>
 		</div>
 		<div id="button">
 			<h2>Buttons</h2>
@@ -286,26 +308,41 @@
 					<input type="radio" id="repeatall" name="repeat" /><label for="repeatall">All</label>
 				</fieldset>
 			</span>
-						<h3>Accessibility Changes Made to the <a href="before/jquery-ui/demos/button/toolbar.html" target="_blank">original Button / Buttongroup</a></h3>
-						<ul>
-				<li>Applied fixes for visual focus indications</li>
-			</ul>
+			<div class="ui-helper-clearfix">
+			   <div class="leftColumn">
+					<h3>How to use the Button widget:</h3>
+					<p>Each button is a separate stop in the tab order, except for button groups which take up only one stop.</p>
+					<p>Buttons are activated or toggled using the Space key. Button groups behave similar to radio button groups: The selcted button is changed by using the arrow keys.</p>
+					<p>For screen reader users, Toggle Buttons and Button Groups are announced as traditional checkboxes and radio button groups.</p>
+				</div>
+				<div class="rightColumn">
+					<h3>Accessibility Changes Made to the <a href="before/jquery-ui/demos/button/toolbar.html" target="_blank">original Button / Buttongroup</a></h3>
+					<ul>
+						<li>Applied fixes for visual focus indications</li>
+						<li>Added support for high contrast mode</li>
+					</ul>
+				</div>
+			</div>
+
+
 		</div>
 		<div id="dialog">
 			<h2>Dialog</h2>
 			<a href="#" id="dialogTrigger">Trigger Dialog</a>
-			<div id="sampleDialog" title="My Sample Form" tabindex="-1">
-				<p id="dialogDescription">
-					Please enter your personal information
-				</p>
-				<p>
-					<label for="sampleField1">First Name:</label>
-					<input type="text" id="sampleField1" />
-				</p>
-				<p>
-					<label for="sampleField2">Last Name:</label>
-					<input type="text" id="sampleField2" />
-				</p>
+			<div id="sampleDialog" title="Profile Information" aria-describedby="dialogDescription" tabindex="-1">
+				<div role="group" aria-describedby="dialogDescription">
+					<p id="dialogDescription">
+						Please share something personal about yourself
+					</p>
+					<p>
+						<label for="sampleField1">Your favorite animal</label>
+						<input type="text" id="sampleField1" />
+					</p>
+					<p>
+						<label for="sampleField2">Your favorite color</label>
+						<input type="text" id="sampleField2" />
+					</p>
+				</div>
 				<div class="dialogSubGroup" role="group" aria-labelledby="groupLbl1" aria-describedby="groupDesc1">
 					<h3 id="groupLbl1">Additional Information</h3>
 					<p id="groupDesc1">These fields are optional</p>
@@ -317,11 +354,26 @@
 
 
 			</div>
-			<h3>Accessibility Changes Made to the <a href="before/jquery-ui/demos/dialog/default.html" target="_blank">Original Dialog</a>:</h3>
-			<ul>
-				<li>Added support for high contrast mode</li>
-				<li>Added keyboard support for move and resize actions</li>
-			</ul>
+			<div class="ui-helper-clearfix">
+			   <div class="leftColumn">
+					<h3>How to use the Dialog widget:</h3>
+					<p>The demo dialog is activated by clicking on the &quot;Trigger Dialog&quot; button.</p>
+					<p>While the dialog contains focus, the tab order will wrap inside the dialog. If the dialog is modal, it is not possible to move focus to the main page until the dialog is closed.</p>
+					<p>If the dialog is movable or resizable, the dialog user interface will include buttons that allow these actions to be performed by keyboard. To do this. move focus to the button, and use the arrow keys to move or resize the dialog. </p>
+					<p>To close the dialog, press Escape.</p>
+
+				</div>
+				<div class="rightColumn">
+					<h3>Accessibility Changes Made to the <a href="before/jquery-ui/demos/dialog/default.html" target="_blank">Original Dialog</a>:</h3>
+					<ul>
+						<li>Added support for high contrast mode</li>
+						<li>Added keyboard support for move and resize actions</li>
+					</ul>
+				</div>
+
+			</div>
+
+
 		</div>
 		<div id="checkbox">
 			<h2>Checkbox</h2>
@@ -331,10 +383,21 @@
 				<input type="checkbox" id="check3" class="demoWidget" /><label for="check3">Cows</label>
 				<input type="checkbox" id="check4" class="demoWidget" /><span><label for="check4">Bees</label></span>
 			</form>
-			<h3>Accessibility Changes Made to the <a href="before/jquery-ui/demos/checkbox/default.html" target="_blank">Original Checkbox</a>:</h3>
-			<ul>
-				<li>Applied fixes for visual indication of focus</li>
-			</ul>
+			<div class="ui-helper-clearfix">
+			   <div class="leftColumn">
+					<h3>How to use the Checkbox widget:</h3>
+					<p>The checkbox can be checked or unchecked by pressing the Space key.</p>
+
+				</div>
+				<div class="rightColumn">
+					<h3>Accessibility Changes Made to the <a href="before/jquery-ui/demos/checkbox/default.html" target="_blank">Original Checkbox</a>:</h3>
+					<ul>
+						<li>Applied fixes for visual indication of focus</li>
+					</ul>
+				</div>
+			</div>
+
+
 		</div>
 		<div id="accordion">
 			<h2>Accordion</h2>
@@ -370,8 +433,6 @@
 						<li>List item two</li>
 						<li>List item three</li>
 					</ul>
-					<h3>Accessibility Changes Made to the Original Accordeon:</h3>
-					<p>No changes were made. </p>
 				</div>
 				<h3><a href="#">Section 4</a></h3>
 				<div>
@@ -388,7 +449,25 @@
 					</p>
 				</div>
 			</div>
-
+			<div class="ui-helper-clearfix">
+			   <div class="leftColumn">
+					<h3>How to use the Accordion widget:</h3>
+					<p>The accordion takes up one tab stop in the tab order. It can be navigated with the following shortcuts:</p>
+					<ul>
+						<li>Up or Left Arrow: Move focus to the previous accordion header</li>
+						<li>Down or Right Arrow: Move focus to the next accordion header</li>
+						<li>Space and Enter key: Expand the currently focused accordion header</li>
+					</ul>
+					<p>
+					The accordion is marked up as an ARIA tablist. To be announced properly by screen readers, the accordion must be used
+					with an ARIA compliant browser and a screen readerin (auto) forms mode or application mode.
+					</p>
+				</div>
+				<div class="rightColumn">
+					<h3>Accessibility Changes Made to the Original Accordeon:</h3>
+					<p>No changes were made. </p>
+				</div>
+			</div>
 		</div>
 		<div id="tree">
 			<h2>Tree</h2>
@@ -470,12 +549,30 @@
 					<li> <a href="#">Trouble Shooting</a> </li>
 				</ul>
 			</div>
-			<h3>Accessibility Changes Made to the <a href="before/jsTree/demo.html" target="_blank">Original Tree</a>:</h3>
-			<ul>
-				<li>Added ARIA tree markup so role, name &amp; state information is exposed</li>
-				<li>Added high contrast support</li>
-				<li>Added fixes related to programmatic focus</li>
-			</ul>
+			<div class="ui-helper-clearfix">
+			   <div class="leftColumn">
+					<h3>How to use the Tree widget:</h3>
+					<p>The tree takes up one tab stop in the tab order. It can be navigated with the following shortcuts:</p>
+					<ul>
+						<li>Up Arrow: Move focus the the previous tree item</li>
+						<li>Down Arrow: Move focus the the next tree item</li>
+						<li>Right Arrow: Expand current branch or move focus into its first tree item</li>
+						<li>Left Arrow: Move focus to parent branch or collapse current branch</li>
+					</ul>
+					<p>
+					The tree is marked up as an ARIA tree widget. To be announced properly by screen readers, the accordion must be used
+					with an ARIA compliant browser and a screen readerin (auto) forms mode or application mode.
+					</p>
+				</div>
+				<div class="rightColumn">
+					<h3>Accessibility Changes Made to the <a href="before/jsTree/demo.html" target="_blank">Original Tree</a>:</h3>
+					<ul>
+						<li>Added ARIA tree markup so role, name &amp; state information is exposed</li>
+						<li>Added high contrast support</li>
+						<li>Added fixes related to programmatic focus</li>
+					</ul>
+				</div>
+			</div>
 		</div>
 		<div id="carousel">
 			<h2>Carousel</h2>
@@ -495,12 +592,38 @@
 				<li><img src="images/199480111_87d4cb3e38_s.jpg" width="75" height="75" alt="Unidentified Flower" /></li>
 				<li><img src="images/229228324_08223b70fa_s.jpg" width="75" height="75" alt="Purple Flower" /></li>
 			</ul>
-			<h3>Accessibility Changes Made to the <a href="before/jcarousel/examples/static_simple.html" target="_blank">Original Carousel</a>:</h3>
-			<ul>
-				<li>Added ARIA markup so role, name &amp; state information is exposed</li>
-				<li>Added keyboard navigation for switching items using arrow keys</li>
-				<li>Made carousel items focusable and navigable</li>
-			</ul>
+			<div class="ui-helper-clearfix">
+			   <div class="leftColumn">
+					<h3>How to use the Carousel widget:</h3>
+					<p>The carousel takes up three tab stops at most:</p>
+						<ul>
+							<li>The 'previous' button (if not diabled)</li>
+							<li>The carrousel items list</li>
+							<li>The 'next' button (if not diabled)</li>
+						</ul>
+					<p>When the carousel list is focused, it can be navigated using the following shortcuts:</p>
+					<ul>
+						<li>Left Arrow: Move focus to the previous carousel item</li>
+						<li>Right Arrow: Move focus to the next carousel item</li>
+						<li>Page Up: Move focus to the next carousel item group</li>
+						<li>Page Down: Move focus to the previous carousel item group</li>
+						<li>Home: Move focus to the first carousel item in the list</li>
+						<li>End: Move focus to the last carousel item in the list</li>
+					</ul>
+					<p>
+					The carousel is marked up as an ARIA listbox widget. To be announced properly by screen readers, the accordion must be used
+					with an ARIA compliant browser and a screen readerin (auto) forms mode or application mode.
+					</p>
+				</div>
+				<div class="rightColumn">
+					<h3>Accessibility Changes Made to the <a href="before/jcarousel/examples/static_simple.html" target="_blank">Original Carousel</a>:</h3>
+					<ul>
+						<li>Added ARIA markup so role, name &amp; state information is exposed</li>
+						<li>Added keyboard navigation for switching items using arrow keys</li>
+						<li>Made carousel items focusable and navigable</li>
+					</ul>
+				</div>
+			</div>
 		</div>
 		<div id="tabs">
 		<h2 id="tabsDemoLbl">Tabs</h2>
@@ -524,23 +647,42 @@
 			   <h2>Cats</h2>
 				<p>The <b>cat</b> (<i>Felis catus</i>), also known as the <b>domestic cat</b> or <b>housecat</b><sup id="cite_ref-4" class="reference"><a href="#cite_note-4"><span>[</span>5<span>]</span></a></sup> to distinguish it from other <a href="/wiki/Felinae" title="Felinae">felines</a> and <a href="/wiki/Felidae" title="Felidae">felids</a>, is a small <a href="/wiki/Domestication" title="Domestication">domesticated</a> <a href="/wiki/Carnivore" title="Carnivore">carnivorous</a> <a href="/wiki/Mammal" title="Mammal">mammal</a> that is valued by humans for its companionship and its ability to hunt <a href="/wiki/Vermin" title="Vermin">vermin</a> and household pests. Cats have been associated with humans for at least 9,500 years,<sup id="cite_ref-9500_years_5-0" class="reference"><a href="#cite_note-9500_years-5"><span>[</span>6<span>]</span></a></sup> and are currently the most popular pet in the world.<sup id="cite_ref-SciAm_6-0" class="reference"><a href="#cite_note-SciAm-6"><span>[</span>7<span>]</span></a></sup> Due to their close association with humans, cats are now found almost everywhere on Earth. This extreme adaptability and their worrying impacts on native animals has led to them being classed as an <a href="/wiki/Invasive_species" title="Invasive species">invasive species</a>. Most of these problems are caused by the large number of <a href="/wiki/Feral_cat" title="Feral cat">feral cats</a> worldwide, with a population of up to 60&#160;million of these animals in the United States alone.</p>
 
-		<p>Cats are similar in size and anatomy to the other <a href="/wiki/Felid" title="Felid" class="mw-redirect">Felids</a>, with light, flexible bodies and teeth adapted to killing small prey. A skilled predator, the cat hunts over 1,000 species for food, using its excellent eyesight and hearing. Unusually, cats have lost the ability to taste <a href="/wiki/Sugar" title="Sugar">sugar</a> and in some breeds show hereditary <a href="/wiki/Hearing_impairment" title="Hearing impairment">deafness</a>. Despite being solitary hunters, cats are a social species and use a variety of <a href="/wiki/Animal_communication" title="Animal communication">vocalizations</a>, <a href="/wiki/Pheromone" title="Pheromone">pheromones</a> and types of <a href="/wiki/Cat_body_language" title="Cat body language">body language</a> for <a href="/wiki/Cat_communication" title="Cat communication">communication</a>. These include <a href="/wiki/Cat_communication#Meowing" title="Cat communication">meowing</a>, <a href="/wiki/Purr" title="Purr">purring</a>, <a href="/wiki/Trill_consonant" title="Trill consonant">trilling</a>, <a href="/wiki/Hiss#Animals" title="Hiss">hissing</a>, <a href="/wiki/Growling" title="Growling">growling</a>, and grunting.<sup id="cite_ref-Moelk_7-0" class="reference"><a href="#cite_note-Moelk-7"><span>[</span>8<span>]</span></a></sup> They are also bred and shown as <a href="/wiki/Cat_registry" title="Cat registry">registered</a> pedigree pets. This hobby is known as <a href="/wiki/Animal_fancy" title="Animal fancy">cat fancy</a>.</p>
+			<p>Cats are similar in size and anatomy to the other <a href="/wiki/Felid" title="Felid" class="mw-redirect">Felids</a>, with light, flexible bodies and teeth adapted to killing small prey. A skilled predator, the cat hunts over 1,000 species for food, using its excellent eyesight and hearing. Unusually, cats have lost the ability to taste <a href="/wiki/Sugar" title="Sugar">sugar</a> and in some breeds show hereditary <a href="/wiki/Hearing_impairment" title="Hearing impairment">deafness</a>. Despite being solitary hunters, cats are a social species and use a variety of <a href="/wiki/Animal_communication" title="Animal communication">vocalizations</a>, <a href="/wiki/Pheromone" title="Pheromone">pheromones</a> and types of <a href="/wiki/Cat_body_language" title="Cat body language">body language</a> for <a href="/wiki/Cat_communication" title="Cat communication">communication</a>. These include <a href="/wiki/Cat_communication#Meowing" title="Cat communication">meowing</a>, <a href="/wiki/Purr" title="Purr">purring</a>, <a href="/wiki/Trill_consonant" title="Trill consonant">trilling</a>, <a href="/wiki/Hiss#Animals" title="Hiss">hissing</a>, <a href="/wiki/Growling" title="Growling">growling</a>, and grunting.<sup id="cite_ref-Moelk_7-0" class="reference"><a href="#cite_note-Moelk-7"><span>[</span>8<span>]</span></a></sup> They are also bred and shown as <a href="/wiki/Cat_registry" title="Cat registry">registered</a> pedigree pets. This hobby is known as <a href="/wiki/Animal_fancy" title="Animal fancy">cat fancy</a>.</p>
 
-		<p>As <i><a href="/wiki/The_New_York_Times" title="The New York Times">The New York Times</a></i> wrote in 2007, "Until recently the cat was commonly believed to have been domesticated in <a href="/wiki/Ancient_Egypt" title="Ancient Egypt">ancient Egypt</a>, where it was a <a href="/wiki/Cult" title="Cult">cult</a> animal."<sup id="cite_ref-NYT_8-0" class="reference"><a href="#cite_note-NYT-8"><span>[</span>9<span>]</span></a></sup> A study that year found that the lines of descent of all house cats probably run through as few as five <a href="/wiki/Self-domestication" title="Self-domestication">self-domesticating</a> <a href="/wiki/African_Wildcat" title="African Wildcat">African Wildcats</a> <i>(Felis silvestris lybica)</i> circa 8000 BC, in the <a href="/wiki/Near_East" title="Near East">Near East</a>.<sup id="cite_ref-Driscoll_3-1" class="reference"><a href="#cite_note-Driscoll-3"><span>[</span>4<span>]</span></a></sup> The earliest direct evidence of cat domestication is a kitten that was buried with its owner 9,500 years ago in <a href="/wiki/Cyprus" title="Cyprus">Cyprus</a>.<sup id="cite_ref-9" class="reference"><a href="#cite_note-9"><span>[</span>10<span>]</span></a></sup></p>
+			<p>As <i><a href="/wiki/The_New_York_Times" title="The New York Times">The New York Times</a></i> wrote in 2007, "Until recently the cat was commonly believed to have been domesticated in <a href="/wiki/Ancient_Egypt" title="Ancient Egypt">ancient Egypt</a>, where it was a <a href="/wiki/Cult" title="Cult">cult</a> animal."<sup id="cite_ref-NYT_8-0" class="reference"><a href="#cite_note-NYT-8"><span>[</span>9<span>]</span></a></sup> A study that year found that the lines of descent of all house cats probably run through as few as five <a href="/wiki/Self-domestication" title="Self-domestication">self-domesticating</a> <a href="/wiki/African_Wildcat" title="African Wildcat">African Wildcats</a> <i>(Felis silvestris lybica)</i> circa 8000 BC, in the <a href="/wiki/Near_East" title="Near East">Near East</a>.<sup id="cite_ref-Driscoll_3-1" class="reference"><a href="#cite_note-Driscoll-3"><span>[</span>4<span>]</span></a></sup> The earliest direct evidence of cat domestication is a kitten that was buried with its owner 9,500 years ago in <a href="/wiki/Cyprus" title="Cyprus">Cyprus</a>.<sup id="cite_ref-9" class="reference"><a href="#cite_note-9"><span>[</span>10<span>]</span></a></sup></p>
 
-			</div>
-			<div id="tabsdemo-3">
+		</div>
+		<div id="tabsdemo-3">
 			<h2>Sheep</h2>
 				<p><b>Domestic sheep</b>  are <a href="/wiki/Quadruped" title="Quadruped" class="mw-redirect">quadrupedal</a>, <a href="/wiki/Ruminant" title="Ruminant">ruminant</a> <a href="/wiki/Mammal" title="Mammal">mammals</a> typically kept as <a href="/wiki/Livestock" title="Livestock">livestock</a>. Like all ruminants, sheep are members of the order Artiodactyla, the <a href="/wiki/Even-toed_ungulate" title="Even-toed ungulate">even-toed ungulates</a>. Although the name "sheep" applies to many species, in everyday usage it almost always refers to <i>Ovis aries</i>. Numbering a little over 1 billion, domestic sheep are the most numerous species in <a href="/wiki/Ovis" title="Ovis">their genus</a>.</p>
 				<p>Sheep are most likely descended from the wild <a href="/wiki/Mouflon" title="Mouflon">mouflon</a> of Europe and Asia. One of the earliest animals to be domesticated for <a href="/wiki/Agriculture" title="Agriculture">agricultural</a> purposes, sheep are raised for <a href="/wiki/Fleece" title="Fleece">fleece</a>, meat (lamb, hogget or mutton) and <a href="/wiki/Sheep_milk" title="Sheep milk">milk</a>. A sheep's <a href="/wiki/Wool" title="Wool">wool</a> is the most widely used of any animal, and is usually harvested by <a href="/wiki/Sheep_shearing" title="Sheep shearing">shearing</a>. <a href="http://en.wiktionary.org/wiki/Ovine" class="extiw" title="wikt:Ovine">Ovine</a> meat is called <a href="/wiki/Lamb_and_mutton" title="Lamb and mutton">lamb</a> when from younger animals and <a href="/wiki/Lamb_and_mutton" title="Lamb and mutton">mutton</a> when from older ones. Sheep continue to be important for wool and meat today, and are also occasionally raised for <a href="/wiki/Sheepskin_(material)" title="Sheepskin (material)" class="mw-redirect">pelts</a>, as <a href="/wiki/Dairy" title="Dairy">dairy</a> animals, or as <a href="/wiki/Model_organism" title="Model organism">model organisms</a> for science.</p>
 			</div>
 		</div>
-
-			<h3>Accessibility Changes made to the <a href="before/jquery-ui/demos/tabs/basiccontent.html" target="_blank">Original Tabs</a></h3>
-			<ul>
-				<li>Added ARIA Tablist markup so role, name &amp; state information is exposed</li>
-				<li>Added keyboard navigation for switching tabs using arrow keys</li>
-			</ul>
+			<div class="ui-helper-clearfix">
+			   <div class="leftColumn">
+					<h3>How to use the Tabs widget:</h3>
+					<p>The tablist takes up one tab stop in the tab order. It can be navigated with the following shortcuts:</p>
+					<ul>
+						<li>Left or Up Arrow: Select the previous tab</li>
+						<li>Right or Down Arrow: Select the next tab</li>
+						<li>Home: Select the first tab</li>
+						<li>End: Select the last tab</li>
+						<li>Alt + Page Down (from anywhere inside the tab panel: Select the previous tab and move focus to the tablist</li>
+						<li>Alt + Page Up (from anywhere inside the tab panel: Select the next tab and move focus to the tablist</li>
+					</ul>
+					<p>
+					The tabs widget is marked up as an ARIA tablist widget. To be announced properly by screen readers, it must be used
+					with an ARIA compliant browser and a screen reader that runs in (auto) forms mode or application mode.
+					</p>
+				</div>
+				<div class="rightColumn">
+					<h3>Accessibility Changes made to the <a href="before/jquery-ui/demos/tabs/basiccontent.html" target="_blank">Original Tabs</a></h3>
+					<ul>
+						<li>Added ARIA Tablist markup so role, name &amp; state information is exposed</li>
+						<li>Added keyboard navigation for switching tabs using arrow keys</li>
+					</ul>
+				</div>
+			</div>
 		</div>
 		<div id="tooltip">
 		  <h2>Tooltip</h2>
@@ -561,11 +703,23 @@
 				<blockquote  class="demoWidget" title="Attributed to Elbert Hubbard">The man who doesn't relax and hoot a few hoots voluntarily, now and then, is in great danger of hooting hoots
 				and standing on his head for the edification of the pathologist and trained nurse, a little later on.</blockquote>
 			</div>
-
-			<h3>Accessibility Changes Made to the Original Tooltip:</h3>
-			<ul>
-				<li>Added keyboard support for tooltips on static content </li>
-			</ul>
+			<div class="ui-helper-clearfix">
+			   <div class="leftColumn">
+					<h3>How to use the Tooltip widget:</h3>
+					<p>A tooltip appears when focusing the trigger element by keyboard or hovering over it with the mouse.
+					For focusable elements, the tooltip can be hidden by pressing the Esc key</p>
+					<p>
+					The tooltips are made available to screen readers using the aria-describedby property. To be announced properly, it must be used
+					with an ARIA compliant browser and a screen reader that runs in (auto) forms mode or application mode.
+					</p>
+				</div>
+				<div class="rightColumn">
+					<h3>Accessibility Changes Made to the Original Tooltip:</h3>
+					<ul>
+						<li>Added keyboard support for tooltips on static content </li>
+					</ul>
+				</div>
+			</div>
 		</div>
 
 		</div>
@@ -581,14 +735,25 @@
 				<label for="tags-2">Tag programming languages: </label>
 				<input id="tags-2" size="50" class="demoWidget"/>
 			</div>
-			<h3>Accessibility Changes Made to Autocomplete:</h3>
-			<ul>
-				<li>Added Screen reader support for autocomplete fields using multiple values</li>
-				<li>Added notification about number of results found</li>
-
-			</ul>
+			<div class="ui-helper-clearfix">
+			   <div class="leftColumn">
+					<h3>How to use the Autocomplete:</h3>
+					<p>Typing into the text field will generate a dropdown list with auto-complete suggestions. The suggestions can be navigated using the arrow keys and selected using the Enter key. </p>
+					<p>
+					The dropdown list is marked up as an ARIA menu, and autocomplete feedback is provided through an ARIA live region. To be announced properly, it must be used
+					with an ARIA compliant browser and a screen reader that runs in (auto) forms mode or application mode.
+					</p>
+				</div>
+				<div class="rightColumn">
+					<h3>Accessibility Changes Made to Autocomplete:</h3>
+					<ul>
+						<li>Added Screen reader support for autocomplete fields using multiple values</li>
+						<li>Added notification about number of results found</li>
+					</ul>
+				</div>
+			</div>
 		</div>
-
+		<!--
 		<div id="panel">
 			<h2>Panel</h2>
 			<div id="samplePanel" class="demoWidget">
@@ -673,6 +838,7 @@
 				<li>Added ARIA markup and labeling</li>
 			</ul>
 		</div>
+		 -->
 		 <div id="datepicker">
 			<h2>Datepicker</h2>
 			<h3>Popup Version:</h3>
@@ -680,12 +846,37 @@
 			<h3>Inline Version:</h3>
 			<div id="datepicker1" class="demoWidget"></div>
 			<p id="dp1-output"></p>
-
-			<h3>Accessibility Changes Made to the Datepicker:</h3>
-			<ul>
-				<li>ARIA Implementation</li>
-				<li>Keybiard & Focus Handling</li>
-			</ul>
+			<div class="ui-helper-clearfix">
+			   <div class="leftColumn">
+					<h3>How to use the Datepicker widget:</h3>
+					<p>The datepicker can be implemented as an inline datepicker or as a popup datepicker.</p>
+					<p>Inline datepickers have a separate tab stop for each control, and a single tab stop for the date grid itself. The grid can be navigated using the following shortcuts:</p>
+					<ul>
+						<li>Arrow Keys: Move up, down, left or right in the grid. If the beginning or end of the month is reached, the grid will automatically change to the next or previous motnh</li>
+						<li>Enter Key: Select the currently focused day</li>
+						<li>Home: Move focus to first day of the month</li>
+						<li>End: Move focus to last day of the month</li>
+						<li>Page Up: Switch to previous month</li>
+						<li>Page Down: Switch to next month</li>
+						<li>Alt + Page Up: Switch to previous year</li>
+						<li>Alt + Page Down: Switch to next year</li>
+					</ul>
+					<p>Popup date pickers have the same shortcuts as inline datepickers, plus the following shotcuts:</p>
+					<ul>
+						<li>Down or Up Arrow key (when text field has focus): Move focus into the expanded date grid</li>
+						<li>Escape key (when text field has focus): Collapse the expanded date grid</li>
+						<li>Enter (when date grid has focus): Select currently focused date, collapse the date grid and move focus back to the text field</li>
+						<li>Escape (when date grid has focus): Collapse the date grid without making a selection and move focus back to the text field</li>
+					</ul>
+				</div>
+				<div class="rightColumn">
+					<h3>Accessibility Changes Made to the Datepicker:</h3>
+					<ul>
+						<li>ARIA Implementation</li>
+						<li>Keyboard & Focus Handling</li>
+					</ul>
+				</div>
+			</div>
 		</div>
 
 		<!--
