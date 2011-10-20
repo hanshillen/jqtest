@@ -69,7 +69,6 @@ $(function() {
         if (jQuery.inArray(this.id, coreWidgets) == -1)
             return;
         var widgetControls = $(this).find(".widgetControls").andSelf().last();
-        console.log(widgetControls);
         widgetControls
             .append($("<button class='enabled'>Disable "+ this.id+"</button>").button().click(
                 function(){
