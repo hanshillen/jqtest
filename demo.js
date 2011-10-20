@@ -1,8 +1,8 @@
 $(function() {
     var widgetNames = ["slider", "progressbar", "menubar", "button", "dialog", "checkbox",
-                       "accordion", "tree", "carousel", "tabs", "tooltip", "autocomplete", "panel", "datepicker"];
+                       "accordion", "tree", "carousel", "tabs", "tooltip", "autocomplete", "datepicker"];
     var loadedWidgets = {};
-    var coreWidgets = ["slider", "button", "checkbox", "tooltip", "tabs", "panel", "datepicker", "autocomplete", "accordion", "menubar"];
+    var coreWidgets = ["slider", "button", "checkbox", "tooltip", "tabs", "datepicker", "autocomplete", "accordion", "menubar"];
 
     // update last modifed information
     var months= ["January","February","March","April","May","June","July","August","September","October","November","December"];
@@ -32,6 +32,7 @@ $(function() {
                 selectedTabId = match[1];
             else
                 selectedTabId = jQuery.inArray(match[1], widgetNames);
+            console.log(selectedTabId);
             if (selectedTabId == -1)
                 selectedTabId = 0;
         }
