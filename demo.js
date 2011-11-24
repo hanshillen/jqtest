@@ -32,7 +32,6 @@ $(function() {
                 selectedTabId = match[1];
             else
                 selectedTabId = jQuery.inArray(match[1], widgetNames);
-            console.log(selectedTabId);
             if (selectedTabId == -1)
                 selectedTabId = 0;
         }
