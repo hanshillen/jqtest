@@ -174,13 +174,13 @@ $(function() {
             case "datepicker":
     			$( "#datepicker1" ).datepicker( {
     				select: function( event, ui ) {
-    					$( "#dp1-output" ).text( "selected date: " + ui.date );
+    					$( "#datepicker1" ).val( ui.date ).focus( 1 );
     				}
     			});
 
     			$( "#datepicker2" ).datepicker( {
     					select: function( event, ui ) {
-    					$( "#datepicker1" ).val( ui.date ).focus( 1 );
+    						$( "#dp2-output" ).text( "selected date: " + ui.date );
     				}
     			});
             	break;
