@@ -111,7 +111,16 @@ $(function() {
             return;
 
         switch(widgetId) {
-            case "slider":
+        	case "accordion":
+        		autoCreateInPanel(panel);
+        		var chk = $("<input id='toggleCollapsible' class='destroyMe' type='checkbox'/>");
+        		chk.click(function(e){
+        			console.log(event.target);
+        			$("#sampleAccordion").accordion("option","collapsible", event.target.checked);
+        		});
+        		chk.appendTo(panel).after("<label class='destroyMe' for='toggleCollapsible'>Make Accordion Collapsible</label>");
+        	break;
+        	case "slider":
                 createSliders(panel);
                 break;
             case "progressbar":
@@ -206,6 +215,10 @@ $(function() {
             return;
 
         switch (widgetId) {
+        	case "accordion":
+        		autoDestroyInPanel(panel);
+        		panel.find(".destroyMe").remove();
+        	break;
             case "slider":
                 autoDestroyInPanel(panel);
                 destroySliders(panel);
