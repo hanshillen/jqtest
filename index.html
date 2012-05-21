@@ -1,83 +1,55 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML>
+<html lang="en-US">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Accessible jQuery-ui Components Demo</title>
-<script type="text/javascript" src="jquery-ui-min/jquery-1.7.2.min.js"></script>
+	<meta charset="UTF-8">
+	<title>Accessible jQuery-ui Components Demo</title>
+	<script type="text/javascript" src="jquery-ui-min/jquery-1.7.2.min.js"></script>
 
-<!-- jQuery-UI Core files (minified) -->
-<link type="text/css" href="jquery-ui-min/jquery-ui.min.css" rel="stylesheet" />
-<script type="text/javascript" src="jquery-ui-min/jquery-ui.min.js"></script>
+	<!-- jQuery-UI Core files (minified) -->
+	<link type="text/css" href="jquery-ui-min/jquery-ui.min.css" rel="stylesheet" />
+	<link type="text/css" href="jquery-ui-min/jquery.ui.menubar.css" rel="stylesheet" />
+	<script type="text/javascript" src="jquery-ui-min/jquery-ui.min.js"></script>
 
-<!-- JCarousel specific files -->
-<link rel="stylesheet" type="text/css" href="jcarousel/skins/tango/skin.css" />
-<script type="text/javascript" src="jcarousel/lib/jquery.jcarousel.js"></script>
+	<!-- JCarousel specific files -->
+	<link rel="stylesheet" type="text/css" href="jcarousel/skins/tango/skin.css" />
+	<script type="text/javascript" src="jcarousel/lib/jquery.jcarousel.js"></script>
 
+	<!-- JSTree plugin files -->
+	<script type="text/javascript" src="jstree-a11y/jsTree.v.1.0rc2/lib/jquery.cookie.js"></script>
+	<script type="text/javascript" src="jstree-a11y/jsTree.v.1.0rc2/lib/jquery.hotkeys.js"></script>
+	<script type="text/javascript" src="jstree-a11y/jsTree.v.1.0rc2/jquery.jstree.js"></script>
 
-<!-- JSTree plugin files -->
-<script type="text/javascript" src="jstree-a11y/jsTree.v.1.0rc2/lib/jquery.cookie.js"></script>
-<script type="text/javascript" src="jstree-a11y/jsTree.v.1.0rc2/lib/jquery.hotkeys.js"></script>
-<script type="text/javascript" src="jstree-a11y/jsTree.v.1.0rc2/jquery.jstree.js"></script>
+	<!-- Temporary Datepicker Files -->
+	<script type="text/javascript" src="jquery-ui-min/external/globalize.js"></script>
+	<script type="text/javascript" src="jquery-ui-min/datepicker-rewrite/localization.js"></script>
+	<script type="text/javascript" src="jquery-ui-min/datepicker-rewrite/date.js"></script>
+	<script type="text/javascript" src="jquery-ui-min/datepicker-rewrite/picker.js"></script>
+	<script type="text/javascript" src="jquery-ui-min/datepicker-rewrite/jquery.tmpl.js"></script>
 
-<!-- Temporary Datepicker Files -->
-<script type="text/javascript" src="jquery-ui-min/external/globalize.js"></script>
-<script type="text/javascript" src="jquery-ui-min/datepicker-rewrite/localization.js"></script>
-<script type="text/javascript" src="jquery-ui-min/datepicker-rewrite/date.js"></script>
-<script type="text/javascript" src="jquery-ui-min/datepicker-rewrite/picker.js"></script>
-<script type="text/javascript" src="jquery-ui-min/datepicker-rewrite/jquery.tmpl.js"></script>
-
-<!-- Demo specific files  -->
-<script type="text/javascript" src="demo.js"></script>
-<link rel="stylesheet" type="text/css" href="demo.css" />
-
-
-
-	<style type="text/css">
-		body { font-size:62.5%; }
-		#bar1, #bar2 { margin: 0 0 4em; } /* style for this page only */
-		.ui-menu { width: 200px; position: absolute; outline: none; z-index: 9999; }
-		.ui-menu .ui-icon { float: right; }
-		.ui-menu li.ui-state-disabled {
-			font-weight: bold;
-			padding: .0em .4em;
-			margin: .4em 0 .2em;
-			line-height: 1.5;
-		}
-
-		/* menubar styles */
-		.ui-menubar .ui-button { float: left; font-weight: normal; border-top-width: 0 !important; border-bottom-width: 0 !important; margin: 0; outline: none; }
-		.ui-menubar .ui-menubar-link { border-right: 1px dashed transparent; border-left: 1px dashed transparent; }
-
-		ol.ui-menubar, ul.ui-menubar {
-			list-style: none;
-			margin-left: 0;
-			padding-left: 0;
-		}
-
-		li.ui-menubar-item {
-			float: left;
-		}
-
-
-		table {
-			border-collapse: collapse;
-		}
-		th, td {
-			padding: 0.5em;
-			border: 1px solid black;
-		}
-
-		.ui-datepicker-calendar a.ui-state-focus {
-			text-decoration: underline;
-		}
-		.ui-popup { position: absolute; z-index: 5000; }
- 	</style>
-
+	<!-- Demo specific files  -->
+	<script type="text/javascript" src="demo.js"></script>
+	<link rel="stylesheet" type="text/css" href="demo.css" />
 </head>
 <body>
 
 <div class="demo">
 	<h1>Accessible jQuery-ui Components Demonstration</h1>
+	<div class="ui-helper-hidden-accessible" aria-live="polite">
+		<h2>Instructions for Screen Reader Users:</h2>
+		<p>This page contains some interactive controls that you would normally only find in desktop applications.
+		Examples of such controls are tab lists, menu bars, sliders, and tree views. These controls are often operated using the arrow keys, which means your screen
+		reader must temporarily switch off virtual navigation mode in order to interact with them. Some screen readers will automatically switch between modes depending on the control's type,
+		while others require you to manually turn virtual mode off. The list below shows how to switch between modes on some popular screen readers:
+		</p>
+		 <dl>
+		 	<dt>JAWS</dt>
+		 	<dd>JAWS KEY + Z, use twice to make switch permanent</dd>
+		 	<dt>NVDA</dt>
+		 	<dd>NVDA KEY + SPACE</dd>
+		 	<dt>WindowEyes</dt>
+		 	<dd>Ctrl + Shift + A</dd>
+		 </dl>
+	</div>
 	<p class="ui-helper-hidden-accessible" id="demoTabsLabel">Widgets Tabs</p>
 	<div id="demoTabs">
 		<ul aria-labelledby="demoTabsLabel">
@@ -98,15 +70,15 @@
 			<!-- <li><a href="#selectmenu">Select Menu</a></li>-->
 		</ul>
 		<div id="slider">
-			<h2>Slider</h2>
-			<h3>Single Slider</h3>
+			<h2>Example sliders for choosing a price</h2>
+			<h3>Choose the price slider</h3>
 			<label for="txt1">Price:</label>
 			<div style="padding: 25px;">
 				<span id="slider1Val" class="sliderValue"></span>
 				<div id="singleSlider1" class="demoWidget"></div>
 				<input id="txt1"  type="text" class="fallback"/>
 			</div>
-			<h3>Range Slider</h3>
+			<h3>Choose the min and max price double slider</h3>
 			<p>Price range:</p>
 
 			<div class="ui-helper-clearfix">
@@ -148,8 +120,8 @@
 		</div>
 
 		<div id="progressbar">
-		   <h2>Progressbar</h2>
-		   <button id="progressTrigger">Trigger Progressbar</button>
+		   <h2>Example Progress Bar Simulating a Download Process </h2>
+		   <button id="progressTrigger">Simulate a file download using a progress bar indicator</button>
 		   <br />
 		   <br />
 		   <div id="progressDialog">
@@ -172,7 +144,7 @@
 			</div>
 		</div>
 		<div id="menubar">
-		   <h2>Menubar</h2>
+		   <h2>Sample Menubar containing Menu Items and Sub Menus</h2>
 		   <ul id="sampleMenubar" class="myTest demoWidget" aria-label="Sample Options">
 				<li><a href="#">File</a>
 					<ul aria-label="File">
@@ -280,8 +252,8 @@
 			</div>
 		</div>
 		<div id="button">
-			<h2>Buttons</h2>
-			<span id="toolbar" role="toolbar">
+			<h2>Sample Buttons of a Media Player</h2>
+			<div id="toolbar" role="toolbar">
 				<button id="beginning" class="demoWidget">go to beginning</button>
 				<button id="rewind" class="demoWidget">rewind</button>
 				<button id="play" class="demoWidget">play</button>
@@ -297,7 +269,7 @@
 					<input type="radio" id="repeat1" name="repeat" /><label for="repeat1">Once</label>
 					<input type="radio" id="repeatall" name="repeat" /><label for="repeatall">All</label>
 				</fieldset>
-			</span>
+			</div>
 			<div class="ui-helper-clearfix">
 			   <div class="leftColumn">
 					<h3>How to use the Button widget:</h3>
@@ -313,11 +285,9 @@
 					</ul>
 				</div>
 			</div>
-
-
 		</div>
 		<div id="dialog">
-			<h2>Dialog</h2>
+			<h2>Sample Dialog Containing a Sample Form</h2>
 			<a href="#" id="dialogTrigger">Trigger Dialog</a>
 			<div id="sampleDialog" title="Profile Information" aria-describedby="dialogDescription" tabindex="-1">
 				<div role="group" aria-describedby="dialogDescription">
@@ -339,6 +309,8 @@
 					<p>
 						<label for="sampleField3">Favorite Food:</label>
 						<input type="text" id="sampleField3" />
+						<input type="checkbox" id="sampleField4" />
+						<label for="sampleField4">Do you Smoke?</label>
 					</p>
 				</div>
 
@@ -366,12 +338,18 @@
 
 		</div>
 		<div id="checkbox">
-			<h2>Checkbox</h2>
+			<h2>Sample Checkboxes</h2>
 			<form>
-				<label><input type="checkbox" class="demoWidget"/>Dogs</label>
-				<label><input type="checkbox" id="check2" class="demoWidget" />Cats</label>
-				<input type="checkbox" id="check3" class="demoWidget" /><label for="check3">Cows</label>
-				<input type="checkbox" id="check4" class="demoWidget" /><span><label for="check4">Bees</label></span>
+				<div role="group" aria-labelledby="checkboxGroup1">
+					<h3 id="checkboxGroup1">Choose your favorite Animals</h3>
+					<label><input type="checkbox" class="demoWidget"/>Dog</label>
+					<label><input type="checkbox" id="check2" class="demoWidget" />Cat</label>
+					<input type="checkbox" id="check3" class="demoWidget" /><label for="check3">Cow</label>
+					<input type="checkbox" id="check4" class="demoWidget" /><span><label for="check4">Bee</label></span>
+					<input type="checkbox" id="check5" class="demoWidget" /><span><label for="check5">Fish</label></span>
+					<input type="checkbox" id="check6" class="demoWidget" /><span><label for="check6">Bears</label></span>
+					<input type="checkbox" id="check7" class="demoWidget" /><span><label for="check7">Lizard</label></span>
+				</div>
 			</form>
 			<div class="ui-helper-clearfix">
 			   <div class="leftColumn">
@@ -390,55 +368,272 @@
 
 		</div>
 		<div id="accordion">
-			<h2>Accordion</h2>
+			<h2>Sample Accordion Widgets </h2>
 			<div id="sampleAccordion" class="demoWidget">
-				<h3>Section 1</h3>
-				<div>
-					<p>
-					Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-					ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-					amet, nunc. <a href="#">Nam a nibh</a>. Donec suscipit eros. Nam mi. Proin viverra leo ut
-					odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
-					<button>Vestibulum</button>
-					</p>
-				</div>
-				<h3>Section 2</h3>
-				<div>
-					<p>
-					Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
-					purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
-					velit, faucibus interdum <a href="#">tellus libero</a> ac justo. Vivamus non quam. In
-					suscipit faucibus urna.
-					</p>
-				</div>
-				<h3>Section 3</h3>
-				<div>
-					<p>
-					Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
-					Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
-					ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
-					lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
-					</p>
-					<ul>
-						<li><a href="#">List item one</a></li>
-						<li>List item two</li>
-						<li>List item three</li>
-					</ul>
-				</div>
-				<h3>Section 4</h3>
-				<div>
-					<p>
-					Cras dictum. Pellentesque habitant morbi tristique senectus et netus
-					et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
-					faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
-					mauris vel est.
-					</p>
-					<p>
-					Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
-					Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-					inceptos himenaeos.
-					</p>
-				</div>
+				<h3>
+			Dogs
+		</h3>
+		<div>
+			<p>
+				The dog (Canis lupus familiaris, is a domesticated
+				form of the wolf, a member of the Canidae family of
+				the order Carnivora. The term is used for both
+				feral and pet varieties. The domestic dog has been
+				one of the most widely kept working and companion
+				animals in human history. The word "dog" may also
+				mean the male of a canine species, as opposed to
+				the word "bitch" for the female of the species.
+			</p>
+			<p>
+				The dog quickly became ubiquitous across culture
+				across the world, and was extremely valuable to
+				early human settlements. For instance, it is
+				believed that the successful emigration across the
+				Bering Strait might not have been possible without
+				sled dogs. Dogs perform many roles for people, such
+				as hunting, herding, protection, assisting police
+				and military, companionship, and, more recently,
+				aiding handicapped individuals. This versatility,
+				more than almost any other known animal, has given
+				them the nickname "Man's best friend" in the
+				western world. Currently, there are estimated to be
+				400 million dogs in the world.
+			</p>
+			<p>
+				Over the 15,000 year span that the dog had been
+				domesticated, it diverged into only a handful of
+				landraces, groups of similar animals whose
+				morphology and behavior have been shaped by
+				environmental factors and functional roles. As the
+				modern understanding of genetics developed, humans
+				began to intentionally breed dogs for a wide range
+				of specific traits. Through this process, the dog
+				has developed into hundreds of varied breeds, and
+				shows more behavioral and morphological variation
+				than any other land mammal. For example, height
+				measured to the withers ranges from a few inches in
+				the Chihuahua to a few feet in the Irish Wolfhound;
+				color varies from white through grays (usually
+				called "blue'") to black, and browns from light
+				(tan) to dark ("red" or "chocolate") in a wide
+				variation of patterns; coats can be short or long,
+				coarse-haired to wool-like, straight, curly, or
+				smooth. It is common for most breeds to shed this
+				coat.
+			</p>
+			<p>
+				<a href="http://en.wikipedia.org/wiki/Dogs">More
+				information about Dogs on Wikipedia</a>
+			</p>
+		</div>
+		<h2>
+			Cats
+		</h2>
+		<div>
+			<p>
+				The cat (Felis catus), also known as the domestic
+				cat or housecat to distinguish it from other
+				felines and felids, is a small domesticated
+				carnivorous mammal that is valued by humans for its
+				companionship and its ability to hunt vermin and
+				household pests. Cats have been associated with
+				humans for at least 9,500 years, and are currently
+				the most popular pet in the world. Due to their
+				close association with humans, cats are now found
+				almost everywhere on Earth. This extreme
+				adaptability and their worrying impacts on native
+				animals has led to them being classed as an
+				invasive species. Most of these problems are caused
+				by the large number of feral cats worldwide, with a
+				population of up to 60 million of these animals in
+				the United States alone.
+			</p>
+			<p>
+				Cats are similar in size and anatomy to the other
+				Felids, with light, flexible bodies and teeth
+				adapted to killing small prey. A skilled predator,
+				the cat hunts over 1,000 species for food, using
+				its excellent eyesight and hearing. Unusually, cats
+				have lost the ability to taste sugar and in some
+				breeds show hereditary deafness. Despite being
+				solitary hunters, cats are a social species and use
+				a variety of vocalizations, pheromones and types of
+				body language for communication. These include
+				meowing, purring, trilling, hissing, growling, and
+				grunting. They are also bred and shown as
+				registered pedigree pets. This hobby is known as
+				cat fancy.
+			</p>
+			<p>
+				As The New York Times wrote in 2007, "Until
+				recently the cat was commonly believed to have been
+				domesticated in ancient Egypt, where it was a cult
+				animal." A study that year found that the lines of
+				descent of all house cats probably run through as
+				few as five self-domesticating African Wildcats
+				(Felis silvestris lybica) circa 8000 BC, in the
+				Near East. The earliest direct evidence of cat
+				domestication is a kitten that was buried with its
+				owner 9,500 years ago in Cyprus.
+			</p>
+			<p>
+				<a href="http://en.wikipedia.org/wiki/cats">More
+				information about Cats on Wikipedia</a>
+			</p>
+		</div>
+		<h3>
+			Sheep
+		</h3>
+		<div>
+			<p>
+				Domestic sheep are quadrupedal, ruminant mammals
+				typically kept as livestock. Like all ruminants,
+				sheep are members of the order Artiodactyla, the
+				even-toed ungulates. Although the name "sheep"
+				applies to many species, in everyday usage it
+				almost always refers to Ovis aries. Numbering a
+				little over 1 billion, domestic sheep are the most
+				numerous species in their genus.
+			</p>
+			<p>
+				Sheep are most likely descended from the wild
+				mouflon of Europe and Asia. One of the earliest
+				animals to be domesticated for agricultural
+				purposes, sheep are raised for fleece, meat (lamb,
+				hogget or mutton) and milk. A sheep's wool is the
+				most widely used of any animal, and is usually
+				harvested by shearing. Ovine meat is called lamb
+				when from younger animals and mutton when from
+				older ones. Sheep continue to be important for wool
+				and meat today, and are also occasionally raised
+				for pelts, as dairy animals, or as model organisms
+				for science.
+			</p>
+			<p>
+				<a href="http://en.wikipedia.org/wiki/sheep">More
+				information about Sheep on Wikipedia</a>
+			</p>
+		</div>
+		<h3>
+			Fish
+		</h3>
+		<div>
+			<p>
+				A fish is any member of a paraphyletic group of
+				organisms that consist of all gill-bearing aquatic
+				craniate animals that lack limbs with digits.
+				Included in this definition are the living hagfish,
+				lampreys, and cartilaginous and bony fish, as well
+				as various extinct related groups. Most fish are
+				ectothermic ("cold-blooded"), allowing their body
+				temperatures to vary as ambient temperatures
+				change, though some of the large active swimmers
+				like white shark and tuna can hold a higher core
+				temperature. Fish are abundant in most bodies
+				of water. They can be found in nearly all aquatic
+				environments, from high mountain streams (e.g.,
+				char and gudgeon) to the abyssal and even hadal
+				depths of the deepest oceans (e.g., gulpers and
+				anglerfish). At 32,000 species, fish exhibit
+				greater species diversity than any other group of
+				vertebrates.
+			</p>
+			<p>
+				Fish are an important resource worldwide,
+				especially as food. Commercial and subsistence
+				fishers hunt fish in wild fisheries (see fishing)
+				or farm them in ponds or in cages in the ocean (see
+				aquaculture). They are also caught by recreational
+				fishers, kept as pets, raised by fishkeepers, and
+				exhibited in public aquaria. Fish have had a role
+				in culture through the ages, serving as deities,
+				religious symbols, and as the subjects of art,
+				books and movies.
+			</p>
+			<p>
+				Because the term "fish" is defined negatively, and
+				excludes the tetrapods (i.e., the amphibians,
+				reptiles, birds and mammals) which descend from
+				within the same ancestry, it is paraphyletic, and
+				is not considered a proper grouping in systematic
+				biology. The traditional term pisces (also
+				ichthyes) is considered a typological, but not a
+				phylogenetic classification.
+			</p>
+			<p>
+				The earliest organisms that can be classified as
+				fish were soft-bodied chordates that first appeared
+				during the Cambrian period. Although they lacked a
+				true spine, they possessed notochords which allowed
+				them to be more agile than their invertebrate
+				counterparts. Fish would continue to evolve through
+				the Paleozoic era, diversifying into a wide variety
+				of forms. Many fish of the Paleozoic developed
+				external armor that protected them from predators.
+				The first fish with jaws appeared in the Silurian
+				period, after which many (such as sharks) became
+				formidable marine predators rather than just the
+				prey of arthropods.
+			</p>
+			<p>
+				<a href="http://en.wikipedia.org/wiki/Fish">More
+				information about Fish on Wikipedia</a>
+			</p>
+		</div>
+		<h3>
+			Lizards
+		</h3>
+		<div>
+			<p>
+				Lizards are a widespread group of squamate
+				reptiles, with more than 5600 species , ranging
+				across all continents except Antarctica as well as
+				most oceanic island chains. The group,
+				traditionally recognized as the suborder
+				Lacertilia, is defined as all extant members of the
+				Lepidosauria (reptiles with overlapping scales),
+				which are neither sphenodonts (i.e., tuatara) nor
+				snakes &#226;&#8364;&#8220; they form an
+				evolutionary grade. While the snakes are
+				recognized as falling phylogenetically within the
+				Toxicofera clade from which they evolved, the
+				Sphenodonts are the sister group to the Squamates,
+				the larger monophyletic group, which includes both
+				the lizards and the snakes.
+			</p>
+			<p>
+				Lizards typically have feet and external ears,
+				while snakes lack both of these characteristics.
+				However, because they are defined negatively as
+				excluding snakes, lizards have no unique
+				distinguishing characteristic as a group. Lizards
+				and snakes share a movable quadrate bone,
+				distinguishing them from the sphenodonts, which
+				have a more primitive and solid diapsid skull. Many
+				lizards can detach their tails to escape from
+				predators, an act called autotomy, but this ability
+				is not shared by all lizards. Vision, including
+				color vision, is particularly well developed in
+				most lizards, and most communicate with body
+				language or bright colors on their bodies as well
+				as with pheromones.
+			</p>
+			<p>
+				The adult length of species within the suborder
+				ranges from a few cm for chameleons like Brookesia
+				micra and geckos like Sphaerodactylus ariasae to
+				nearly 3 m (9.8 ft) in the case of the largest
+				living varanid lizard, the Komodo Dragon. Some
+				extinct varanids reached great size. The extinct
+				aquatic mosasaurs reached 17 m (56 ft), and the
+				giant monitor Megalania prisca is estimated to have
+				reached perhaps 7 m (23 ft).
+			</p>
+			<p>
+				<a href="http://en.wikipedia.org/wiki/Lizards">More
+				information about Lizards on Wikipedia</a>
+			</p>
+		</div>
 			</div>
 			<div class="ui-helper-clearfix">
 			   <div class="leftColumn">
@@ -461,7 +656,7 @@
 			</div>
 		</div>
 		<div id="tree">
-			<h2>Tree</h2>
+			<h2>Sample Tree View </h2>
 			<div id="sampleTree">
 				<ul>
 					<li> <a href="#">Invoices</a>
@@ -566,7 +761,7 @@
 			</div>
 		</div>
 		<div id="carousel">
-			<h2>Carousel</h2>
+			<h2>Sample Carousel Displaying Pictures of Flowers</h2>
 			<h3 id="carouselId">My Favorite Flowers</h3>
 			<div class="viewer">
 				<img id="viewerImg" alt="" src="images/199481236_dc98b5abb3_s.jpg" width="250" height="250" />
@@ -617,7 +812,7 @@
 			</div>
 		</div>
 		<div id="tabs">
-		<h2 id="tabsDemoLbl">Tabs</h2>
+		<h2 id="tabsDemoLbl">Sample Tab List Containing Information about Animals</h2>
 		<div id="sampleTabs" class="demoWidget">
 			<ul>
 				<li><a href="#tabsdemo-1">Dogs</a></li>
@@ -626,27 +821,33 @@
 			</ul>
 			<div id="tabsdemo-1">
 			<h2>Dogs</h2>
-			<p>The <b>dog</b> (<i>Canis lupus familiaris</i>,<sup id="cite_ref-ADW_0-0" class="reference"><a href="#cite_note-ADW-0"><span>[</span>1<span>]</span></a></sup> is a <a href="/wiki/Race_(biology)" title="Race (biology)">domesticated form</a> of the <a href="/wiki/Wolf" title="Wolf" class="mw-redirect">wolf</a>, a member of the <a href="/wiki/Canidae" title="Canidae">Canidae</a> family of the order <a href="/wiki/Carnivora" title="Carnivora">Carnivora</a>. The term is used for both <a href="/wiki/Feral" title="Feral">feral</a> and <a href="/wiki/Pet" title="Pet">pet</a> varieties. The domestic dog has been one of the most widely kept <a href="/wiki/Working_dog" title="Working dog">working</a> and companion animals in human history. The word "dog" may also mean the male of a canine species,<sup id="cite_ref-1" class="reference"><a href="#cite_note-1"><span>[</span>2<span>]</span></a></sup> as opposed to the word "<a href="/wiki/Bitch" title="Bitch">bitch</a>" for the female of the species.<sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span>[</span>3<span>]</span></a></sup></p>
-
-		<p>The dog quickly became ubiquitous across culture across the world, and was extremely valuable to early human settlements. For instance, it is believed that the successful emigration across the <a href="/wiki/Bering_Strait" title="Bering Strait">Bering Strait</a> might not have been possible without <a href="/wiki/Sled_dog" title="Sled dog">sled dogs</a>.<sup id="cite_ref-miklosi_3-0" class="reference"><a href="#cite_note-miklosi-3"><span>[</span>4<span>]</span></a></sup> Dogs perform many roles for people, such as <a href="/wiki/Hunting_dog" title="Hunting dog">hunting</a>, <a href="/wiki/Herding_dog" title="Herding dog">herding</a>, protection, <a href="/wiki/Police_dog" title="Police dog">assisting police and military</a>, <a href="/wiki/Pet" title="Pet">companionship</a>, and, more recently, <a href="/wiki/Service_dog" title="Service dog">aiding handicapped individuals</a>. This versatility, more than almost any other known animal, has given them the nickname "Man's best friend" in the western world. Currently, there are estimated to be 400 million dogs in the world.<sup id="cite_ref-Coppinger_4-0" class="reference"><a href="#cite_note-Coppinger-4"><span>[</span>5<span>]</span></a></sup></p>
-
-		<p>Over the 15,000 year span that the dog had been domesticated, it diverged into only a handful of <a href="/wiki/Landrace" title="Landrace">landraces</a>, groups of similar animals whose <a href="/wiki/Morphology_(biology)" title="Morphology (biology)">morphology</a> and behavior have been shaped by <a href="/wiki/Environmental_factor" title="Environmental factor">environmental factors</a> and functional roles. As the modern understanding of genetics developed, humans began to intentionally breed dogs for a wide range of specific traits. Through this process, the dog has developed into hundreds of varied <a href="/wiki/Dog_breed" title="Dog breed">breeds</a>, and shows more behavioral and morphological variation than any other land mammal.<sup id="cite_ref-spady_5-0" class="reference"><a href="#cite_note-spady-5"><span>[</span>6<span>]</span></a></sup> For example, height measured to the <a href="/wiki/Withers" title="Withers">withers</a> ranges from a few inches in the <a href="/wiki/Chihuahua_(dog)" title="Chihuahua (dog)">Chihuahua</a> to a few feet in the <a href="/wiki/Irish_Wolfhound" title="Irish Wolfhound">Irish Wolfhound</a>; color varies from white through grays (usually called "blue'") to black, and browns from light (tan) to dark ("red" or "chocolate") in a wide variation of patterns; <a href="/wiki/Coat_(dog)" title="Coat (dog)">coats</a> can be short or long, coarse-haired to wool-like, straight, curly, or smooth.<sup id="cite_ref-6" class="reference"><a href="#cite_note-6"><span>[</span>7<span>]</span></a></sup> It is common for most breeds to <a href="/wiki/Moult" title="Moult" class="mw-redirect">shed</a> this coat.</p>
-
-
+			<p>The dog (Canis lupus familiaris, is a domesticated form of the wolf, a member of the Canidae family of the order Carnivora. The term is used for both feral and pet varieties. The domestic dog has been one of the most widely kept working and companion animals in human history. The word "dog" may also mean the male of a canine species, as opposed to the word "bitch" for the female of the species.
+</p><p>
+The dog quickly became ubiquitous across culture across the world, and was extremely valuable to early human settlements. For instance, it is believed that the successful emigration across the Bering Strait might not have been possible without sled dogs. Dogs perform many roles for people, such as hunting, herding, protection, assisting police and military, companionship, and, more recently, aiding handicapped individuals. This versatility, more than almost any other known animal, has given them the nickname "Man's best friend" in the western world. Currently, there are estimated to be 400 million dogs in the world.
+</p><p>
+Over the 15,000 year span that the dog had been domesticated, it diverged into only a handful of landraces, groups of similar animals whose morphology and behavior have been shaped by environmental factors and functional roles. As the modern understanding of genetics developed, humans began to intentionally breed dogs for a wide range of specific traits. Through this process, the dog has developed into hundreds of varied breeds, and shows more behavioral and morphological variation than any other land mammal. For example, height measured to the withers ranges from a few inches in the Chihuahua to a few feet in the Irish Wolfhound; color varies from white through grays (usually called "blue'") to black, and browns from light (tan) to dark ("red" or "chocolate") in a wide variation of patterns; coats can be short or long, coarse-haired to wool-like, straight, curly, or smooth. It is common for most breeds to shed this coat.
+</p><p>
+<p><a href="http://en.wikipedia.org/wiki/Dogs">More information about Dogs on Wikipedia</a></p>
 			</div>
 			<div id="tabsdemo-2">
 			   <h2>Cats</h2>
-				<p>The <b>cat</b> (<i>Felis catus</i>), also known as the <b>domestic cat</b> or <b>housecat</b><sup id="cite_ref-4" class="reference"><a href="#cite_note-4"><span>[</span>5<span>]</span></a></sup> to distinguish it from other <a href="/wiki/Felinae" title="Felinae">felines</a> and <a href="/wiki/Felidae" title="Felidae">felids</a>, is a small <a href="/wiki/Domestication" title="Domestication">domesticated</a> <a href="/wiki/Carnivore" title="Carnivore">carnivorous</a> <a href="/wiki/Mammal" title="Mammal">mammal</a> that is valued by humans for its companionship and its ability to hunt <a href="/wiki/Vermin" title="Vermin">vermin</a> and household pests. Cats have been associated with humans for at least 9,500 years,<sup id="cite_ref-9500_years_5-0" class="reference"><a href="#cite_note-9500_years-5"><span>[</span>6<span>]</span></a></sup> and are currently the most popular pet in the world.<sup id="cite_ref-SciAm_6-0" class="reference"><a href="#cite_note-SciAm-6"><span>[</span>7<span>]</span></a></sup> Due to their close association with humans, cats are now found almost everywhere on Earth. This extreme adaptability and their worrying impacts on native animals has led to them being classed as an <a href="/wiki/Invasive_species" title="Invasive species">invasive species</a>. Most of these problems are caused by the large number of <a href="/wiki/Feral_cat" title="Feral cat">feral cats</a> worldwide, with a population of up to 60&#160;million of these animals in the United States alone.</p>
-
-			<p>Cats are similar in size and anatomy to the other <a href="/wiki/Felid" title="Felid" class="mw-redirect">Felids</a>, with light, flexible bodies and teeth adapted to killing small prey. A skilled predator, the cat hunts over 1,000 species for food, using its excellent eyesight and hearing. Unusually, cats have lost the ability to taste <a href="/wiki/Sugar" title="Sugar">sugar</a> and in some breeds show hereditary <a href="/wiki/Hearing_impairment" title="Hearing impairment">deafness</a>. Despite being solitary hunters, cats are a social species and use a variety of <a href="/wiki/Animal_communication" title="Animal communication">vocalizations</a>, <a href="/wiki/Pheromone" title="Pheromone">pheromones</a> and types of <a href="/wiki/Cat_body_language" title="Cat body language">body language</a> for <a href="/wiki/Cat_communication" title="Cat communication">communication</a>. These include <a href="/wiki/Cat_communication#Meowing" title="Cat communication">meowing</a>, <a href="/wiki/Purr" title="Purr">purring</a>, <a href="/wiki/Trill_consonant" title="Trill consonant">trilling</a>, <a href="/wiki/Hiss#Animals" title="Hiss">hissing</a>, <a href="/wiki/Growling" title="Growling">growling</a>, and grunting.<sup id="cite_ref-Moelk_7-0" class="reference"><a href="#cite_note-Moelk-7"><span>[</span>8<span>]</span></a></sup> They are also bred and shown as <a href="/wiki/Cat_registry" title="Cat registry">registered</a> pedigree pets. This hobby is known as <a href="/wiki/Animal_fancy" title="Animal fancy">cat fancy</a>.</p>
-
-			<p>As <i><a href="/wiki/The_New_York_Times" title="The New York Times">The New York Times</a></i> wrote in 2007, "Until recently the cat was commonly believed to have been domesticated in <a href="/wiki/Ancient_Egypt" title="Ancient Egypt">ancient Egypt</a>, where it was a <a href="/wiki/Cult" title="Cult">cult</a> animal."<sup id="cite_ref-NYT_8-0" class="reference"><a href="#cite_note-NYT-8"><span>[</span>9<span>]</span></a></sup> A study that year found that the lines of descent of all house cats probably run through as few as five <a href="/wiki/Self-domestication" title="Self-domestication">self-domesticating</a> <a href="/wiki/African_Wildcat" title="African Wildcat">African Wildcats</a> <i>(Felis silvestris lybica)</i> circa 8000 BC, in the <a href="/wiki/Near_East" title="Near East">Near East</a>.<sup id="cite_ref-Driscoll_3-1" class="reference"><a href="#cite_note-Driscoll-3"><span>[</span>4<span>]</span></a></sup> The earliest direct evidence of cat domestication is a kitten that was buried with its owner 9,500 years ago in <a href="/wiki/Cyprus" title="Cyprus">Cyprus</a>.<sup id="cite_ref-9" class="reference"><a href="#cite_note-9"><span>[</span>10<span>]</span></a></sup></p>
-
+				<p>
+The cat (Felis catus), also known as the domestic cat or housecat to distinguish it from other felines and felids, is a small domesticated carnivorous mammal that is valued by humans for its companionship and its ability to hunt vermin and household pests. Cats have been associated with humans for at least 9,500 years, and are currently the most popular pet in the world. Due to their close association with humans, cats are now found almost everywhere on Earth. This extreme adaptability and their worrying impacts on native animals has led to them being classed as an invasive species. Most of these problems are caused by the large number of feral cats worldwide, with a population of up to 60 million of these animals in the United States alone.
+</p><p>
+Cats are similar in size and anatomy to the other Felids, with light, flexible bodies and teeth adapted to killing small prey. A skilled predator, the cat hunts over 1,000 species for food, using its excellent eyesight and hearing. Unusually, cats have lost the ability to taste sugar and in some breeds show hereditary deafness. Despite being solitary hunters, cats are a social species and use a variety of vocalizations, pheromones and types of body language for communication. These include meowing, purring, trilling, hissing, growling, and grunting. They are also bred and shown as registered pedigree pets. This hobby is known as cat fancy.
+</p><p>
+As The New York Times wrote in 2007, "Until recently the cat was commonly believed to have been domesticated in ancient Egypt, where it was a cult animal." A study that year found that the lines of descent of all house cats probably run through as few as five self-domesticating African Wildcats (Felis silvestris lybica) circa 8000 BC, in the Near East. The earliest direct evidence of cat domestication is a kitten that was buried with its owner 9,500 years ago in Cyprus.
+</p>
+<p><a href="http://en.wikipedia.org/wiki/cats">More information about Cats on Wikipedia</a></p>
 		</div>
 		<div id="tabsdemo-3">
 			<h2>Sheep</h2>
-				<p><b>Domestic sheep</b>  are <a href="/wiki/Quadruped" title="Quadruped" class="mw-redirect">quadrupedal</a>, <a href="/wiki/Ruminant" title="Ruminant">ruminant</a> <a href="/wiki/Mammal" title="Mammal">mammals</a> typically kept as <a href="/wiki/Livestock" title="Livestock">livestock</a>. Like all ruminants, sheep are members of the order Artiodactyla, the <a href="/wiki/Even-toed_ungulate" title="Even-toed ungulate">even-toed ungulates</a>. Although the name "sheep" applies to many species, in everyday usage it almost always refers to <i>Ovis aries</i>. Numbering a little over 1 billion, domestic sheep are the most numerous species in <a href="/wiki/Ovis" title="Ovis">their genus</a>.</p>
-				<p>Sheep are most likely descended from the wild <a href="/wiki/Mouflon" title="Mouflon">mouflon</a> of Europe and Asia. One of the earliest animals to be domesticated for <a href="/wiki/Agriculture" title="Agriculture">agricultural</a> purposes, sheep are raised for <a href="/wiki/Fleece" title="Fleece">fleece</a>, meat (lamb, hogget or mutton) and <a href="/wiki/Sheep_milk" title="Sheep milk">milk</a>. A sheep's <a href="/wiki/Wool" title="Wool">wool</a> is the most widely used of any animal, and is usually harvested by <a href="/wiki/Sheep_shearing" title="Sheep shearing">shearing</a>. <a href="http://en.wiktionary.org/wiki/Ovine" class="extiw" title="wikt:Ovine">Ovine</a> meat is called <a href="/wiki/Lamb_and_mutton" title="Lamb and mutton">lamb</a> when from younger animals and <a href="/wiki/Lamb_and_mutton" title="Lamb and mutton">mutton</a> when from older ones. Sheep continue to be important for wool and meat today, and are also occasionally raised for <a href="/wiki/Sheepskin_(material)" title="Sheepskin (material)" class="mw-redirect">pelts</a>, as <a href="/wiki/Dairy" title="Dairy">dairy</a> animals, or as <a href="/wiki/Model_organism" title="Model organism">model organisms</a> for science.</p>
+			<p>
+Domestic sheep are quadrupedal, ruminant mammals typically kept as livestock. Like all ruminants, sheep are members of the order Artiodactyla, the even-toed ungulates. Although the name "sheep" applies to many species, in everyday usage it almost always refers to Ovis aries. Numbering a little over 1 billion, domestic sheep are the most numerous species in their genus.
+</p><p>
+Sheep are most likely descended from the wild mouflon of Europe and Asia. One of the earliest animals to be domesticated for agricultural purposes, sheep are raised for fleece, meat (lamb, hogget or mutton) and milk. A sheep's wool is the most widely used of any animal, and is usually harvested by shearing. Ovine meat is called lamb when from younger animals and mutton when from older ones. Sheep continue to be important for wool and meat today, and are also occasionally raised for pelts, as dairy animals, or as model organisms for science.
+</p>
+<p><a href="http://en.wikipedia.org/wiki/sheep">More information about Sheep on Wikipedia</a></p>
 			</div>
 		</div>
 			<div class="ui-helper-clearfix">
@@ -676,7 +877,7 @@
 			</div>
 		</div>
 		<div id="tooltip">
-		  <h2>Tooltip</h2>
+		  <h2>Sample Tooltips</h2>
 		  <p><a href="#" class="demoWidget" title="That's what this widget is">Tooltips</a> can be attached to any element. When you hover
 	the element with your mouse, the title attribute is displayed in a little box next to the element, just like a native tooltip.
 	</p>
@@ -716,16 +917,18 @@
 		</div>
 
 		<div id="autocomplete">
-			<h2>Auto Complete</h2>
+			<h2>Sample Auto Complete Field</h2>
 			<div class="ui-widget">
-				<label for="tags-1">Tags: </label>
+				<label for="tags-1">Your Favorite Country</label>
 				<input id="tags-1"  class="demoWidget"/>
 			</div>
+			<!--
 			<h3>Autocomplete with Multiple Values</h3>
 			<div class="ui-widget">
 				<label for="tags-2">Tag programming languages: </label>
 				<input id="tags-2" size="50" class="demoWidget"/>
 			</div>
+			 -->
 			<div class="ui-helper-clearfix">
 			   <div class="leftColumn">
 					<h3>How to use the Autocomplete:</h3>
@@ -831,7 +1034,7 @@
 		</div>
 		 -->
 		 <div id="datepicker">
-			<h2>Datepicker</h2>
+			<h2>Sample Datepickers</h2>
 			<h3>Popup Version:</h3>
 			<p><label for="datepicker1">Date of Birth:</label> <input type="text" id="datepicker1" class="demoWidget" /></p>
 			<h3>Inline Version:</h3>
@@ -887,9 +1090,9 @@
 			<h1>Acknowledgements</h1>
 			<p>Accessibility work on these widgets was implemented by <a href="http://www.paciellogroup.com/">The Paciello Group (TPG)</a> and funded by <a href="http://corp.aol.com/our-values/accessibility">AOL</a> and <a href="http://www.aegis-project.eu/">AEGIS</a>.</p>
 			<ul class="logoList">
-				<li><a href="http://www.aegis-project.eu/"><img src="images/AEGIS Logo.png" alt="Aegis" /></a></li>
-				<li><a href="http://corp.aol.com/our-values/accessibility"><img src="images/AOL Logo.png" alt="AOL" /></a></li>
-				<li><a href="http://www.paciellogroup.com/"><img class="tpgLogo" src="images/TPG Logo.gif" alt="TPG" /></a></li>
+				<li><a href="http://www.aegis-project.eu/"><img src="images/AEGIS%20Logo.png" alt="Aegis" /></a></li>
+				<li><a href="http://corp.aol.com/our-values/accessibility"><img src="images/AOL%20Logo.png" alt="AOL" /></a></li>
+				<li><a href="http://www.paciellogroup.com/"><img class="tpgLogo" src="images/TPG%20Logo.gif" alt="TPG" /></a></li>
 			</ul>
 		</div>
 	</div>
