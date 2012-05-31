@@ -70,7 +70,7 @@ $(function() {
             return;
         var widgetControls = $(this).find(".widgetControls").andSelf().last();
         widgetControls
-            .append($("<button class='enabled'>Disable "+ this.id+"</button>").button().click(
+            .prepend($("<button class='enabled'>Disable "+ this.id+"</button>").button().click(
                 function(){
                     var btn = $(this);
                     if (btn.hasClass("enabled")) {
@@ -85,7 +85,7 @@ $(function() {
                     }
 
                 }))
-        .append($("<button class='created'>Destroy "+ this.id+"</button>").button().click(
+        .prepend($("<button class='created'>Destroy "+ this.id+"</button>").button().click(
             function(){
                 var btn = $(this);
                 if (btn.hasClass("created")) {
@@ -118,7 +118,7 @@ $(function() {
         			console.log(event.target);
         			$("#sampleAccordion").accordion("option","collapsible", event.target.checked);
         		});
-        		chk.appendTo(panel).after("<label class='destroyMe' for='toggleCollapsible'>Allow all accordion sections to be collapsed at the same time</label>");
+        		chk.appendTo(panel.find(".widgetControls:eq(0)")).after("<label class='destroyMe' for='toggleCollapsible'>Allow all accordion sections to be collapsed at the same time</label>");
         	break;
         	case "slider":
                 createSliders(panel);
