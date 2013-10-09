@@ -49,7 +49,10 @@ $(function() {
 
     //Load main tabs
     $("#demoTabs").tabs({labelledBy: "tabsLbl", selected : selectedTabId});
-
+    
+    //Get this fixed in the actual tabs widget if it hasn't already:
+    $("#demoTabs > div[role='tabpanel']").eq(selectedTabId).attr("aria-hidden", "false");
+    
     //show event doesn't fire for selected tab on creation, so manually trigger the handler
     createTabPanelContents($("#demoTabs > .ui-tabs-panel").eq(selectedTabId));
 
@@ -182,6 +185,7 @@ $(function() {
                 break;
             case "tabs":
                 $("#sampleTabs").tabs({labelledBy: "tabsDemoLbl"});
+                $("#sampleTabs > div[role='tabpanel']").eq(0).attr("aria-hidden", "false");
                 break;
             case "autocomplete":
                 createAutoComplete(panel);
